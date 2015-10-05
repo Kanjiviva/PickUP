@@ -17,6 +17,9 @@
 		AAE59C6E1BC2F14400F99907 /* PickUPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C6D1BC2F14400F99907 /* PickUPTests.m */; };
 		AAE59C7A1BC2FF4A00F99907 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C791BC2FF4A00F99907 /* Login.storyboard */; settings = {ASSET_TAGS = (); }; };
 		AAE59C7D1BC2FF6A00F99907 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C7C1BC2FF6A00F99907 /* LoginViewController.m */; settings = {ASSET_TAGS = (); }; };
+		AAE59C7F1BC3276700F99907 /* Globe-24.png in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C7E1BC3276700F99907 /* Globe-24.png */; settings = {ASSET_TAGS = (); }; };
+		AAE59C811BC3279600F99907 /* Settings 3-25.png in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C801BC3279600F99907 /* Settings 3-25.png */; settings = {ASSET_TAGS = (); }; };
+		AAE59C831BC327F300F99907 /* Contacts-26.png in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C821BC327F300F99907 /* Contacts-26.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,9 @@
 		AAE59C791BC2FF4A00F99907 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		AAE59C7B1BC2FF6A00F99907 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
 		AAE59C7C1BC2FF6A00F99907 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../LoginViewController.m; sourceTree = "<group>"; };
+		AAE59C7E1BC3276700F99907 /* Globe-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Globe-24.png"; sourceTree = "<group>"; };
+		AAE59C801BC3279600F99907 /* Settings 3-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings 3-25.png"; sourceTree = "<group>"; };
+		AAE59C821BC327F300F99907 /* Contacts-26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Contacts-26.png"; sourceTree = "<group>"; };
 		E8E771EDD8B23685DE6F95BF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +115,9 @@
 				AAE59C591BC2F14400F99907 /* ViewController.h */,
 				AAE59C5A1BC2F14400F99907 /* ViewController.m */,
 				AAE59C5F1BC2F14400F99907 /* Assets.xcassets */,
+				AAE59C7E1BC3276700F99907 /* Globe-24.png */,
+				AAE59C801BC3279600F99907 /* Settings 3-25.png */,
+				AAE59C821BC327F300F99907 /* Contacts-26.png */,
 				AAE59C611BC2F14400F99907 /* LaunchScreen.storyboard */,
 				AAE59C641BC2F14400F99907 /* Info.plist */,
 				AAE59C531BC2F14400F99907 /* Supporting Files */,
@@ -235,8 +244,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAE59C7A1BC2FF4A00F99907 /* Login.storyboard in Resources */,
+				AAE59C7F1BC3276700F99907 /* Globe-24.png in Resources */,
 				AAE59C631BC2F14400F99907 /* LaunchScreen.storyboard in Resources */,
 				AAE59C601BC2F14400F99907 /* Assets.xcassets in Resources */,
+				AAE59C811BC3279600F99907 /* Settings 3-25.png in Resources */,
+				AAE59C831BC327F300F99907 /* Contacts-26.png in Resources */,
 				AAE59C5E1BC2F14400F99907 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

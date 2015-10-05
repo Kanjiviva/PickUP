@@ -1,38 +1,128 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8fC-w4-GTs">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="yp4-lf-eIp">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="uTE-H5-RXA" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="do6-zl-jYK"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ste-Ft-uuN"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="wLh-Jd-HGf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVl-Ot-f2l">
-                                <rect key="frame" x="277" y="285" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="logout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KXY-rr-quh"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u3l-NC-cYg">
+                                <rect key="frame" x="20" y="72" width="130" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="2tI-Xe-5Z1"/>
+                                    <constraint firstAttribute="height" constant="130" id="CUJ-gc-8mC"/>
+                                    <constraint firstAttribute="width" constant="200" id="HHe-pP-6LN"/>
+                                    <constraint firstAttribute="width" constant="130" id="l4u-IM-2H4"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2tI-Xe-5Z1"/>
+                                        <exclude reference="HHe-pP-6LN"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wVl-Ot-f2l" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8JV-2z-uRx"/>
-                            <constraint firstItem="wVl-Ot-f2l" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jc8-WH-diz"/>
+                            <constraint firstItem="u3l-NC-cYg" firstAttribute="top" secondItem="do6-zl-jYK" secondAttribute="bottom" constant="8" id="GK3-3Y-KEk"/>
+                            <constraint firstItem="u3l-NC-cYg" firstAttribute="leading" secondItem="wLh-Jd-HGf" secondAttribute="leadingMargin" id="wGl-Zs-bgR"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="bFj-96-dfA"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dzr-sy-SV3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="759" y="274"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Ia7-UD-7q3">
+            <objects>
+                <viewController id="zsx-Ll-pLm" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="abR-Fu-PZ7"/>
+                        <viewControllerLayoutGuide type="bottom" id="gxY-jn-ZLK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zSf-XJ-s49">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DtV-Uj-Eg0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TDU-cQ-lut" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="759" y="-387"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="5M0-Ph-fTg">
+            <objects>
+                <tabBarController id="8fC-w4-GTs" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="I9A-3S-A0t">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="X1m-tq-hnV" kind="relationship" relationship="viewControllers" id="4V2-un-O1s"/>
+                        <segue destination="zFE-Q9-3B1" kind="relationship" relationship="viewControllers" id="VwK-vt-gdY"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="but-G0-LLR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-873" y="-56"/>
+        </scene>
+        <!--Posts-->
+        <scene sceneID="tmi-aj-Fvc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X1m-tq-hnV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Posts" image="Globe-24.png" id="faa-BD-dqy"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OlY-9R-S9x">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zsx-Ll-pLm" kind="relationship" relationship="rootViewController" id="jmp-W7-cu0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JxZ-f1-mnv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-53" y="-387"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="C1u-KI-2Ih">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zFE-Q9-3B1" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="Contacts-26.png" id="iPW-jt-QGG"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Po-ed-Ff4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uTE-H5-RXA" kind="relationship" relationship="rootViewController" id="AIM-oL-cwG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nw3-XJ-wmv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-53" y="274"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Contacts-26.png" width="26" height="26"/>
+        <image name="Globe-24.png" width="24" height="24"/>
+    </resources>
 </document>
