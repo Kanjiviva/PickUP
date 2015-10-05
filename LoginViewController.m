@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
+#import "ViewController.h"
 
 @interface LoginViewController () <PFLogInViewControllerDelegate>
 
@@ -22,15 +23,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    if (![PFUser currentUser]) {
+//    if (![PFUser currentUser]) {
         PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
         logInController.fields = (PFLogInFieldsFacebook);
         logInController.delegate = self;
         logInController.view.backgroundColor = [UIColor blackColor];
-//        logInController.facebookPermissions = @[ @"friends_about_me" ];
         [self presentViewController:logInController animated:YES completion:nil];
         
-    }
+//    }else {
+//        
+//    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,22 +45,14 @@
 
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
+    ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
     
     [self dismissViewControllerAnimated:YES completion:nil];
+    [self showViewController:vc sender:nil];
+    
 }
 
 - (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
-    // Do nothing, as the view controller dismisses itself
-}
-
-#pragma mark - PFSignUpViewControllerDelegate -
-
-- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
     // Do nothing, as the view controller dismisses itself
 }
 
