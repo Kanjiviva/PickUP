@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0BA5EE70DFC6B507C2065483 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A544CF5470C5FA90AAB45BE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4E8DB2401BC303880042ED4E /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8DB23F1BC303880042ED4E /* RequestViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4E8DB2421BC303C30042ED4E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8DB2411BC303C30042ED4E /* MainViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4E8DB2441BC307F40042ED4E /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8DB2431BC307F40042ED4E /* LocationViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4E8DB2461BC308280042ED4E /* ItemsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8DB2451BC308280042ED4E /* ItemsCollectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4E8DB2481BC30B310042ED4E /* ItemsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8DB2471BC30B310042ED4E /* ItemsCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		4E8DB24A1BC30C090042ED4E /* defaultPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E8DB2491BC30C090042ED4E /* defaultPhoto.png */; settings = {ASSET_TAGS = (); }; };
 		AAE59C551BC2F14400F99907 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C541BC2F14400F99907 /* main.m */; };
 		AAE59C581BC2F14400F99907 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C571BC2F14400F99907 /* AppDelegate.m */; };
 		AAE59C5B1BC2F14400F99907 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C5A1BC2F14400F99907 /* ViewController.m */; };
@@ -29,6 +35,13 @@
 
 /* Begin PBXFileReference section */
 		4A544CF5470C5FA90AAB45BE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E8DB23E1BC303880042ED4E /* PickUP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PickUP-Bridging-Header.h"; sourceTree = "<group>"; };
+		4E8DB23F1BC303880042ED4E /* RequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestViewController.swift; sourceTree = "<group>"; };
+		4E8DB2411BC303C30042ED4E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4E8DB2431BC307F40042ED4E /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		4E8DB2451BC308280042ED4E /* ItemsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsCollectionViewController.swift; sourceTree = "<group>"; };
+		4E8DB2471BC30B310042ED4E /* ItemsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsCollectionViewCell.swift; sourceTree = "<group>"; };
+		4E8DB2491BC30C090042ED4E /* defaultPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultPhoto.png; sourceTree = "<group>"; };
 		945D37B5D0993A46CF5A55E9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AAE59C501BC2F14400F99907 /* PickUP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickUP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE59C541BC2F14400F99907 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -101,10 +114,17 @@
 				AAE59C591BC2F14400F99907 /* ViewController.h */,
 				AAE59C5A1BC2F14400F99907 /* ViewController.m */,
 				AAE59C5C1BC2F14400F99907 /* Main.storyboard */,
+				4E8DB2471BC30B310042ED4E /* ItemsCollectionViewCell.swift */,
+				4E8DB2431BC307F40042ED4E /* LocationViewController.swift */,
+				4E8DB2411BC303C30042ED4E /* MainViewController.swift */,
+				4E8DB23F1BC303880042ED4E /* RequestViewController.swift */,
+				4E8DB2451BC308280042ED4E /* ItemsCollectionViewController.swift */,
 				AAE59C5F1BC2F14400F99907 /* Assets.xcassets */,
+				4E8DB2491BC30C090042ED4E /* defaultPhoto.png */,
 				AAE59C611BC2F14400F99907 /* LaunchScreen.storyboard */,
 				AAE59C641BC2F14400F99907 /* Info.plist */,
 				AAE59C531BC2F14400F99907 /* Supporting Files */,
+				4E8DB23E1BC303880042ED4E /* PickUP-Bridging-Header.h */,
 			);
 			path = PickUP;
 			sourceTree = "<group>";
@@ -182,6 +202,7 @@
 		AAE59C481BC2F14400F99907 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Steve;
 				TargetAttributes = {
@@ -220,6 +241,7 @@
 			files = (
 				AAE59C631BC2F14400F99907 /* LaunchScreen.storyboard in Resources */,
 				AAE59C601BC2F14400F99907 /* Assets.xcassets in Resources */,
+				4E8DB24A1BC30C090042ED4E /* defaultPhoto.png in Resources */,
 				AAE59C5E1BC2F14400F99907 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,8 +309,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAE59C5B1BC2F14400F99907 /* ViewController.m in Sources */,
+				4E8DB2481BC30B310042ED4E /* ItemsCollectionViewCell.swift in Sources */,
 				AAE59C581BC2F14400F99907 /* AppDelegate.m in Sources */,
+				4E8DB2401BC303880042ED4E /* RequestViewController.swift in Sources */,
+				4E8DB2441BC307F40042ED4E /* LocationViewController.swift in Sources */,
 				AAE59C551BC2F14400F99907 /* main.m in Sources */,
+				4E8DB2421BC303C30042ED4E /* MainViewController.swift in Sources */,
+				4E8DB2461BC308280042ED4E /* ItemsCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,10 +442,13 @@
 			baseConfigurationReference = 945D37B5D0993A46CF5A55E9 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = PickUP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Steve.PickUP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PickUP/PickUP-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -427,10 +457,12 @@
 			baseConfigurationReference = E8E771EDD8B23685DE6F95BF /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = PickUP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Steve.PickUP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PickUP/PickUP-Bridging-Header.h";
 			};
 			name = Release;
 		};
