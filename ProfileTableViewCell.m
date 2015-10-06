@@ -8,6 +8,12 @@
 
 #import "ProfileTableViewCell.h"
 
+@interface ProfileTableViewCell ()
+@property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+
+@end
+
 @implementation ProfileTableViewCell
 
 - (void)awakeFromNib {

@@ -9,9 +9,14 @@
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "User.h"
 
 
 @interface LoginViewController () <PFLogInViewControllerDelegate>
+
+@property (strong, nonatomic) User *user;
 
 @end
 
@@ -23,16 +28,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    if (![PFUser currentUser]) {
+    if (![PFUser currentUser]) {
         PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
         logInController.fields = (PFLogInFieldsFacebook);
         logInController.delegate = self;
         logInController.view.backgroundColor = [UIColor blackColor];
         [self presentViewController:logInController animated:YES completion:nil];
-    
-//    }else {
-//        
-//    }
+        
+    }else {
+        [self pushToTabBar];
+    }
     
     
 }
@@ -46,9 +51,8 @@
 #pragma mark - PFLogInViewControllerDelegate -
 
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UITabBarController *vc = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
-    [self showViewController:vc sender:nil];
+    [self loadData];
+    [self pushToTabBar];
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
@@ -57,4 +61,50 @@
     // Do nothing, as the view controller dismisses itself
 }
 
+#pragma mark - Helper methods -
+
+- (void)pushToTabBar {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UITabBarController *vc = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+    [self showViewController:vc sender:nil];
+}
+
+- (void)loadData {
+    // ...
+    FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil];
+    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+        if (!error) {
+            // result is a dictionary with the user's Facebook data
+            NSDictionary *userData = (NSDictionary *)result;
+            
+            NSString *facebookID = userData[@"id"];
+            NSString *name = userData[@"name"];
+//            NSString *location = userData[@"location"][@"name"];
+//            NSString *gender = userData[@"gender"];
+//            NSString *birthday = userData[@"birthday"];
+//            NSString *relationship = userData[@"relationship_status"];
+            
+            NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
+            
+            // Now add the data to the UI elements
+            // ...
+            NSURLRequest *urlRequest = [NSURLRequest requestWithURL:pictureURL];
+            
+            // Run network request asynchronously
+            [NSURLConnection sendAsynchronousRequest:urlRequest
+                                               queue:[NSOperationQueue mainQueue]
+                                   completionHandler:
+             ^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                 if (connectionError == nil && data != nil) {
+                     // Set the image in the imageView
+                     self.user.fullName = name;
+                     
+                     
+                     
+                 }
+             }];
+        }
+    }];
+}
 @end
+        
