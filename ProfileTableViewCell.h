@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ProfileTableViewCell.h
 //  PickUP
 //
 //  Created by Steve on 2015-10-05.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ProfileTableViewCell : UITableViewCell
 
 @end
-

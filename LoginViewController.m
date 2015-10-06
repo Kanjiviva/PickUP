@@ -9,7 +9,6 @@
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
-#import "ViewController.h"
 
 @interface LoginViewController () <PFLogInViewControllerDelegate>
 

@@ -10,6 +10,10 @@
 #import <Parse/Parse.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
+#import "User.h"
+#import "Request.h"
+#import "Rating.h"
+#import "PickUp.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +24,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // Register PF subclasses
+    [User registerSubclass];
+    [Request registerSubclass];
+    [Rating registerSubclass];
+    [PickUp registerSubclass];
     
     [Parse enableLocalDatastore];
     
