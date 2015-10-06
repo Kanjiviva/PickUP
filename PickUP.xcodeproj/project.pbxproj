@@ -29,6 +29,8 @@
 		AAE59C901BC34B5C00F99907 /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C8F1BC34B5C00F99907 /* Request.m */; settings = {ASSET_TAGS = (); }; };
 		AAE59C931BC34F1600F99907 /* Rating.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C921BC34F1600F99907 /* Rating.m */; settings = {ASSET_TAGS = (); }; };
 		AAE59C961BC351FC00F99907 /* PickUp.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C951BC351FC00F99907 /* PickUp.m */; settings = {ASSET_TAGS = (); }; };
+		AAE59C9B1BC3B7CF00F99907 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE59C9A1BC3B7CF00F99907 /* CoreLocation.framework */; };
+		AAE59C9E1BC3B7ED00F99907 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C9D1BC3B7ED00F99907 /* LocationManager.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,9 @@
 		AAE59C921BC34F1600F99907 /* Rating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rating.m; sourceTree = "<group>"; };
 		AAE59C941BC351FC00F99907 /* PickUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickUp.h; sourceTree = "<group>"; };
 		AAE59C951BC351FC00F99907 /* PickUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickUp.m; sourceTree = "<group>"; };
+		AAE59C9A1BC3B7CF00F99907 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		AAE59C9C1BC3B7ED00F99907 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationManager.h; path = PickUP/LocationManager.h; sourceTree = "<group>"; };
+		AAE59C9D1BC3B7ED00F99907 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationManager.m; path = PickUP/LocationManager.m; sourceTree = "<group>"; };
 		E8E771EDD8B23685DE6F95BF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAE59C9B1BC3B7CF00F99907 /* CoreLocation.framework in Frameworks */,
 				0BA5EE70DFC6B507C2065483 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,6 +109,7 @@
 		273BEB02475490FD83E3D6F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AAE59C9A1BC3B7CF00F99907 /* CoreLocation.framework */,
 				4A544CF5470C5FA90AAB45BE /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -133,6 +140,7 @@
 		AAE59C521BC2F14400F99907 /* PickUP */ = {
 			isa = PBXGroup;
 			children = (
+				4E7E4E8E1BC3342A00D4C10D /* PickUP-Bridging-Header.h */,
 				AAE59C841BC333A500F99907 /* ProfileTableViewController.h */,
 				AAE59C851BC333A500F99907 /* ProfileTableViewController.m */,
 				AAE59C871BC333B500F99907 /* ProfileTableViewCell.h */,
@@ -141,7 +149,6 @@
 				4E7E4E991BC363F300D4C10D /* RequestDetailViewController.swift */,
 				4E7E4E971BC3545900D4C10D /* RequestsHeaderView.swift */,
 				4E7E4E951BC33D3300D4C10D /* RequestCollectionViewCell.swift */,
-				4E7E4E8E1BC3342A00D4C10D /* PickUP-Bridging-Header.h */,
 				AAE59C7B1BC2FF6A00F99907 /* LoginViewController.h */,
 				AAE59C7C1BC2FF6A00F99907 /* LoginViewController.m */,
 				AAE59C561BC2F14400F99907 /* AppDelegate.h */,
@@ -194,6 +201,8 @@
 				AAE59C921BC34F1600F99907 /* Rating.m */,
 				AAE59C941BC351FC00F99907 /* PickUp.h */,
 				AAE59C951BC351FC00F99907 /* PickUp.m */,
+				AAE59C9C1BC3B7ED00F99907 /* LocationManager.h */,
+				AAE59C9D1BC3B7ED00F99907 /* LocationManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -371,6 +380,7 @@
 				AAE59C891BC333B500F99907 /* ProfileTableViewCell.m in Sources */,
 				AAE59C861BC333A500F99907 /* ProfileTableViewController.m in Sources */,
 				AAE59C901BC34B5C00F99907 /* Request.m in Sources */,
+				AAE59C9E1BC3B7ED00F99907 /* LocationManager.m in Sources */,
 				AAE59C961BC351FC00F99907 /* PickUp.m in Sources */,
 				4E7E4E941BC33A4400D4C10D /* RequestsCollectionViewController.swift in Sources */,
 				4E7E4E961BC33D3300D4C10D /* RequestCollectionViewCell.swift in Sources */,

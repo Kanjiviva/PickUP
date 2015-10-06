@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+import Bolts
 
 private let reuseIdentifier = "Cell"
 
@@ -39,6 +41,13 @@ class RequestsCollectionViewController: UICollectionViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: Actions
+    
+    @IBAction func logout(sender: UIBarButtonItem) {
+        PFUser.logOut()
+    }
+    
 
     // MARK: UICollectionViewDataSource
 
