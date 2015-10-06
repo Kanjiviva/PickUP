@@ -32,14 +32,21 @@ class RequestsCollectionViewController: UICollectionViewController {
         navigationItem.backBarButtonItem = backItem
         navigationItem.setHidesBackButton(true, animated: false)
     }
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    @IBAction func unwindToRequestsCollectionVC(sender: UIStoryboardSegue) {
+        
+        print("Unwind Segue")
+        
+//        if let sourceViewController = sender.sourceViewController as? AddRequestViewController {
+//            
+//            
+//            
+//        }
+        
     }
+<<<<<<< HEAD
     */
     
     // MARK: Actions
@@ -48,6 +55,8 @@ class RequestsCollectionViewController: UICollectionViewController {
         PFUser.logOut()
     }
     
+=======
+>>>>>>> 5c335f87efb1f1e3b096ac5617a4af4d11559fad
 
     // MARK: UICollectionViewDataSource
 
@@ -76,10 +85,7 @@ class RequestsCollectionViewController: UICollectionViewController {
         switch kind {
         case UICollectionElementKindSectionHeader:
             let headerView =
-            collectionView.dequeueReusableSupplementaryViewOfKind(kind,
-                withReuseIdentifier: "RequestsHeaderView",
-                forIndexPath: indexPath)
-                as! RequestsHeaderView
+            collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "RequestsHeaderView", forIndexPath: indexPath) as! RequestsHeaderView
             headerView.locationLabel.text = "Vancouver"
             return headerView
         default:
