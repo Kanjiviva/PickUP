@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
-#import "ViewController.h"
+
 
 @interface LoginViewController () <PFLogInViewControllerDelegate>
 
@@ -29,10 +29,12 @@
         logInController.delegate = self;
         logInController.view.backgroundColor = [UIColor blackColor];
         [self presentViewController:logInController animated:YES completion:nil];
-        
+    
 //    }else {
 //        
 //    }
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,10 +47,9 @@
 
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
+    UITabBarController *vc = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
     [self showViewController:vc sender:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 

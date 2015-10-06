@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0BA5EE70DFC6B507C2065483 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A544CF5470C5FA90AAB45BE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4E7E4E941BC33A4400D4C10D /* RequestsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7E4E931BC33A4400D4C10D /* RequestsCollectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4E7E4E961BC33D3300D4C10D /* RequestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7E4E951BC33D3300D4C10D /* RequestCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		4E7E4E981BC3545900D4C10D /* RequestsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7E4E971BC3545900D4C10D /* RequestsHeaderView.swift */; settings = {ASSET_TAGS = (); }; };
 		AAE59C551BC2F14400F99907 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C541BC2F14400F99907 /* main.m */; };
 		AAE59C581BC2F14400F99907 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C571BC2F14400F99907 /* AppDelegate.m */; };
-		AAE59C5B1BC2F14400F99907 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C5A1BC2F14400F99907 /* ViewController.m */; };
 		AAE59C5E1BC2F14400F99907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C5C1BC2F14400F99907 /* Main.storyboard */; };
 		AAE59C601BC2F14400F99907 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C5F1BC2F14400F99907 /* Assets.xcassets */; };
 		AAE59C631BC2F14400F99907 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C611BC2F14400F99907 /* LaunchScreen.storyboard */; };
@@ -34,13 +36,15 @@
 
 /* Begin PBXFileReference section */
 		4A544CF5470C5FA90AAB45BE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E7E4E8E1BC3342A00D4C10D /* PickUP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PickUP-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		4E7E4E931BC33A4400D4C10D /* RequestsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestsCollectionViewController.swift; path = ../RequestsCollectionViewController.swift; sourceTree = "<group>"; };
+		4E7E4E951BC33D3300D4C10D /* RequestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestCollectionViewCell.swift; path = ../RequestCollectionViewCell.swift; sourceTree = "<group>"; };
+		4E7E4E971BC3545900D4C10D /* RequestsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestsHeaderView.swift; path = ../RequestsHeaderView.swift; sourceTree = "<group>"; };
 		945D37B5D0993A46CF5A55E9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AAE59C501BC2F14400F99907 /* PickUP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickUP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE59C541BC2F14400F99907 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AAE59C561BC2F14400F99907 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AAE59C571BC2F14400F99907 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		AAE59C591BC2F14400F99907 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		AAE59C5A1BC2F14400F99907 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		AAE59C5D1BC2F14400F99907 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AAE59C5F1BC2F14400F99907 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAE59C621BC2F14400F99907 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -108,12 +112,14 @@
 		AAE59C521BC2F14400F99907 /* PickUP */ = {
 			isa = PBXGroup;
 			children = (
+				4E7E4E931BC33A4400D4C10D /* RequestsCollectionViewController.swift */,
+				4E7E4E971BC3545900D4C10D /* RequestsHeaderView.swift */,
+				4E7E4E951BC33D3300D4C10D /* RequestCollectionViewCell.swift */,
+				4E7E4E8E1BC3342A00D4C10D /* PickUP-Bridging-Header.h */,
 				AAE59C7B1BC2FF6A00F99907 /* LoginViewController.h */,
 				AAE59C7C1BC2FF6A00F99907 /* LoginViewController.m */,
 				AAE59C561BC2F14400F99907 /* AppDelegate.h */,
 				AAE59C571BC2F14400F99907 /* AppDelegate.m */,
-				AAE59C591BC2F14400F99907 /* ViewController.h */,
-				AAE59C5A1BC2F14400F99907 /* ViewController.m */,
 				AAE59C5F1BC2F14400F99907 /* Assets.xcassets */,
 				AAE59C7E1BC3276700F99907 /* Globe-24.png */,
 				AAE59C801BC3279600F99907 /* Settings 3-25.png */,
@@ -207,6 +213,7 @@
 		AAE59C481BC2F14400F99907 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Steve;
 				TargetAttributes = {
@@ -316,9 +323,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAE59C7D1BC2FF6A00F99907 /* LoginViewController.m in Sources */,
-				AAE59C5B1BC2F14400F99907 /* ViewController.m in Sources */,
+				4E7E4E941BC33A4400D4C10D /* RequestsCollectionViewController.swift in Sources */,
 				AAE59C581BC2F14400F99907 /* AppDelegate.m in Sources */,
+				4E7E4E961BC33D3300D4C10D /* RequestCollectionViewCell.swift in Sources */,
 				AAE59C551BC2F14400F99907 /* main.m in Sources */,
+				4E7E4E981BC3545900D4C10D /* RequestsHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,10 +455,13 @@
 			baseConfigurationReference = 945D37B5D0993A46CF5A55E9 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = PickUP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Steve.PickUP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PickUP-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -458,10 +470,12 @@
 			baseConfigurationReference = E8E771EDD8B23685DE6F95BF /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = PickUP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Steve.PickUP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PickUP-Bridging-Header.h";
 			};
 			name = Release;
 		};
