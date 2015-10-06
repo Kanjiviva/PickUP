@@ -86,26 +86,6 @@
             [user saveInBackground];
             
             NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
-            
-            // Now add the data to the UI elements
-            // ...
-            NSURLRequest *urlRequest = [NSURLRequest requestWithURL:pictureURL];
-            
-            // Run network request asynchronously
-//            [NSURLConnection sendAsynchronousRequest:urlRequest
-//                                               queue:[NSOperationQueue mainQueue]
-//                                   completionHandler:
-//             ^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-//                 if (connectionError == nil && data != nil) {
-//                     // Set the image in the imageView
-//                     
-//                     
-//                     
-//                     
-//                     
-//                 }
-//             }];
-            
             NSURLSession *session = [NSURLSession sharedSession];
             NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithURL:pictureURL
                                                                 completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {

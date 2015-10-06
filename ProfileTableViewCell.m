@@ -9,8 +9,7 @@
 #import "ProfileTableViewCell.h"
 
 @interface ProfileTableViewCell ()
-@property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
-@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+
 
 @end
 
@@ -18,6 +17,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

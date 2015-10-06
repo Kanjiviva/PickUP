@@ -10,5 +10,6 @@
 #import <Parse/Parse.h>
 
 @interface ProfileTableViewCell : UITableViewCell
-
+@property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @end
