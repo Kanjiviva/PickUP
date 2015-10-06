@@ -14,7 +14,6 @@
 		4E7E4E9A1BC363F300D4C10D /* RequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7E4E991BC363F300D4C10D /* RequestDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4EA4E4FF1BC3683600D1AE5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C541BC2F14400F99907 /* main.m */; };
 		4EA4E5011BC3686500D1AE5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C571BC2F14400F99907 /* AppDelegate.m */; };
-		4EA4E5031BC3AA1000D1AE5D /* AddRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4E5021BC3AA1000D1AE5D /* AddRequestViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		AAE59C5E1BC2F14400F99907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C5C1BC2F14400F99907 /* Main.storyboard */; };
 		AAE59C601BC2F14400F99907 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C5F1BC2F14400F99907 /* Assets.xcassets */; };
 		AAE59C631BC2F14400F99907 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C611BC2F14400F99907 /* LaunchScreen.storyboard */; };
@@ -51,7 +50,6 @@
 		4E7E4E951BC33D3300D4C10D /* RequestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestCollectionViewCell.swift; path = ../RequestCollectionViewCell.swift; sourceTree = "<group>"; };
 		4E7E4E971BC3545900D4C10D /* RequestsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestsHeaderView.swift; path = ../RequestsHeaderView.swift; sourceTree = "<group>"; };
 		4E7E4E991BC363F300D4C10D /* RequestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDetailViewController.swift; sourceTree = "<group>"; };
-		4EA4E5021BC3AA1000D1AE5D /* AddRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddRequestViewController.swift; path = ../AddRequestViewController.swift; sourceTree = "<group>"; };
 		945D37B5D0993A46CF5A55E9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AAE59C501BC2F14400F99907 /* PickUP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickUP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE59C541BC2F14400F99907 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -147,7 +145,6 @@
 				AAE59C851BC333A500F99907 /* ProfileTableViewController.m */,
 				AAE59C871BC333B500F99907 /* ProfileTableViewCell.h */,
 				AAE59C881BC333B500F99907 /* ProfileTableViewCell.m */,
-				4EA4E5021BC3AA1000D1AE5D /* AddRequestViewController.swift */,
 				4E7E4E931BC33A4400D4C10D /* RequestsCollectionViewController.swift */,
 				4E7E4E991BC363F300D4C10D /* RequestDetailViewController.swift */,
 				4E7E4E971BC3545900D4C10D /* RequestsHeaderView.swift */,
@@ -383,11 +380,7 @@
 				AAE59C891BC333B500F99907 /* ProfileTableViewCell.m in Sources */,
 				AAE59C861BC333A500F99907 /* ProfileTableViewController.m in Sources */,
 				AAE59C901BC34B5C00F99907 /* Request.m in Sources */,
-<<<<<<< HEAD
 				AAE59C9E1BC3B7ED00F99907 /* LocationManager.m in Sources */,
-=======
-				4EA4E5031BC3AA1000D1AE5D /* AddRequestViewController.swift in Sources */,
->>>>>>> 5c335f87efb1f1e3b096ac5617a4af4d11559fad
 				AAE59C961BC351FC00F99907 /* PickUp.m in Sources */,
 				4E7E4E941BC33A4400D4C10D /* RequestsCollectionViewController.swift in Sources */,
 				4E7E4E961BC33D3300D4C10D /* RequestCollectionViewCell.swift in Sources */,
