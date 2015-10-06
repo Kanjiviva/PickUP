@@ -16,7 +16,6 @@
 
 @interface LoginViewController () <PFLogInViewControllerDelegate>
 
-@property (strong, nonatomic) User *user;
 
 @end
 
@@ -27,18 +26,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    if (![PFUser currentUser]) {
+//    if (![PFUser currentUser]) {
         PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
         logInController.fields = (PFLogInFieldsFacebook);
         logInController.delegate = self;
         logInController.view.backgroundColor = [UIColor blackColor];
         [self presentViewController:logInController animated:YES completion:nil];
         
-    }else {
-        [self pushToTabBar];
-    }
-    
+//    }else {
+//        [self pushToTabBar];
+//    }
+
     
 }
 
@@ -51,10 +49,9 @@
 #pragma mark - PFLogInViewControllerDelegate -
 
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
-    [self loadData];
+    [self loadData:user];
     [self pushToTabBar];
     [self dismissViewControllerAnimated:YES completion:nil];
-    
 }
 
 - (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
@@ -69,8 +66,10 @@
     [self showViewController:vc sender:nil];
 }
 
-- (void)loadData {
-    // ...
+- (void)loadData:(PFUser *)user {
+    
+    
+    
     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil];
     [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
         if (!error) {
@@ -83,6 +82,8 @@
 //            NSString *gender = userData[@"gender"];
 //            NSString *birthday = userData[@"birthday"];
 //            NSString *relationship = userData[@"relationship_status"];
+            [user setObject:name forKey:@"fullName"];
+            [user saveInBackground];
             
             NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
             
@@ -91,18 +92,31 @@
             NSURLRequest *urlRequest = [NSURLRequest requestWithURL:pictureURL];
             
             // Run network request asynchronously
-            [NSURLConnection sendAsynchronousRequest:urlRequest
-                                               queue:[NSOperationQueue mainQueue]
-                                   completionHandler:
-             ^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-                 if (connectionError == nil && data != nil) {
-                     // Set the image in the imageView
-                     self.user.fullName = name;
-                     
-                     
-                     
-                 }
-             }];
+//            [NSURLConnection sendAsynchronousRequest:urlRequest
+//                                               queue:[NSOperationQueue mainQueue]
+//                                   completionHandler:
+//             ^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//                 if (connectionError == nil && data != nil) {
+//                     // Set the image in the imageView
+//                     
+//                     
+//                     
+//                     
+//                     
+//                 }
+//             }];
+            
+            NSURLSession *session = [NSURLSession sharedSession];
+            NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithURL:pictureURL
+                                                                completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                                                    
+                                                                    NSData *imageData = [NSData dataWithContentsOfURL:location];
+                                                                    PFFile *file = [PFFile fileWithData:imageData];
+                                                                    
+                                                                    [user setObject:file forKey:@"imageFile"];
+                                                                    [user saveInBackground];
+                                                                }];
+            [downloadTask resume];
         }
     }];
 }
