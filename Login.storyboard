@@ -26,8 +26,9 @@
         <!--Navigation Controller-->
         <scene sceneID="HY2-4u-QYd">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fbg-YF-H2o" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Fbg-YF-H2o" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZWj-cO-E5p">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

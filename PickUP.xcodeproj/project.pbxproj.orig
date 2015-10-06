@@ -11,9 +11,8 @@
 		4E7E4E941BC33A4400D4C10D /* RequestsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7E4E931BC33A4400D4C10D /* RequestsCollectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4E7E4E961BC33D3300D4C10D /* RequestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7E4E951BC33D3300D4C10D /* RequestCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		4E7E4E981BC3545900D4C10D /* RequestsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7E4E971BC3545900D4C10D /* RequestsHeaderView.swift */; settings = {ASSET_TAGS = (); }; };
-		4E7E4E9A1BC363F300D4C10D /* RequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7E4E991BC363F300D4C10D /* RequestDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		4EA4E4FF1BC3683600D1AE5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C541BC2F14400F99907 /* main.m */; };
-		4EA4E5011BC3686500D1AE5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C571BC2F14400F99907 /* AppDelegate.m */; };
+		AAE59C551BC2F14400F99907 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C541BC2F14400F99907 /* main.m */; };
+		AAE59C581BC2F14400F99907 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C571BC2F14400F99907 /* AppDelegate.m */; };
 		AAE59C5E1BC2F14400F99907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C5C1BC2F14400F99907 /* Main.storyboard */; };
 		AAE59C601BC2F14400F99907 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C5F1BC2F14400F99907 /* Assets.xcassets */; };
 		AAE59C631BC2F14400F99907 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C611BC2F14400F99907 /* LaunchScreen.storyboard */; };
@@ -47,7 +46,6 @@
 		4E7E4E931BC33A4400D4C10D /* RequestsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestsCollectionViewController.swift; path = ../RequestsCollectionViewController.swift; sourceTree = "<group>"; };
 		4E7E4E951BC33D3300D4C10D /* RequestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestCollectionViewCell.swift; path = ../RequestCollectionViewCell.swift; sourceTree = "<group>"; };
 		4E7E4E971BC3545900D4C10D /* RequestsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestsHeaderView.swift; path = ../RequestsHeaderView.swift; sourceTree = "<group>"; };
-		4E7E4E991BC363F300D4C10D /* RequestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDetailViewController.swift; sourceTree = "<group>"; };
 		945D37B5D0993A46CF5A55E9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AAE59C501BC2F14400F99907 /* PickUP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickUP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE59C541BC2F14400F99907 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -133,12 +131,15 @@
 		AAE59C521BC2F14400F99907 /* PickUP */ = {
 			isa = PBXGroup;
 			children = (
+				AAE59C561BC2F14400F99907 /* AppDelegate.h */,
+				AAE59C571BC2F14400F99907 /* AppDelegate.m */,
+				AAE59C7B1BC2FF6A00F99907 /* LoginViewController.h */,
+				AAE59C7C1BC2FF6A00F99907 /* LoginViewController.m */,
 				AAE59C841BC333A500F99907 /* ProfileTableViewController.h */,
 				AAE59C851BC333A500F99907 /* ProfileTableViewController.m */,
 				AAE59C871BC333B500F99907 /* ProfileTableViewCell.h */,
 				AAE59C881BC333B500F99907 /* ProfileTableViewCell.m */,
 				4E7E4E931BC33A4400D4C10D /* RequestsCollectionViewController.swift */,
-				4E7E4E991BC363F300D4C10D /* RequestDetailViewController.swift */,
 				4E7E4E971BC3545900D4C10D /* RequestsHeaderView.swift */,
 				4E7E4E951BC33D3300D4C10D /* RequestCollectionViewCell.swift */,
 				4E7E4E8E1BC3342A00D4C10D /* PickUP-Bridging-Header.h */,
@@ -363,18 +364,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EA4E5011BC3686500D1AE5D /* AppDelegate.m in Sources */,
-				4EA4E4FF1BC3683600D1AE5D /* main.m in Sources */,
 				AAE59C931BC34F1600F99907 /* Rating.m in Sources */,
 				AAE59C7D1BC2FF6A00F99907 /* LoginViewController.m in Sources */,
+				AAE59C581BC2F14400F99907 /* AppDelegate.m in Sources */,
 				AAE59C8C1BC347C500F99907 /* User.m in Sources */,
 				AAE59C891BC333B500F99907 /* ProfileTableViewCell.m in Sources */,
 				AAE59C861BC333A500F99907 /* ProfileTableViewController.m in Sources */,
+				AAE59C551BC2F14400F99907 /* main.m in Sources */,
 				AAE59C901BC34B5C00F99907 /* Request.m in Sources */,
 				AAE59C961BC351FC00F99907 /* PickUp.m in Sources */,
 				4E7E4E941BC33A4400D4C10D /* RequestsCollectionViewController.swift in Sources */,
+				AAE59C581BC2F14400F99907 /* AppDelegate.m in Sources */,
 				4E7E4E961BC33D3300D4C10D /* RequestCollectionViewCell.swift in Sources */,
-				4E7E4E9A1BC363F300D4C10D /* RequestDetailViewController.swift in Sources */,
+				AAE59C551BC2F14400F99907 /* main.m in Sources */,
 				4E7E4E981BC3545900D4C10D /* RequestsHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
