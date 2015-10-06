@@ -32,15 +32,6 @@ class RequestsCollectionViewController: UICollectionViewController {
         navigationItem.backBarButtonItem = backItem
         navigationItem.setHidesBackButton(true, animated: false)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     // MARK: Actions
     
@@ -48,7 +39,20 @@ class RequestsCollectionViewController: UICollectionViewController {
         PFUser.logOut()
     }
     
-
+    @IBAction func segmentedControlChanged(sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            print("first selected")
+            break
+        case 1:
+            print("second selected")
+            break
+        default:
+            break
+        }
+        
+    }
+    
     // MARK: UICollectionViewDataSource
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
