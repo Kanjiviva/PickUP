@@ -12,9 +12,9 @@
 
 @dynamic facebookId;
 @dynamic fullName;
-@dynamic comment;
-@dynamic ratings;
+//@dynamic comment;
+//@dynamic ratings;
 @dynamic profilePicture;
-@dynamic requests;
+//@dynamic requests;
 
 @end

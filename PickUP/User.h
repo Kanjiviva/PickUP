@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import "Rating.h"
 
 @interface User : PFUser
 
 @property (strong, nonatomic) NSString *facebookId;
 @property (strong, nonatomic) NSString *fullName;
-@property (strong, nonatomic) NSString *comment;
+//@property (strong, nonatomic) Rating *comment;
 @property (strong, nonatomic) PFFile *profilePicture;
-@property (strong, nonatomic) PFRelation *ratings;
-@property (strong, nonatomic) PFRelation *requests;
+//@property (strong, nonatomic) PFRelation *ratings;
+//@property (strong, nonatomic) PFRelation *requests;
 
 @end
