@@ -23,5 +23,6 @@
 @property (strong, nonatomic) PFGeoPoint *delCoordinate;
 @property (strong, nonatomic) NSString *deliverLocation;
 @property (strong, nonatomic) PickUp *pickupLocation;
+@property (nonatomic) BOOL isAccepted;
 
 @end

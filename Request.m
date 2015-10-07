@@ -20,6 +20,7 @@
 @dynamic deliverLocation;
 @dynamic delCoordinate;
 @dynamic pickupLocation;
+@dynamic isAccepted;
 
 + (NSString *)parseClassName {
     return @"Request";

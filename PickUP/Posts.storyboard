@@ -168,8 +168,19 @@
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L3k-3r-rUl">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wt-dE-UwN">
+                                <rect key="frame" x="276" y="550" width="49" height="30"/>
+                                <state key="normal" title="Accpet"/>
+                                <connections>
+                                    <action selector="acceptButton:" destination="JNA-p3-RpX" eventType="touchUpInside" id="Che-BO-Jcj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wF6-3e-jOm" firstAttribute="top" secondItem="0wt-dE-UwN" secondAttribute="bottom" constant="20" id="Z9D-pd-dli"/>
+                            <constraint firstItem="0wt-dE-UwN" firstAttribute="centerX" secondItem="YFg-lB-wU3" secondAttribute="centerX" id="zW8-rA-Rh5"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="lG0-Nj-f6j">
                         <barButtonItem key="rightBarButtonItem" title="View User Profile" id="h07-lq-ZJF">
