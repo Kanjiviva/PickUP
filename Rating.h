@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/PFObject+Subclass.h>
-#import "User.h"
+
+@class User;
 
 @interface Rating : PFObject <PFSubclassing>
 
 @property (strong, nonatomic) User *creator;
-@property (strong, nonatomic) User *subject;
+@property (strong, nonatomic) User *deliver;
 @property (strong, nonatomic) NSString *comment;
 @property (nonatomic) float score;
 

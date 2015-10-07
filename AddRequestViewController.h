@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+@protocol AddRequestViewContollerDelegate <NSObject>
 
+- (void)didAddNewItem;
+
+@end
 @interface AddRequestViewController : UIViewController
 
+@property (strong, nonatomic) id<AddRequestViewContollerDelegate> delegate;
 @end

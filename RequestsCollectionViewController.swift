@@ -12,7 +12,7 @@ import Bolts
 
 private let reuseIdentifier = "Cell"
 
-class RequestsCollectionViewController: UICollectionViewController {
+class RequestsCollectionViewController: UICollectionViewController, AddRequestViewContollerDelegate {
     
     
     var requests = [Request]()
@@ -22,7 +22,7 @@ class RequestsCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        loadRequests()
+        loadRequests()
         setupNavBar()
         collectionView?.backgroundColor = UIColor.whiteColor()
         
@@ -37,14 +37,19 @@ class RequestsCollectionViewController: UICollectionViewController {
 //        loadRequests()
 //    }
     
-    override func viewDidAppear(animated: Bool) {
-        loadRequests()
-    }
+//    override func viewDidAppear(animated: Bool) {
+//        loadRequests()
+//    }
     
     func setupNavBar() {
         let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem
         navigationItem.setHidesBackButton(true, animated: false)
+    }
+    
+    func didAddNewItem() {
+        
+        loadRequests()
     }
     
     // MARK: Helper Methods
@@ -92,23 +97,7 @@ class RequestsCollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! RequestCollectionViewCell
         
-        let request = requests[indexPath.item]
-        
-        cell.itemTitle.text = request.itemTitle
-        cell.itemCost.text = String(format: "%.2f", request.itemCost)
-        cell.itemImage.image = UIImage(named: "defaultPhoto")
-        if let itemPhoto = request.itemImage {
-            itemPhoto.getDataInBackgroundWithBlock { data, error in
-                
-                if cell == collectionView.cellForItemAtIndexPath(indexPath){
-                    if let newData = data {
-                        cell.itemImage.image = UIImage(data: newData)
-                    }
-                }
-                
-            }
-        }
-        
+        cell.object = requests[indexPath.item]
         
         return cell
     }
@@ -142,6 +131,10 @@ class RequestsCollectionViewController: UICollectionViewController {
                 }
 
             }
+        } else if segue.identifier == "addPost" {
+            let nav = segue.destinationViewController as! UINavigationController
+            let addPostVC = nav.topViewController as! AddRequestViewController
+            addPostVC.delegate = self
         }
         
     }

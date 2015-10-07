@@ -12,7 +12,10 @@
 #import "User.h"
 #import "PickUp.h"
 
+
+
 @interface AddRequestViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
 @property (weak, nonatomic) IBOutlet UIImageView *itemImage;
 @property (weak, nonatomic) IBOutlet UITextField *itemTitle;
 @property (weak, nonatomic) IBOutlet UITextField *pickUplocation;
@@ -33,11 +36,6 @@
     self.itemImage.layer.borderWidth = 5.0f;
     self.itemImage.layer.borderColor = [UIColor blackColor].CGColor;
     
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Helper Method -
@@ -68,7 +66,25 @@
     PFFile *imageFile = [PFFile fileWithName:@"itemPicture.png" data:imageData];
     request.itemImage = imageFile;
     [pickUp saveInBackground];
-    [request saveInBackground];
+//    [pickUp saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+//        
+//        if (succeeded) {
+//            [self.delegate didAddNewItem];
+//        }
+//    }];
+//    [request saveInBackground];
+    
+    //start spinning
+    
+    [request saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        
+        if (succeeded) {
+            [self.delegate didAddNewItem];
+            
+            // stop spinning
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }];
     
 }
 
@@ -152,9 +168,9 @@
     
     [self saveData];
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Posts" bundle:nil];
-    UINavigationController *nav = [storyboard instantiateViewControllerWithIdentifier:@"navController"];
-    [self showViewController:nav sender:nil];
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Posts" bundle:nil];
+//    UINavigationController *nav = [storyboard instantiateViewControllerWithIdentifier:@"navController"];
+//    [self showViewController:nav sender:nil];
 }
 
 #pragma mark - UIImagePicker Delegate -
