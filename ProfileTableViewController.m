@@ -11,8 +11,11 @@
 #import "RatingTableViewCell.h"
 #import "CommentTableViewCell.h"
 #import "User.h"
+#import "CurrentUserRequestViewController.h"
 
 @interface ProfileTableViewController ()
+
+@property (strong, nonatomic) User *currentUser;
 
 @end
 
@@ -20,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.currentUser = [User currentUser];
     
 }
 
@@ -50,13 +53,13 @@
     if (indexPath.row == 0 && indexPath.section == 0) {
         ProfileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         
-        User *currentUser = [User currentUser];
-        PFFile *imageFile = currentUser.profilePicture;
+//        User *currentUser = [User currentUser];
+        PFFile *imageFile = self.currentUser.profilePicture;
         [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
             cell.profilePicture.image = [UIImage imageWithData:data];
         }];
         
-        cell.userNameLabel.text = currentUser.fullName;
+        cell.userNameLabel.text = self.currentUser.fullName;
         
         return cell;
     
@@ -69,6 +72,15 @@
     }
     
     return nil;
+}
+
+#pragma mark - segue -
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showRequests"]) {
+        CurrentUserRequestViewController *curVC = segue.destinationViewController;
+        curVC.currentUser = self.currentUser;
+    }
 }
 
 @end
