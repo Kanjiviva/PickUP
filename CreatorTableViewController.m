@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    self.request = [Request object];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,9 +56,15 @@
     if (indexPath.row == 0 && indexPath.section == 0) {
         CreatorProfileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         
-        Request *request = [Request object];
-        cell.username.text = request.creatorUser.username;
         
+        cell.username.text = self.request.creatorUser.fullName;
+        
+        PFFile *imageFile = self.request.creatorUser.profilePicture;
+        [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+            cell.profilePicture.image = [UIImage imageWithData:data];
+        }];
+//        PFQuery *query = [User query];
+//        query
         
         return cell;
     } else if (indexPath.row == 1 && indexPath.section == 0) {

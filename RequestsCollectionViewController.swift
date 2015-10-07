@@ -45,6 +45,7 @@ class RequestsCollectionViewController: UICollectionViewController {
     
     func loadRequests() {
         let query = Request.query()
+        query?.includeKey("creatorUser")
         query?.findObjectsInBackgroundWithBlock({ (objects:[PFObject]?, error:NSError?) -> Void in
             if error == nil {
                 if let objects = objects {
