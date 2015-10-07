@@ -11,7 +11,6 @@
 #import "CreatorProfileTableViewCell.h"
 #import "CreatorRatingTableViewCell.h"
 #import "User.h"
-#import "Request.h"
 
 @interface CreatorTableViewController ()
 
