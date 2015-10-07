@@ -10,10 +10,18 @@ import UIKit
 
 class RequestDetailViewController: UIViewController {
 
+    @IBOutlet weak var itemImage: UIImageView!
+    @IBOutlet weak var itemTitle: UILabel!
+    
+    var request: Request?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        itemTitle.text = request?.itemTitle
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +29,10 @@ class RequestDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showCreatorProfile" {
+            let creatorVC = segue.destinationViewController as! CreatorTableViewController
+            creatorVC.request = request
+        }
     }
-    */
-
 }

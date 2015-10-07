@@ -50,41 +50,8 @@
                                     <outlet property="userNameLabel" destination="02V-0U-tPk" id="Y4H-dP-OTd"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell1" rowHeight="50" id="eGF-Yg-m5H" customClass="PhoneTableViewCell">
-                                <rect key="frame" x="0.0" y="232" width="600" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eGF-Yg-m5H" id="Imk-Qx-QEM">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moblie:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAs-6V-Uwt">
-                                            <rect key="frame" x="8" y="0.0" width="56" height="49.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="604-123-1234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Onb-vL-6L8">
-                                            <rect key="frame" x="72" y="0.0" width="112.5" height="49.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="EAs-6V-Uwt" secondAttribute="bottom" id="MXX-jB-PUN"/>
-                                        <constraint firstItem="Onb-vL-6L8" firstAttribute="top" secondItem="Imk-Qx-QEM" secondAttribute="top" id="Rso-39-edz"/>
-                                        <constraint firstItem="Onb-vL-6L8" firstAttribute="leading" secondItem="EAs-6V-Uwt" secondAttribute="trailing" constant="8" id="XB7-wQ-VEy"/>
-                                        <constraint firstItem="EAs-6V-Uwt" firstAttribute="top" secondItem="Imk-Qx-QEM" secondAttribute="top" id="giw-C2-nQp"/>
-                                        <constraint firstItem="EAs-6V-Uwt" firstAttribute="leading" secondItem="Imk-Qx-QEM" secondAttribute="leading" constant="8" id="hsS-Ev-Bc1"/>
-                                        <constraint firstAttribute="bottom" secondItem="Onb-vL-6L8" secondAttribute="bottom" id="qky-c7-Anw"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="phoneNumberLabel" destination="Onb-vL-6L8" id="sgB-KW-Wmn"/>
-                                </connections>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell2" rowHeight="50" id="gK6-Iw-hcv" customClass="RatingTableViewCell">
-                                <rect key="frame" x="0.0" y="282" width="600" height="50"/>
+                                <rect key="frame" x="0.0" y="232" width="600" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gK6-Iw-hcv" id="Jkv-FQ-8OT">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
@@ -105,7 +72,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell3" id="f6r-Mq-BDX" customClass="CommentTableViewCell">
-                                <rect key="frame" x="0.0" y="332" width="600" height="97"/>
+                                <rect key="frame" x="0.0" y="282" width="600" height="97"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f6r-Mq-BDX" id="Ife-Ll-sE5">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="96.5"/>

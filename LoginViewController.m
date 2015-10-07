@@ -26,16 +26,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    if (![PFUser currentUser]) {
+    if (![User currentUser]) {
         PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
         logInController.fields = (PFLogInFieldsFacebook);
         logInController.delegate = self;
         logInController.view.backgroundColor = [UIColor blackColor];
         [self presentViewController:logInController animated:YES completion:nil];
         
-//    }else {
-//        [self pushToTabBar];
-//    }
+    }else {
+        [self pushToTabBar];
+    }
 
     
 }
@@ -49,7 +49,10 @@
 #pragma mark - PFLogInViewControllerDelegate -
 
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
-    [self loadData:user];
+
+    User *myUser = (User*)user;
+    
+    [self loadData:myUser];
     [self pushToTabBar];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -66,7 +69,7 @@
     [self showViewController:vc sender:nil];
 }
 
-- (void)loadData:(PFUser *)user {
+- (void)loadData:(User *)user {
     
     
     
@@ -82,7 +85,7 @@
 //            NSString *gender = userData[@"gender"];
 //            NSString *birthday = userData[@"birthday"];
 //            NSString *relationship = userData[@"relationship_status"];
-            [user setObject:name forKey:@"fullName"];
+            user.fullName = name;
             [user saveInBackground];
             
             NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
@@ -93,7 +96,7 @@
                                                                     NSData *imageData = [NSData dataWithContentsOfURL:location];
                                                                     PFFile *file = [PFFile fileWithData:imageData];
                                                                     
-                                                                    [user setObject:file forKey:@"imageFile"];
+                                                                    user.profilePicture = file;
                                                                     [user saveInBackground];
                                                                 }];
             [downloadTask resume];

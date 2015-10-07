@@ -33,9 +33,15 @@
 		AAE59C9E1BC3B7ED00F99907 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C9D1BC3B7ED00F99907 /* LocationManager.m */; settings = {ASSET_TAGS = (); }; };
 		AAE59CA01BC44B6D00F99907 /* UserInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C9F1BC44B6D00F99907 /* UserInfo.storyboard */; settings = {ASSET_TAGS = (); }; };
 		AAE59CA21BC44FDC00F99907 /* Posts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59CA11BC44FDC00F99907 /* Posts.storyboard */; settings = {ASSET_TAGS = (); }; };
-		AAE59CA51BC4539100F99907 /* PhoneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59CA41BC4539100F99907 /* PhoneTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		AAE59CA81BC453A300F99907 /* RatingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59CA71BC453A300F99907 /* RatingTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		AAE59CAB1BC453B000F99907 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59CAA1BC453B000F99907 /* CommentTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		AAE59CAF1BC499C500F99907 /* AddRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59CAE1BC499C500F99907 /* AddRequestViewController.m */; settings = {ASSET_TAGS = (); }; };
+		AAE59CB41BC4DEB100F99907 /* AddPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59CB31BC4DEB100F99907 /* AddPost.storyboard */; settings = {ASSET_TAGS = (); }; };
+		AAE59CB61BC4DF6800F99907 /* CreatorUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59CB51BC4DF6800F99907 /* CreatorUser.storyboard */; settings = {ASSET_TAGS = (); }; };
+		AAE59CB91BC4DFE000F99907 /* CreatorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59CB81BC4DFE000F99907 /* CreatorTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		AAE59CBC1BC4F3C800F99907 /* CreatorProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59CBB1BC4F3C800F99907 /* CreatorProfileTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		AAE59CBF1BC4F3D700F99907 /* CreatorRatingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59CBE1BC4F3D700F99907 /* CreatorRatingTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		AAE59CC21BC4F3E600F99907 /* CreatorCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59CC11BC4F3E600F99907 /* CreatorCommentTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,12 +96,22 @@
 		AAE59C9D1BC3B7ED00F99907 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationManager.m; path = PickUP/LocationManager.m; sourceTree = "<group>"; };
 		AAE59C9F1BC44B6D00F99907 /* UserInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserInfo.storyboard; sourceTree = "<group>"; };
 		AAE59CA11BC44FDC00F99907 /* Posts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Posts.storyboard; path = PickUP/Posts.storyboard; sourceTree = "<group>"; };
-		AAE59CA31BC4539100F99907 /* PhoneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneTableViewCell.h; sourceTree = "<group>"; };
-		AAE59CA41BC4539100F99907 /* PhoneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneTableViewCell.m; sourceTree = "<group>"; };
 		AAE59CA61BC453A300F99907 /* RatingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingTableViewCell.h; path = PickUP/RatingTableViewCell.h; sourceTree = "<group>"; };
 		AAE59CA71BC453A300F99907 /* RatingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingTableViewCell.m; path = PickUP/RatingTableViewCell.m; sourceTree = "<group>"; };
 		AAE59CA91BC453B000F99907 /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentTableViewCell.h; path = PickUP/CommentTableViewCell.h; sourceTree = "<group>"; };
 		AAE59CAA1BC453B000F99907 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentTableViewCell.m; path = PickUP/CommentTableViewCell.m; sourceTree = "<group>"; };
+		AAE59CAD1BC499C500F99907 /* AddRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddRequestViewController.h; path = ../AddRequestViewController.h; sourceTree = "<group>"; };
+		AAE59CAE1BC499C500F99907 /* AddRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddRequestViewController.m; path = ../AddRequestViewController.m; sourceTree = "<group>"; };
+		AAE59CB31BC4DEB100F99907 /* AddPost.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddPost.storyboard; sourceTree = "<group>"; };
+		AAE59CB51BC4DF6800F99907 /* CreatorUser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreatorUser.storyboard; sourceTree = "<group>"; };
+		AAE59CB71BC4DFE000F99907 /* CreatorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreatorTableViewController.h; path = ../CreatorTableViewController.h; sourceTree = "<group>"; };
+		AAE59CB81BC4DFE000F99907 /* CreatorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreatorTableViewController.m; path = ../CreatorTableViewController.m; sourceTree = "<group>"; };
+		AAE59CBA1BC4F3C800F99907 /* CreatorProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatorProfileTableViewCell.h; sourceTree = "<group>"; };
+		AAE59CBB1BC4F3C800F99907 /* CreatorProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatorProfileTableViewCell.m; sourceTree = "<group>"; };
+		AAE59CBD1BC4F3D700F99907 /* CreatorRatingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatorRatingTableViewCell.h; sourceTree = "<group>"; };
+		AAE59CBE1BC4F3D700F99907 /* CreatorRatingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatorRatingTableViewCell.m; sourceTree = "<group>"; };
+		AAE59CC01BC4F3E600F99907 /* CreatorCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatorCommentTableViewCell.h; sourceTree = "<group>"; };
+		AAE59CC11BC4F3E600F99907 /* CreatorCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatorCommentTableViewCell.m; sourceTree = "<group>"; };
 		E8E771EDD8B23685DE6F95BF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,8 +171,12 @@
 			isa = PBXGroup;
 			children = (
 				4E7E4E8E1BC3342A00D4C10D /* PickUP-Bridging-Header.h */,
+				AAE59CB71BC4DFE000F99907 /* CreatorTableViewController.h */,
+				AAE59CB81BC4DFE000F99907 /* CreatorTableViewController.m */,
 				AAE59C841BC333A500F99907 /* ProfileTableViewController.h */,
 				AAE59C851BC333A500F99907 /* ProfileTableViewController.m */,
+				AAE59CAD1BC499C500F99907 /* AddRequestViewController.h */,
+				AAE59CAE1BC499C500F99907 /* AddRequestViewController.m */,
 				4E7E4E931BC33A4400D4C10D /* RequestsCollectionViewController.swift */,
 				4E7E4E991BC363F300D4C10D /* RequestDetailViewController.swift */,
 				4E7E4E971BC3545900D4C10D /* RequestsHeaderView.swift */,
@@ -197,6 +217,8 @@
 			isa = PBXGroup;
 			children = (
 				AAE59CA11BC44FDC00F99907 /* Posts.storyboard */,
+				AAE59CB51BC4DF6800F99907 /* CreatorUser.storyboard */,
+				AAE59CB31BC4DEB100F99907 /* AddPost.storyboard */,
 				AAE59C5C1BC2F14400F99907 /* Main.storyboard */,
 				AAE59C9F1BC44B6D00F99907 /* UserInfo.storyboard */,
 				AAE59C791BC2FF4A00F99907 /* Login.storyboard */,
@@ -224,12 +246,16 @@
 		AAE59CAC1BC453B600F99907 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				AAE59CBA1BC4F3C800F99907 /* CreatorProfileTableViewCell.h */,
+				AAE59CBB1BC4F3C800F99907 /* CreatorProfileTableViewCell.m */,
+				AAE59CBD1BC4F3D700F99907 /* CreatorRatingTableViewCell.h */,
+				AAE59CBE1BC4F3D700F99907 /* CreatorRatingTableViewCell.m */,
+				AAE59CC01BC4F3E600F99907 /* CreatorCommentTableViewCell.h */,
+				AAE59CC11BC4F3E600F99907 /* CreatorCommentTableViewCell.m */,
 				AAE59CA91BC453B000F99907 /* CommentTableViewCell.h */,
 				AAE59CAA1BC453B000F99907 /* CommentTableViewCell.m */,
 				AAE59CA61BC453A300F99907 /* RatingTableViewCell.h */,
 				AAE59CA71BC453A300F99907 /* RatingTableViewCell.m */,
-				AAE59CA31BC4539100F99907 /* PhoneTableViewCell.h */,
-				AAE59CA41BC4539100F99907 /* PhoneTableViewCell.m */,
 				AAE59C871BC333B500F99907 /* ProfileTableViewCell.h */,
 				AAE59C881BC333B500F99907 /* ProfileTableViewCell.m */,
 			);
@@ -331,7 +357,9 @@
 			files = (
 				AAE59C7A1BC2FF4A00F99907 /* Login.storyboard in Resources */,
 				AAE59C7F1BC3276700F99907 /* Globe-24.png in Resources */,
+				AAE59CB41BC4DEB100F99907 /* AddPost.storyboard in Resources */,
 				AAE59C631BC2F14400F99907 /* LaunchScreen.storyboard in Resources */,
+				AAE59CB61BC4DF6800F99907 /* CreatorUser.storyboard in Resources */,
 				AAE59C601BC2F14400F99907 /* Assets.xcassets in Resources */,
 				AAE59C811BC3279600F99907 /* Settings 3-25.png in Resources */,
 				AAE59CA01BC44B6D00F99907 /* UserInfo.storyboard in Resources */,
@@ -407,18 +435,22 @@
 				AAE59CAB1BC453B000F99907 /* CommentTableViewCell.m in Sources */,
 				4EA4E4FF1BC3683600D1AE5D /* main.m in Sources */,
 				AAE59C931BC34F1600F99907 /* Rating.m in Sources */,
+				AAE59CC21BC4F3E600F99907 /* CreatorCommentTableViewCell.m in Sources */,
 				AAE59C7D1BC2FF6A00F99907 /* LoginViewController.m in Sources */,
 				AAE59C8C1BC347C500F99907 /* User.m in Sources */,
 				AAE59C891BC333B500F99907 /* ProfileTableViewCell.m in Sources */,
 				AAE59C861BC333A500F99907 /* ProfileTableViewController.m in Sources */,
+				AAE59CBC1BC4F3C800F99907 /* CreatorProfileTableViewCell.m in Sources */,
 				AAE59C901BC34B5C00F99907 /* Request.m in Sources */,
+				AAE59CBF1BC4F3D700F99907 /* CreatorRatingTableViewCell.m in Sources */,
 				AAE59CA81BC453A300F99907 /* RatingTableViewCell.m in Sources */,
 				AAE59C9E1BC3B7ED00F99907 /* LocationManager.m in Sources */,
 				AAE59C961BC351FC00F99907 /* PickUp.m in Sources */,
+				AAE59CB91BC4DFE000F99907 /* CreatorTableViewController.m in Sources */,
 				4E7E4E941BC33A4400D4C10D /* RequestsCollectionViewController.swift in Sources */,
 				4E7E4E961BC33D3300D4C10D /* RequestCollectionViewCell.swift in Sources */,
 				4E7E4E9A1BC363F300D4C10D /* RequestDetailViewController.swift in Sources */,
-				AAE59CA51BC4539100F99907 /* PhoneTableViewCell.m in Sources */,
+				AAE59CAF1BC499C500F99907 /* AddRequestViewController.m in Sources */,
 				4E7E4E981BC3545900D4C10D /* RequestsHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 //
-//  PhoneTableViewCell.h
+//  CreatorRatingTableViewCell.h
 //  PickUP
 //
 //  Created by Steve on 2015-10-06.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PhoneTableViewCell : UITableViewCell
+@interface CreatorRatingTableViewCell : UITableViewCell
 
 @end

@@ -17,8 +17,9 @@
 @dynamic deliverTip;
 @dynamic creatorUser;
 @dynamic assignedUser;
-@dynamic delLocation;
+@dynamic deliverLocation;
 @dynamic delCoordinate;
+@dynamic pickupLocation;
 
 + (NSString *)parseClassName {
     return @"Request";

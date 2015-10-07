@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Parse/Parse.h>
+#import <Parse/PFObject+Subclass.h>
 #import "User.h"
 
 @interface Rating : PFObject <PFSubclassing>

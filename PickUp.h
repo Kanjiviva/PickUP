@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/PFObject+Subclass.h>
 #import <Parse/Parse.h>
 
 @interface PickUp : PFObject <PFSubclassing>

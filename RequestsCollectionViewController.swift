@@ -13,64 +13,85 @@ import Bolts
 private let reuseIdentifier = "Cell"
 
 class RequestsCollectionViewController: UICollectionViewController {
-
+    
+    
+    var requests = [Request]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+//        loadRequests()
         setupNavBar()
         collectionView?.backgroundColor = UIColor.whiteColor()
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        loadRequests()
+    }
+    
     func setupNavBar() {
         let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem
         navigationItem.setHidesBackButton(true, animated: false)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    
+    // MARK: Helper Methods
+    
+    func loadRequests() {
+        let query = Request.query()
+        query?.findObjectsInBackgroundWithBlock({ (objects:[PFObject]?, error:NSError?) -> Void in
+            if error == nil {
+                if let objects = objects {
+                    self.requests = objects as! [Request]
+                    self.collectionView?.reloadData()
+                }
+            }
+        })
     }
-    */
     
-    // MARK: Actions
-    
-    @IBAction func logout(sender: UIBarButtonItem) {
-        PFUser.logOut()
-    }
-    
-
     // MARK: UICollectionViewDataSource
-
+    
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-
+        
         return 1
     }
-
-
+    
+    
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-        return 20
+        
+        return requests.count
     }
-
+    
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! RequestCollectionViewCell
         
+        let request = requests[indexPath.item]
         
-        // Configure the cell
-    
+        cell.itemTitle.text = request.itemTitle
+        cell.itemCost.text = String(format: "%.2f", request.itemCost)
+        cell.itemImage.image = UIImage(named: "defaultPhoto")
+        if let itemPhoto = request.itemImage {
+            itemPhoto.getDataInBackgroundWithBlock { data, error in
+                
+                if cell == collectionView.cellForItemAtIndexPath(indexPath){
+                    if let newData = data {
+                        cell.itemImage.image = UIImage(data: newData)
+                    }
+                }
+                
+            }
+        }
+        
+        
         return cell
     }
-
+    
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         
         switch kind {
@@ -88,35 +109,18 @@ class RequestsCollectionViewController: UICollectionViewController {
         
     }
     
-    // MARK: UICollectionViewDelegate
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDetail" {
+            let detailVC = segue.destinationViewController as! RequestDetailViewController
+            if let selectedRequestCell = sender as? RequestCollectionViewCell {
+                if let indexPath = collectionView?.indexPathForCell(selectedRequestCell){
+                    let selectedRequest = requests[indexPath.item]
+                    detailVC.request = selectedRequest
+                }
 
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
+            }
+        }
+        
     }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
     
-    }
-    */
-
 }

@@ -8,9 +8,9 @@
 
 #import "ProfileTableViewController.h"
 #import "ProfileTableViewCell.h"
-#import "PhoneTableViewCell.h"
 #import "RatingTableViewCell.h"
 #import "CommentTableViewCell.h"
+#import "User.h"
 
 @interface ProfileTableViewController ()
 
@@ -38,7 +38,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (section == 0) {
-        return 3;
+        return 2;
     } else {
         return 1;
     }
@@ -50,19 +50,17 @@
     if (indexPath.row == 0 && indexPath.section == 0) {
         ProfileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         
-        PFUser *currentUser = [PFUser currentUser];
-        PFFile *imageFile = [currentUser objectForKey:@"imageFile"];
+        User *currentUser = [User currentUser];
+        PFFile *imageFile = currentUser.profilePicture;
         [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
             cell.profilePicture.image = [UIImage imageWithData:data];
         }];
         
-        cell.userNameLabel.text = [currentUser objectForKey:@"fullName"];
+        cell.userNameLabel.text = currentUser.fullName;
         
         return cell;
+    
     } else if (indexPath.row == 1 && indexPath.section == 0) {
-        PhoneTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell1" forIndexPath:indexPath];
-        return cell;
-    } else if (indexPath.row == 2 && indexPath.section == 0) {
         RatingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
         return cell;
     } else if (indexPath.row == 0 && indexPath.section == 1) {

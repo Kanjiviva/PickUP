@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Parse/Parse.h>
+#import <Parse/PFObject+Subclass.h>
 #import "User.h"
+#import "PickUp.h"
 
 @interface Request : PFObject <PFSubclassing>
 
@@ -20,6 +21,7 @@
 @property (strong, nonatomic) User *creatorUser;
 @property (strong, nonatomic) User *assignedUser;
 @property (strong, nonatomic) PFGeoPoint *delCoordinate;
-@property (strong, nonatomic) NSString *delLocation;
+@property (strong, nonatomic) NSString *deliverLocation;
+@property (strong, nonatomic) PickUp *pickupLocation;
 
 @end
