@@ -31,7 +31,11 @@ class RequestsCollectionViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
+//    override func viewWillAppear(animated: Bool) {
+//        loadRequests()
+//    }
+    
+    override func viewDidAppear(animated: Bool) {
         loadRequests()
     }
     

@@ -198,7 +198,7 @@
         <!--Posts-->
         <scene sceneID="7SB-ma-JyD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hk8-D5-nUl" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navController" automaticallyAdjustsScrollViewInsets="NO" id="hk8-D5-nUl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Posts" image="Globe-24.png" id="Etr-FA-3DH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pV2-wo-UpJ">

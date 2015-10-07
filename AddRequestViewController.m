@@ -151,6 +151,10 @@
 - (IBAction)savePost:(UIBarButtonItem *)sender {
     
     [self saveData];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Posts" bundle:nil];
+    UINavigationController *nav = [storyboard instantiateViewControllerWithIdentifier:@"navController"];
+    [self showViewController:nav sender:nil];
 }
 
 #pragma mark - UIImagePicker Delegate -
