@@ -16,6 +16,8 @@ class RequestsCollectionViewController: UICollectionViewController {
     
     
     var requests = [Request]()
+    var requestsByLocaion = [String:[Request]]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,10 +52,23 @@ class RequestsCollectionViewController: UICollectionViewController {
     func loadRequests() {
         let query = Request.query()
         query?.includeKey("creatorUser")
+        query?.orderByDescending("createdAt")
         query?.findObjectsInBackgroundWithBlock({ (objects:[PFObject]?, error:NSError?) -> Void in
             if error == nil {
                 if let objects = objects {
                     self.requests = objects as! [Request]
+                    for request in self.requests {
+                        if var locArray = self.requestsByLocaion[request.deliverLocation] {
+                            locArray.append(request)
+                            self.requestsByLocaion[request.deliverLocation] = locArray
+                            
+                        } else {
+                            var locArray = [Request]()
+                            locArray.append(request)
+                            self.requestsByLocaion[request.deliverLocation] = locArray
+                        }
+                    }
+                    
                     self.collectionView?.reloadData()
                 }
             }
@@ -64,13 +79,14 @@ class RequestsCollectionViewController: UICollectionViewController {
     
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         
-        return 1
+        return requestsByLocaion.count
     }
     
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return requests.count
+        let keys = Array(requestsByLocaion.keys)
+        let currentKey = keys[section]
+        return requestsByLocaion[currentKey]!.count
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -106,7 +122,9 @@ class RequestsCollectionViewController: UICollectionViewController {
                 withReuseIdentifier: "RequestsHeaderView",
                 forIndexPath: indexPath)
                 as! RequestsHeaderView
-            headerView.locationLabel.text = "Vancouver"
+            let keys = Array(requestsByLocaion.keys)
+            let currentKey = keys[indexPath.section]
+            headerView.locationLabel.text = currentKey
             return headerView
         default:
             assert(false, "Unexpected element kind")
