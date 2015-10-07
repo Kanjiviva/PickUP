@@ -16,5 +16,26 @@ class RequestCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var itemCost: UILabel!
     @IBOutlet weak var distanceFromCurrentUserLabel: UILabel!
     
-    
+    var object: Request! {
+        didSet {
+            itemTitle.text = object.itemTitle
+            itemCost.text = String(format: "%.2f", object.itemCost)
+            
+            let tempObject = object
+            
+            if (object.itemImage != oldValue?.itemImage) {
+                itemImage.image = UIImage(named: "defaultPhoto")
+                if let itemPhoto = object.itemImage {
+                    itemPhoto.getDataInBackgroundWithBlock { data, error in
+                        if (self.object == tempObject) {
+                            if let newData = data {
+                                self.itemImage.image = UIImage(data: newData)
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
 }

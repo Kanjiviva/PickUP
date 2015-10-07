@@ -97,7 +97,7 @@
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="S7f-Bd-m3W">
                             <connections>
-                                <segue destination="SMf-lp-YmT" kind="show" id="9QC-f8-H4i"/>
+                                <segue destination="SMf-lp-YmT" kind="show" identifier="addPost" id="9QC-f8-H4i"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
