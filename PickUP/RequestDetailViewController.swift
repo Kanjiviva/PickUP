@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol RequestDetailViewControllerDelegate {
+    func didAcceptRequest()
+}
+
 class RequestDetailViewController: UIViewController {
 
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var itemTitle: UILabel!
     
+    var delegate: RequestDetailViewControllerDelegate?
     var request: Request?
     
     override func viewDidLoad() {
@@ -23,10 +28,24 @@ class RequestDetailViewController: UIViewController {
         itemTitle.text = request?.itemTitle
         
     }
+    
+    // MARK: Helper Methods
+    
+    func acceptRequest() {
+        let currentUser = User.currentUser()
+        request?.assignedUser = currentUser
+        request?.isAccepted = true
+        request?.saveInBackgroundWithBlock{ succeed, error in
+            self.delegate?.didAcceptRequest()
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        }
+    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // MARK: Actions
+
+    @IBAction func acceptButton(sender: UIButton) {
+        acceptRequest()
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -12,16 +12,7 @@ import Bolts
 
 private let reuseIdentifier = "Cell"
 
-extension PFGeoPoint {
-    
-    public var cllocation: CLLocation {
-        get {
-            return CLLocation(latitude: latitude, longitude: longitude)
-        }
-    }
-}
-
-class RequestsCollectionViewController: UICollectionViewController, AddRequestViewContollerDelegate {
+class RequestsCollectionViewController: UICollectionViewController, AddRequestViewContollerDelegate, RequestDetailViewControllerDelegate {
     
     
     var requests = [Request]()
@@ -72,46 +63,23 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
             if error == nil {
                 if let objects = objects {
                     self.requests = objects as! [Request]
-                    
-                    self.sortIntoDictionary(self.requests, completionClosure: {
-                        self.collectionView?.reloadData()
-                    })
-                    
-                }
-            }
-        })
-    }
-    
-    func sortIntoDictionary(requests: [Request], completionClosure: () -> ()) {
-        
-        for (index,request) in requests.enumerate() {
-            let locationCoordinate = request.delCoordinate.cllocation
-            
-            CLGeocoder().reverseGeocodeLocation(locationCoordinate) { (placemarks, error) -> Void in
-                
-                if let myPlacemarks = placemarks  {
-                    
-                    let placemark = myPlacemarks[0]
-                    
-                    if let city = placemark.locality {
-                        if var locArray = self.requestsByLocaion[city] {
+                    self.removeAcceptedObject()
+                    for request in self.requests {
+                        if var locArray = self.requestsByLocaion[request.deliverLocation] {
                             locArray.append(request)
-                            self.requestsByLocaion[city] = locArray
+                            self.requestsByLocaion[request.deliverLocation] = locArray
                             
                         } else {
                             var locArray = [Request]()
                             locArray.append(request)
-                            self.requestsByLocaion[city] = locArray
-                        }
-                        
-                        if index == requests.count - 1 {
-                            completionClosure()
+                            self.requestsByLocaion[request.deliverLocation] = locArray
                         }
                     }
-                
+                    
+                    self.collectionView?.reloadData()
                 }
             }
-        }
+        })
     }
     
     // MARK: UICollectionViewDataSource

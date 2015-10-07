@@ -42,6 +42,7 @@
 		AAE59CBC1BC4F3C800F99907 /* CreatorProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59CBB1BC4F3C800F99907 /* CreatorProfileTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		AAE59CBF1BC4F3D700F99907 /* CreatorRatingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59CBE1BC4F3D700F99907 /* CreatorRatingTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		AAE59CC21BC4F3E600F99907 /* CreatorCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59CC11BC4F3E600F99907 /* CreatorCommentTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		AAE59CC51BC5E3C800F99907 /* CurrentUserRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59CC41BC5E3C800F99907 /* CurrentUserRequestViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,8 @@
 		AAE59CBE1BC4F3D700F99907 /* CreatorRatingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatorRatingTableViewCell.m; sourceTree = "<group>"; };
 		AAE59CC01BC4F3E600F99907 /* CreatorCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatorCommentTableViewCell.h; sourceTree = "<group>"; };
 		AAE59CC11BC4F3E600F99907 /* CreatorCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatorCommentTableViewCell.m; sourceTree = "<group>"; };
+		AAE59CC31BC5E3C800F99907 /* CurrentUserRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentUserRequestViewController.h; sourceTree = "<group>"; };
+		AAE59CC41BC5E3C800F99907 /* CurrentUserRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentUserRequestViewController.m; sourceTree = "<group>"; };
 		E8E771EDD8B23685DE6F95BF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				4E7E4E8E1BC3342A00D4C10D /* PickUP-Bridging-Header.h */,
+				AAE59CC31BC5E3C800F99907 /* CurrentUserRequestViewController.h */,
+				AAE59CC41BC5E3C800F99907 /* CurrentUserRequestViewController.m */,
 				AAE59CB71BC4DFE000F99907 /* CreatorTableViewController.h */,
 				AAE59CB81BC4DFE000F99907 /* CreatorTableViewController.m */,
 				AAE59C841BC333A500F99907 /* ProfileTableViewController.h */,
@@ -450,6 +455,7 @@
 				4E7E4E941BC33A4400D4C10D /* RequestsCollectionViewController.swift in Sources */,
 				4E7E4E961BC33D3300D4C10D /* RequestCollectionViewCell.swift in Sources */,
 				4E7E4E9A1BC363F300D4C10D /* RequestDetailViewController.swift in Sources */,
+				AAE59CC51BC5E3C800F99907 /* CurrentUserRequestViewController.m in Sources */,
 				AAE59CAF1BC499C500F99907 /* AddRequestViewController.m in Sources */,
 				4E7E4E981BC3545900D4C10D /* RequestsHeaderView.swift in Sources */,
 			);

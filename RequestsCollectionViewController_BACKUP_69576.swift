@@ -12,6 +12,7 @@ import Bolts
 
 private let reuseIdentifier = "Cell"
 
+<<<<<<< HEAD
 extension PFGeoPoint {
     
     public var cllocation: CLLocation {
@@ -22,6 +23,9 @@ extension PFGeoPoint {
 }
 
 class RequestsCollectionViewController: UICollectionViewController, AddRequestViewContollerDelegate {
+=======
+class RequestsCollectionViewController: UICollectionViewController, AddRequestViewContollerDelegate, RequestDetailViewControllerDelegate {
+>>>>>>> ad0169a4dc7ff765e883e9eafa1c263e74d9508c
     
     
     var requests = [Request]()
@@ -37,6 +41,14 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
         
     }
     
+<<<<<<< HEAD
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+=======
+>>>>>>> ad0169a4dc7ff765e883e9eafa1c263e74d9508c
     func setupNavBar() {
         let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem
@@ -72,6 +84,7 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
             if error == nil {
                 if let objects = objects {
                     self.requests = objects as! [Request]
+<<<<<<< HEAD
                     
                     self.sortIntoDictionary(self.requests, completionClosure: {
                         self.collectionView?.reloadData()
@@ -95,6 +108,11 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
                     
                     if let city = placemark.locality {
                         if var locArray = self.requestsByLocaion[city] {
+=======
+                    self.removeAcceptedObject()
+                    for request in self.requests {
+                        if var locArray = self.requestsByLocaion[request.deliverLocation] {
+>>>>>>> ad0169a4dc7ff765e883e9eafa1c263e74d9508c
                             locArray.append(request)
                             self.requestsByLocaion[city] = locArray
                             

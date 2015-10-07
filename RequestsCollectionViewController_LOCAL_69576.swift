@@ -37,6 +37,11 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
         
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
     func setupNavBar() {
         let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem
@@ -48,21 +53,7 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
         loadRequests()
     }
     
-    func didAcceptRequest() {
-        loadRequests()
-    }
-    
     // MARK: Helper Methods
-    
-    func removeAcceptedObject() {
-        
-        for request in requests {
-            if request.isAccepted {
-                requests.removeAtIndex(requests.indexOf(request)!)
-            }
-        }
-        
-    }
     
     func loadRequests() {
         let query = Request.query()
@@ -162,7 +153,6 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
                 if let indexPath = collectionView?.indexPathForCell(selectedRequestCell){
                     let selectedRequest = requests[indexPath.item]
                     detailVC.request = selectedRequest
-                    detailVC.delegate = self
                 }
 
             }
