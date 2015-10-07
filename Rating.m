@@ -11,7 +11,7 @@
 @implementation Rating
 
 @dynamic creator;
-@dynamic subject;
+@dynamic deliver;
 @dynamic comment;
 @dynamic score;
 
