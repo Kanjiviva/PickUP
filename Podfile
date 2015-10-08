@@ -1,4 +1,5 @@
 use_frameworks!
+inhibit_all_warnings!
 pod 'Parse'
 pod 'CLImageEditor/AllTools'
 pod 'ParseUI'

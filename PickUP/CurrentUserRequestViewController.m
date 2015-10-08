@@ -8,6 +8,7 @@
 
 #import "CurrentUserRequestViewController.h"
 #import "Request.h"
+#import "SWTableViewCell.h"
 
 @interface CurrentUserRequestViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
@@ -95,8 +96,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
-    
     
     if (self.switchStatus.selectedSegmentIndex == 0) {
         Request *request = self.currentUserPosts[indexPath.row];
