@@ -101,11 +101,11 @@
     if (self.switchStatus.selectedSegmentIndex == 0) {
         Request *request = self.currentUserPosts[indexPath.row];
         cell.textLabel.text = request.itemTitle;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"Pick Up Location: %@", request.pickupLocation];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Pick Up Location: %@", request.pickupLocation.location];
     } else if (self.switchStatus.selectedSegmentIndex == 1) {
         Request *request = self.currentUserAccepted[indexPath.row];
         cell.textLabel.text = request.itemTitle;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"Pick Up Location: %@", request.pickupLocation];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Pick Up Location: %@", request.pickupLocation.location];
     }
     
     return cell;
