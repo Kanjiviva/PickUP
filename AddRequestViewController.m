@@ -184,6 +184,9 @@
 //    UINavigationController *nav = [storyboard instantiateViewControllerWithIdentifier:@"navController"];
 //    [self showViewController:nav sender:nil];
 }
+- (IBAction)cancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 #pragma mark - UIImagePicker Delegate -
 

@@ -32,6 +32,7 @@
 #pragma mark - Actions -
 
 - (IBAction)doneViewing:(UIBarButtonItem *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Table view data source
@@ -63,8 +64,6 @@
         [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
             cell.profilePicture.image = [UIImage imageWithData:data];
         }];
-//        PFQuery *query = [User query];
-//        query
         
         return cell;
     } else if (indexPath.row == 1 && indexPath.section == 0) {

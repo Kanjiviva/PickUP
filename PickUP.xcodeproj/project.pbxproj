@@ -43,6 +43,7 @@
 		AAE59CBF1BC4F3D700F99907 /* CreatorRatingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59CBE1BC4F3D700F99907 /* CreatorRatingTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		AAE59CC21BC4F3E600F99907 /* CreatorCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59CC11BC4F3E600F99907 /* CreatorCommentTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		AAE59CC51BC5E3C800F99907 /* CurrentUserRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59CC41BC5E3C800F99907 /* CurrentUserRequestViewController.m */; settings = {ASSET_TAGS = (); }; };
+		AAE59CC81BC70A7700F99907 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59CC71BC70A7700F99907 /* DetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,8 @@
 		AAE59CC11BC4F3E600F99907 /* CreatorCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatorCommentTableViewCell.m; sourceTree = "<group>"; };
 		AAE59CC31BC5E3C800F99907 /* CurrentUserRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentUserRequestViewController.h; sourceTree = "<group>"; };
 		AAE59CC41BC5E3C800F99907 /* CurrentUserRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentUserRequestViewController.m; sourceTree = "<group>"; };
+		AAE59CC61BC70A7700F99907 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		AAE59CC71BC70A7700F99907 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		E8E771EDD8B23685DE6F95BF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				4E7E4E8E1BC3342A00D4C10D /* PickUP-Bridging-Header.h */,
+				AAE59CC61BC70A7700F99907 /* DetailViewController.h */,
+				AAE59CC71BC70A7700F99907 /* DetailViewController.m */,
 				AAE59CC31BC5E3C800F99907 /* CurrentUserRequestViewController.h */,
 				AAE59CC41BC5E3C800F99907 /* CurrentUserRequestViewController.m */,
 				AAE59CB71BC4DFE000F99907 /* CreatorTableViewController.h */,
@@ -438,6 +443,7 @@
 			files = (
 				4EA4E5011BC3686500D1AE5D /* AppDelegate.m in Sources */,
 				AAE59CAB1BC453B000F99907 /* CommentTableViewCell.m in Sources */,
+				AAE59CC81BC70A7700F99907 /* DetailViewController.m in Sources */,
 				4EA4E4FF1BC3683600D1AE5D /* main.m in Sources */,
 				AAE59C931BC34F1600F99907 /* Rating.m in Sources */,
 				AAE59CC21BC4F3E600F99907 /* CreatorCommentTableViewCell.m in Sources */,
