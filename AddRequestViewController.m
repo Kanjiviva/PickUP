@@ -53,6 +53,7 @@
     request.deliverLocation = self.dropOffLocation.text;
     request.delCoordinate = [self address:request.deliverLocation];
     
+    
     // PROBLEM!
     pickUp.location = self.pickUplocation.text;
     pickUp.coordinate = [self address:pickUp.location];
@@ -66,14 +67,6 @@
     PFFile *imageFile = [PFFile fileWithName:@"itemPicture.png" data:imageData];
     request.itemImage = imageFile;
     [pickUp saveInBackground];
-//    [pickUp saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-//        
-//        if (succeeded) {
-//            [self.delegate didAddNewItem];
-//        }
-//    }];
-//    [request saveInBackground];
-    
     //start spinning
     
     [request saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
@@ -109,6 +102,25 @@
     return newLoc;
 }
 
+// >>>>> Ask <<<<<
+
+- (void)city:(PFGeoPoint *)coordinate completion:(void (^)(NSString *loc))completion {
+    
+    CLLocation *newLocation = [[CLLocation alloc] initWithLatitude:coordinate.longitude longitude:coordinate.latitude];
+    
+    CLGeocoder *geocoder = [CLGeocoder new];
+    
+    [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        
+        if (placemarks.count > 0) {
+            CLPlacemark *placemark = [placemarks objectAtIndex:0];
+            completion(placemark.locality);
+        }
+    }];
+    
+}
+
+// >>>>> ASK <<<<<
      
 #pragma mark - Actions -
 

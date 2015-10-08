@@ -78,7 +78,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showRequests"]) {
-        CurrentUserRequestViewController *curVC = segue.destinationViewController;
+        UINavigationController *nav = segue.destinationViewController;
+        CurrentUserRequestViewController *curVC = (CurrentUserRequestViewController *)[nav topViewController];
         curVC.currentUser = self.currentUser;
     }
 }

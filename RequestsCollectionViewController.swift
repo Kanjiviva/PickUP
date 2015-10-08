@@ -21,7 +21,7 @@ extension PFGeoPoint {
     }
 }
 
-class RequestsCollectionViewController: UICollectionViewController, AddRequestViewContollerDelegate {
+class RequestsCollectionViewController: UICollectionViewController, AddRequestViewContollerDelegate, RequestDetailViewControllerDelegate {
     
     
     var requests = [Request]()

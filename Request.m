@@ -21,6 +21,7 @@
 @dynamic delCoordinate;
 @dynamic pickupLocation;
 @dynamic isAccepted;
+@dynamic cityName;
 
 + (NSString *)parseClassName {
     return @"Request";
