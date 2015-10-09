@@ -53,16 +53,11 @@
     } else return 0;
 }
 
-//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.row == 0 && indexPath.section == 0) {
         CreatorProfileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        
-        
         cell.username.text = self.request.creatorUser.fullName;
-        
         PFFile *imageFile = self.request.creatorUser.profilePicture;
         [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
             cell.profilePicture.image = [UIImage imageWithData:data];
@@ -86,5 +81,11 @@
     return @"Comments";
 }
 
+- (IBAction)doneButton:(id)sender {
+    
+}
+- (IBAction)cancelButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

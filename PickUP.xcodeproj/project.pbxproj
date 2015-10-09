@@ -342,6 +342,7 @@
 				TargetAttributes = {
 					AAE59C4F1BC2F14400F99907 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = Y3ZZ96WPU9;
 					};
 					AAE59C681BC2F14400F99907 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -602,6 +603,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PickUP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Steve.PickUP;
@@ -617,6 +619,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PickUP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Steve.PickUP;
