@@ -72,6 +72,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if (self.switchStatus.selectedSegmentIndex == 0) {
         if ([segue.identifier isEqualToString:@"showRequestsDetail"]) {
+            
             DetailViewController *detailVC = segue.destinationViewController;
             NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
             NSArray *getRequests = self.assignedAccepted[indexPath.section];
@@ -178,7 +179,7 @@
         
         Request *request = getRequests[indexPath.row];
         cell.textLabel.text = request.itemTitle;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"Pick Up Location: %@", request.pickupLocation];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Pick Up Location: %@", request.pickupLocation.location];
         
         if (indexPath.section == 0) {
             cell.rightUtilityButtons = [self rightButtons];
@@ -195,7 +196,7 @@
         
         Request *request = getRequests[indexPath.row];
         cell.textLabel.text = request.itemTitle;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"Pick Up Location: %@", request.pickupLocation];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Pick Up Location: %@", request.pickupLocation.location];
         cell.rightUtilityButtons = nil;
         cell.delegate = nil;
     }

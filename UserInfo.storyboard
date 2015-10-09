@@ -247,7 +247,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="dQJ-PF-t1B" kind="show" identifier="showRequestsDetail" id="pSZ-qD-Ks1"/>
+                                            <segue destination="dQJ-PF-t1B" kind="show" identifier="showRequestsDetail" id="AkN-fg-2ti"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -300,7 +300,7 @@
         <!--Detail View Controller-->
         <scene sceneID="evh-ET-wrr">
             <objects>
-                <viewController id="dQJ-PF-t1B" customClass="DetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="dQJ-PF-t1B" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XvS-Wu-d5c"/>
                         <viewControllerLayoutGuide type="bottom" id="wpF-5A-QKc"/>
@@ -363,6 +363,13 @@
                             <constraint firstItem="Z06-55-7uT" firstAttribute="centerX" secondItem="ja0-pi-PWo" secondAttribute="centerX" id="t5b-dV-94z"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="JSO-RG-7ek">
+                        <barButtonItem key="rightBarButtonItem" title="View Creator Profile" id="dVM-wP-3cZ">
+                            <connections>
+                                <segue destination="GEe-Es-nA2" kind="show" identifier="showCreator" id="OKp-Yi-Qy8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="itemCost" destination="E6v-as-gM1" id="FNQ-3B-em6"/>
                         <outlet property="itemDeliverLocation" destination="7kW-iE-7KH" id="S9m-CZ-q7R"/>
@@ -374,7 +381,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L4O-xR-jdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2890" y="275"/>
+            <point key="canvasLocation" x="2827" y="281"/>
+        </scene>
+        <!--CreatorTableViewController-->
+        <scene sceneID="hFA-0s-If7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreatorUser" referencedIdentifier="CreatorTableViewController" id="GEe-Es-nA2" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cUb-0C-L1w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3301" y="281"/>
         </scene>
         <!--Profile-->
         <scene sceneID="aaf-J8-9gj">
