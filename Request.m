@@ -22,6 +22,7 @@
 @dynamic pickupLocation;
 @dynamic isAccepted;
 @dynamic cityName;
+@dynamic isDone;
 
 + (NSString *)parseClassName {
     return @"Request";
