@@ -131,7 +131,9 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! RequestCollectionViewCell
         
-        cell.object = requests[indexPath.item]
+        if (indexPath.item < requests.count) {
+            cell.object = requests[indexPath.item]
+        }
         
         return cell
     }
