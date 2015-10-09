@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 @interface ProfileTableViewController : UITableViewController
+
+@property (strong, nonatomic) User *currentUser;
 
 @end

@@ -50,11 +50,11 @@ class RequestDetailViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showCreatorProfile" {
-            let navController = segue.destinationViewController as! UINavigationController
-            let creatorVC = navController.topViewController as! CreatorTableViewController
-            
+//            let navController = segue.destinationViewController as! UINavigationController
+            let profileVC = segue.destinationViewController as! ProfileTableViewController
+            profileVC.currentUser = request?.creatorUser
 //            navController.viewControllers = []
-            creatorVC.request = request
+//            creatorVC.request = request
         }
     }
 }

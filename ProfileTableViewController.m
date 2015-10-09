@@ -10,12 +10,12 @@
 #import "ProfileTableViewCell.h"
 #import "RatingTableViewCell.h"
 #import "CommentTableViewCell.h"
-#import "User.h"
+
 #import "CurrentUserRequestViewController.h"
 
 @interface ProfileTableViewController ()
 
-@property (strong, nonatomic) User *currentUser;
+
 
 @end
 
@@ -23,7 +23,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.currentUser = [User currentUser];
+    if (!self.currentUser) {
+        self.currentUser = [User currentUser];
+    }
+    
+    if (self.currentUser != [User currentUser]) {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+    
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 50;
 }
