@@ -12,6 +12,7 @@
 
 @dynamic location;
 @dynamic coordinate;
+@dynamic cityName;
 
 + (NSString *)parseClassName {
     return @"PickUp";

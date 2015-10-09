@@ -22,6 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    self.request = [Request object];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 50;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,18 +41,19 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     if (section == 0) {
         return 2;
-    } else {
+    } else if (section == 1) {
         return 1;
-    }
+    } else return 0;
 }
 
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -75,6 +78,12 @@
     }
     
     return nil;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0) return @"Profile";
+    else if (section == 1) return @"Add a comment";
+    return @"Comments";
 }
 
 

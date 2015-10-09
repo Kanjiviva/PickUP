@@ -26,7 +26,7 @@
 
 @end
 
-@implementation AddRequestViewController 
+@implementation AddRequestViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,6 +36,11 @@
     self.itemImage.layer.borderWidth = 5.0f;
     self.itemImage.layer.borderColor = [UIColor blackColor].CGColor;
     
+    self.itemTitle.text = @"Test";
+    self.pickUplocation.text = @"Richmond";
+    self.dropOffLocation.text = @"Vancouver";
+    self.itemCost.text = @"10000";
+    self.itemDescription.text = @"Test";
 }
 
 #pragma mark - Helper Method -
@@ -51,77 +56,119 @@
     request.itemDescription = self.itemDescription.text;
     request.itemCost = [self.itemCost.text floatValue];
     request.deliverLocation = self.dropOffLocation.text;
-    request.delCoordinate = [self address:request.deliverLocation];
+//    request.delCoordinate = [self address:request.deliverLocation];
     
-    
-    // PROBLEM!
     pickUp.location = self.pickUplocation.text;
-    pickUp.coordinate = [self address:pickUp.location];
+//    pickUp.coordinate = [self address:pickUp.location];
+
     
     request.pickupLocation = pickUp;
     
     request.itemCost = [self.itemCost.text floatValue];
-    
     // Item Image
     NSData *imageData = UIImageJPEGRepresentation(self.itemImage.image, 0.95);
     PFFile *imageFile = [PFFile fileWithName:@"itemPicture.png" data:imageData];
     request.itemImage = imageFile;
-    [pickUp saveInBackground];
-    //start spinning
     
-    [request saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        
-        if (succeeded) {
-            [self.delegate didAddNewItem];
+    CGRect rect = [UIScreen mainScreen].bounds;
+    rect.size.height = MAX(rect.size.height, rect.size.width);
+    rect.size.width = MAX(rect.size.height, rect.size.width);
+    UIView *overlayView = [[UIView alloc] initWithFrame:rect];
+    overlayView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+    UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc]
+                                             initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
+    activityView.center=self.view.center;
+    [self.view addSubview:activityView];
+    [self.view addSubview:overlayView];
+    [activityView startAnimating];
+    
+    
+    
+    [self geocodeRequest:request completion:^{
+        [self geocodePickupLocation:pickUp completion:^{
             
-            // stop spinning
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }
+            [pickUp saveInBackground];
+            [request saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                
+                if (succeeded) {
+                    [self.delegate didAddNewItem];
+                    // stop spinning
+                    [activityView stopAnimating];
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                    
+                }
+            }];
+            
+            
+        }];
     }];
+    
+    
+    
+
     
 }
 
 #pragma mark - Geocoder -
 
-- (PFGeoPoint *)address:(NSString *)location{
-    
-    PFGeoPoint *newLoc = [PFGeoPoint new];
+-(void)geocodePickupLocation:(PickUp *)pickup completion:(void (^)())completion {
     
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     
-    NSString *address = location;
-    [geocoder geocodeAddressString:address completionHandler:^(NSArray *placemarks, NSError *error) {
+    [geocoder geocodeAddressString:pickup.location completionHandler:^(NSArray *placemarks, NSError *error) {
         
         if(placemarks.count > 0)
         {
             CLPlacemark *placemark = [placemarks objectAtIndex:0];
+            
+            PFGeoPoint *newLoc = [PFGeoPoint new];
+            
             newLoc.longitude = placemark.location.coordinate.longitude;
             newLoc.latitude = placemark.location.coordinate.latitude;
+            
+            
+            pickup.coordinate = newLoc;
+            pickup.cityName = placemark.locality;
+            [pickup saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                
+                completion();
+                
+            }];
+        } else {
+            completion();
         }
     }];
-    return newLoc;
 }
 
-// >>>>> Ask <<<<<
+-(void)geocodeRequest:(Request *)req completion:(void (^)(void))completion {
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
 
-- (void)city:(PFGeoPoint *)coordinate completion:(void (^)(NSString *loc))completion {
-    
-    CLLocation *newLocation = [[CLLocation alloc] initWithLatitude:coordinate.longitude longitude:coordinate.latitude];
-    
-    CLGeocoder *geocoder = [CLGeocoder new];
-    
-    [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+    [geocoder geocodeAddressString:req.deliverLocation completionHandler:^(NSArray *placemarks, NSError *error) {
         
-        if (placemarks.count > 0) {
+        if(placemarks.count > 0)
+        {
             CLPlacemark *placemark = [placemarks objectAtIndex:0];
-            completion(placemark.locality);
+            
+            PFGeoPoint *newLoc = [PFGeoPoint new];
+            
+            newLoc.longitude = placemark.location.coordinate.longitude;
+            newLoc.latitude = placemark.location.coordinate.latitude;
+            
+            
+            req.delCoordinate = newLoc;
+            req.cityName = placemark.locality;
+            [req saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                
+                completion();
+                
+            }];
         }
     }];
-    
+
 }
 
-// >>>>> ASK <<<<<
-     
 #pragma mark - Actions -
 
 - (IBAction)selectPhoto:(UITapGestureRecognizer *)sender {
@@ -180,9 +227,9 @@
     
     [self saveData];
     
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Posts" bundle:nil];
-//    UINavigationController *nav = [storyboard instantiateViewControllerWithIdentifier:@"navController"];
-//    [self showViewController:nav sender:nil];
+    //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Posts" bundle:nil];
+    //    UINavigationController *nav = [storyboard instantiateViewControllerWithIdentifier:@"navController"];
+    //    [self showViewController:nav sender:nil];
 }
 - (IBAction)cancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

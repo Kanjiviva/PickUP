@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Request.h"
 
 @interface DetailViewController : UIViewController
+
+@property (strong, nonatomic) Request *request;
 
 @end

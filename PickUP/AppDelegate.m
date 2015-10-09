@@ -14,6 +14,8 @@
 #import "Request.h"
 #import "Rating.h"
 #import "PickUp.h"
+#import <GoogleMaps/GoogleMaps.h>
+#import "Constants.h"
 
 @interface AppDelegate ()
 
@@ -24,6 +26,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [GMSServices provideAPIKey:API_KET];
     
     // Register PF subclasses
     [User registerSubclass];

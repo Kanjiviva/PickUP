@@ -9,14 +9,13 @@
 #import "CurrentUserRequestViewController.h"
 #import "Request.h"
 #import "SWTableViewCell.h"
+#import "DetailViewController.h"
 
 @interface CurrentUserRequestViewController () <UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *switchStatus;
 
-@property (strong, nonatomic) NSMutableArray *currentUserPosts;
-@property (strong, nonatomic) NSMutableArray *currentUserAccepted;
 @property (strong, nonatomic) NSMutableArray *creatorFinishedRequests;
 @property (strong, nonatomic) NSMutableArray *creatorUnfinshedRequests;
 @property (strong, nonatomic) NSMutableArray *assignedUserFinishedRequests;
@@ -33,8 +32,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.currentUserPosts = [NSMutableArray new];
-    self.currentUserAccepted = [NSMutableArray new];
     self.statusLabel.text = @"Accepted Requests";
     
     self.creatorFinishedRequests = [NSMutableArray new];
@@ -46,7 +43,7 @@
     
     [self storeCurrentUserPosts];
     [self storeCurrentUserAccepted];
-
+    
 }
 
 #pragma mark - Actions -
@@ -66,14 +63,42 @@
     
 }
 
+- (IBAction)done:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Prepare for segue -
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if (self.switchStatus.selectedSegmentIndex == 0) {
+        if ([segue.identifier isEqualToString:@"showRequestsDetail"]) {
+            DetailViewController *detailVC = segue.destinationViewController;
+            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+            NSArray *getRequests = self.assignedAccepted[indexPath.section];
+            Request *request = getRequests[indexPath.row];
+            [detailVC setRequest:request];
+            
+        }
+    } else if (self.switchStatus.selectedSegmentIndex == 1) {
+        if ([segue.identifier isEqualToString:@"showRequestsDetail"]) {
+            DetailViewController *detailVC = segue.destinationViewController;
+            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+            NSArray *getRequests = self.creatorRequests[indexPath.section];
+            Request *request = getRequests[indexPath.row];
+            [detailVC setRequest:request];
+        }
+    }
+    
+}
+
 #pragma mark - Helper Methods -
 
 - (void)storeCurrentUserPosts {
     PFQuery *query = [Request query];
     [query whereKey:@"creatorUser" equalTo:self.currentUser];
+    [query includeKey:@"pickupLocation"];
     [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        [self.currentUserPosts addObjectsFromArray:objects];
         
         for (Request *request in objects) {
             if (request.isDone) {
@@ -91,9 +116,9 @@
 - (void)storeCurrentUserAccepted {
     PFQuery *query = [Request query];
     [query whereKey:@"assignedUser" equalTo:self.currentUser];
+    [query includeKey:@"pickupLocation"];
     [query orderByDescending:@"updatedAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        [self.currentUserAccepted addObjectsFromArray:objects];
         
         for (Request *request in objects) {
             if (request.isDone) {
@@ -193,24 +218,29 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"showRequestsDetail" sender:self];
+}
+
 #pragma mark - Custom Tableview cell delegate -
 
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    
     switch (index) {
         case 0:
         {
             NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
             
-                
-                NSArray *getRequests = self.assignedAccepted[cellIndexPath.section];
-                
-                Request *request = getRequests[cellIndexPath.row];
-                [request removeObjectForKey:@"assignedUser"];
-                [request removeObjectForKey:@"isAccepted"];
-                [request saveInBackground];
-                [self.assignedAccepted[0] removeObject:request];
-                [self.tableView deleteRowsAtIndexPaths:@[cellIndexPath]
-                                      withRowAnimation:UITableViewRowAnimationAutomatic];
+            
+            NSArray *getRequests = self.assignedAccepted[cellIndexPath.section];
+            
+            Request *request = getRequests[cellIndexPath.row];
+            [request removeObjectForKey:@"assignedUser"];
+            [request removeObjectForKey:@"isAccepted"];
+            [request saveInBackground];
+            [self.assignedAccepted[0] removeObject:request];
+            [self.tableView deleteRowsAtIndexPaths:@[cellIndexPath]
+                                  withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
         }
         case 1:
@@ -225,8 +255,6 @@
             [request saveInBackground];
             [self.assignedAccepted[0] removeObject:request];
             [self.assignedAccepted[1] addObject:request];
-//            [self.tableView deleteRowsAtIndexPaths:@[cellIndexPath]
-//                                  withRowAnimation:UITableViewRowAnimationAutomatic];
             [self.tableView reloadData];
             break;
         }

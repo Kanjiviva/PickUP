@@ -7,8 +7,15 @@
 //
 
 #import "DetailViewController.h"
+#import "PickUp.h"
 
 @interface DetailViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *itemImage;
+@property (weak, nonatomic) IBOutlet UILabel *itemTitle;
+@property (weak, nonatomic) IBOutlet UILabel *itemDescription;
+@property (weak, nonatomic) IBOutlet UILabel *itemCost;
+@property (weak, nonatomic) IBOutlet UILabel *itemPickUpLocation;
+@property (weak, nonatomic) IBOutlet UILabel *itemDeliverLocation;
 
 @end
 
@@ -16,22 +23,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setup];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setRequest:(Request *)request {
+    _request = request;
+    
+    [self setup];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setup {
+    
+    if (self.request) {
+        self.itemTitle.text = self.request.itemTitle;
+        self.itemDescription.text = self.request.itemDescription;
+        self.itemCost.text = [NSString stringWithFormat:@"%.2f", self.request.itemCost];
+        self.itemPickUpLocation.text = self.request.pickupLocation.location;
+        self.itemDeliverLocation.text = self.request.deliverLocation;
+        
+        PFFile *imageFile = self.request.itemImage;
+        [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+            self.itemImage.image = [UIImage imageWithData:data];
+        }];
+        
+    }
 }
-*/
-
 @end

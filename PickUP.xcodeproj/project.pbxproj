@@ -14,6 +14,8 @@
 		4E7E4E9A1BC363F300D4C10D /* RequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7E4E991BC363F300D4C10D /* RequestDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4EA4E4FF1BC3683600D1AE5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C541BC2F14400F99907 /* main.m */; };
 		4EA4E5011BC3686500D1AE5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C571BC2F14400F99907 /* AppDelegate.m */; };
+		AAB242C71BC79E78004644DA /* emptyStar.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB242C61BC79E78004644DA /* emptyStar.png */; settings = {ASSET_TAGS = (); }; };
+		AAB242C91BC79E83004644DA /* filledStar.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB242C81BC79E83004644DA /* filledStar.png */; settings = {ASSET_TAGS = (); }; };
 		AAE59C5E1BC2F14400F99907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C5C1BC2F14400F99907 /* Main.storyboard */; };
 		AAE59C601BC2F14400F99907 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C5F1BC2F14400F99907 /* Assets.xcassets */; };
 		AAE59C631BC2F14400F99907 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C611BC2F14400F99907 /* LaunchScreen.storyboard */; };
@@ -64,6 +66,9 @@
 		4E7E4E971BC3545900D4C10D /* RequestsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestsHeaderView.swift; path = ../RequestsHeaderView.swift; sourceTree = "<group>"; };
 		4E7E4E991BC363F300D4C10D /* RequestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDetailViewController.swift; sourceTree = "<group>"; };
 		945D37B5D0993A46CF5A55E9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		AAB242C61BC79E78004644DA /* emptyStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyStar.png; sourceTree = "<group>"; };
+		AAB242C81BC79E83004644DA /* filledStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filledStar.png; sourceTree = "<group>"; };
+		AAB242CA1BC84F33004644DA /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		AAE59C501BC2F14400F99907 /* PickUP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickUP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE59C541BC2F14400F99907 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AAE59C561BC2F14400F99907 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -176,6 +181,7 @@
 		AAE59C521BC2F14400F99907 /* PickUP */ = {
 			isa = PBXGroup;
 			children = (
+				AAB242CA1BC84F33004644DA /* Constants.h */,
 				4E7E4E8E1BC3342A00D4C10D /* PickUP-Bridging-Header.h */,
 				AAE59CC61BC70A7700F99907 /* DetailViewController.h */,
 				AAE59CC71BC70A7700F99907 /* DetailViewController.m */,
@@ -196,6 +202,8 @@
 				AAE59C561BC2F14400F99907 /* AppDelegate.h */,
 				AAE59C571BC2F14400F99907 /* AppDelegate.m */,
 				AAE59C5F1BC2F14400F99907 /* Assets.xcassets */,
+				AAB242C81BC79E83004644DA /* filledStar.png */,
+				AAB242C61BC79E78004644DA /* emptyStar.png */,
 				AAE59C7E1BC3276700F99907 /* Globe-24.png */,
 				AAE59C801BC3279600F99907 /* Settings 3-25.png */,
 				AAE59C821BC327F300F99907 /* Contacts-26.png */,
@@ -366,6 +374,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAE59C7A1BC2FF4A00F99907 /* Login.storyboard in Resources */,
+				AAB242C91BC79E83004644DA /* filledStar.png in Resources */,
+				AAB242C71BC79E78004644DA /* emptyStar.png in Resources */,
 				AAE59C7F1BC3276700F99907 /* Globe-24.png in Resources */,
 				AAE59CB41BC4DEB100F99907 /* AddPost.storyboard in Resources */,
 				AAE59C631BC2F14400F99907 /* LaunchScreen.storyboard in Resources */,

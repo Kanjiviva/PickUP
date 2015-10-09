@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface CreatorRatingTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIButton *firstStar;
+@property (weak, nonatomic) IBOutlet UIButton *secondStar;
+@property (weak, nonatomic) IBOutlet UIButton *thirdStar;
+@property (weak, nonatomic) IBOutlet UIButton *forthStar;
+@property (weak, nonatomic) IBOutlet UIButton *fifthStar;
 
 @end

@@ -14,5 +14,6 @@
 
 @property (strong, nonatomic) NSString *location;
 @property (strong, nonatomic) PFGeoPoint *coordinate;
+@property (strong, nonatomic) NSString *cityName;
 
 @end
