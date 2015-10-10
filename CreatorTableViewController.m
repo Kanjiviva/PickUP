@@ -37,6 +37,7 @@
     self.rating.requestCreator = self.request.creatorUser;
     
     [self getAllComments];
+    
 }
 
 #pragma mark - Helper Methods -
@@ -44,14 +45,16 @@
 - (void)getAllComments {
     
     PFQuery *query = [Rating query];
-    [query whereKey:@"creatorUser" equalTo:[User currentUser]];
+    [query whereKey:@"requestCreator" equalTo:[User currentUser]];
+    [query whereKey:@"comment" notEqualTo:[NSNull null]];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
        
         for (Rating *rating in objects) {
             
-            [self.comments addObject:rating.comment];
+            [self.comments addObject:rating];
+            
         }
-        
+        NSLog(@"%@", self.comments);
         [self.tableView reloadData];
         
     }];
@@ -80,7 +83,8 @@
     } else if (section == 1) {
         return 1;
     } else {
-        return [self.comments[section] count];
+        NSLog(@"%@", self.comments);
+        return [self.comments count];
     }
 }
 
