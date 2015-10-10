@@ -7,9 +7,11 @@
 //
 
 #import "CommentTableViewCell.h"
+#import "User.h"
 
 @interface CommentTableViewCell ()
 @property (weak, nonatomic) IBOutlet UILabel *commentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ratingCreatorLabel;
 
 @end
 
@@ -21,7 +23,7 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 
@@ -31,8 +33,7 @@
 }
 
 - (void)setup {
-    
     self.commentLabel.text = self.rating.comment;
-    
+    self.ratingCreatorLabel.text = self.rating.ratingCreator.fullName;
 }
 @end

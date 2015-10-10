@@ -45,8 +45,9 @@
 - (void)getAllComments {
     
     PFQuery *query = [Rating query];
-    [query whereKey:@"requestCreator" equalTo:[User currentUser]];
+    [query whereKey:@"requestCreator" equalTo:self.rating.requestCreator];
     [query whereKey:@"comment" notEqualTo:[NSNull null]];
+    [query includeKey:@"ratingCreator"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
        
         for (Rating *rating in objects) {
@@ -58,15 +59,6 @@
         [self.tableView reloadData];
         
     }];
-    
-    
-    
-}
-
-#pragma mark - Actions -
-
-- (IBAction)doneViewing:(UIBarButtonItem *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Table view data source
@@ -129,13 +121,18 @@
     return @"Comments";
 }
 
+#pragma mark - Actions -
+
 - (IBAction)doneButton:(id)sender {
     [self.rating saveInBackground];
     
     [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 - (IBAction)cancelButton:(id)sender {
+    
     [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 @end
