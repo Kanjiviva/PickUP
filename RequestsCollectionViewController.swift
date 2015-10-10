@@ -12,15 +12,6 @@ import Bolts
 
 private let reuseIdentifier = "Cell"
 
-extension PFGeoPoint {
-    
-    public var cllocation: CLLocation {
-        get {
-            return CLLocation(latitude: latitude, longitude: longitude)
-        }
-    }
-}
-
 class RequestsCollectionViewController: UICollectionViewController, AddRequestViewContollerDelegate, RequestDetailViewControllerDelegate {
     
     
@@ -43,24 +34,41 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
         navigationItem.setHidesBackButton(true, animated: false)
     }
     
-    func didAddNewItem() {
+    func didAddNewItem(newRequest:Request) {
         
-        loadRequests()
+        let citiesArray = [String](requestsByLocaion.keys)
+        
+        for city in citiesArray {
+            
+            if newRequest.cityName == city {
+                if var locArray = self.requestsByLocaion[city] {
+                    locArray.append(newRequest)
+                    self.requestsByLocaion[city] = locArray
+                    collectionView?.reloadData()
+                    
+                } else {
+                    var locArray = [Request]()
+                    locArray.append(newRequest)
+                    self.requestsByLocaion[city] = locArray
+                    collectionView?.reloadData()
+                }
+            }
+        }
     }
     
     func didAcceptRequest() {
-        loadRequests()
+        removeAcceptedObject()
+        collectionView?.reloadData()
+        
     }
     
     // MARK: Helper Methods
     
     func removeAcceptedObject() {
         
-        for request in requests {
-            if request.isAccepted {
-                requests.removeAtIndex(requests.indexOf(request)!)
-            }
-        }
+        requests = requests.filter { (item: Request)->(Bool) in !item.isAccepted }
+
+        sortIntoDictionary(requests)
         
     }
     
@@ -73,44 +81,31 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
                 if let objects = objects {
                     self.requests = objects as! [Request]
                     
-                    self.sortIntoDictionary(self.requests, completionClosure: {
-                        self.collectionView?.reloadData()
-                    })
-                    
+                    self.sortIntoDictionary(self.requests)
+                    self.collectionView?.reloadData()
                 }
             }
         })
     }
     
-    func sortIntoDictionary(requests: [Request], completionClosure: () -> ()) {
+    func sortIntoDictionary(requests: [Request]) {
         
-        for (index,request) in requests.enumerate() {
-            let locationCoordinate = request.delCoordinate.cllocation
+        self.requestsByLocaion = [String: [Request]]()
+        
+        for request in requests {
             
-            CLGeocoder().reverseGeocodeLocation(locationCoordinate) { (placemarks, error) -> Void in
-                
-                if let myPlacemarks = placemarks  {
+            if let city = request.cityName {
+                if var locArray = self.requestsByLocaion[city] {
+                    locArray.append(request)
+                    self.requestsByLocaion[city] = locArray
                     
-                    let placemark = myPlacemarks[0]
-                    
-                    if let city = placemark.locality {
-                        if var locArray = self.requestsByLocaion[city] {
-                            locArray.append(request)
-                            self.requestsByLocaion[city] = locArray
-                            
-                        } else {
-                            var locArray = [Request]()
-                            locArray.append(request)
-                            self.requestsByLocaion[city] = locArray
-                        }
-                        
-                        if index == requests.count - 1 {
-                            completionClosure()
-                        }
-                    }
-                
+                } else {
+                    var locArray = [Request]()
+                    locArray.append(request)
+                    self.requestsByLocaion[city] = locArray
                 }
             }
+            
         }
     }
     
@@ -125,13 +120,22 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let keys = Array(requestsByLocaion.keys)
         let currentKey = keys[section]
+        
         return requestsByLocaion[currentKey]!.count
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! RequestCollectionViewCell
         
-        cell.object = requests[indexPath.item]
+        let citiesArray = [String](requestsByLocaion.keys)
+        let myRequestsByCity = citiesArray[indexPath.section]
+        
+        if let requestsArray = requestsByLocaion[myRequestsByCity] {
+            
+            cell.object = requestsArray[indexPath.row]
+            
+        }
+        
         
         return cell
     }
@@ -145,6 +149,7 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
                 withReuseIdentifier: "RequestsHeaderView",
                 forIndexPath: indexPath)
                 as! RequestsHeaderView
+            
             let keys = Array(requestsByLocaion.keys)
             let currentKey = keys[indexPath.section]
             headerView.locationLabel.text = currentKey
@@ -159,10 +164,16 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
         if segue.identifier == "showDetail" {
             let detailVC = segue.destinationViewController as! RequestDetailViewController
             if let selectedRequestCell = sender as? RequestCollectionViewCell {
-                if let indexPath = collectionView?.indexPathForCell(selectedRequestCell){
-                    let selectedRequest = requests[indexPath.item]
-                    detailVC.request = selectedRequest
-                    detailVC.delegate = self
+                if let indexPath = collectionView?.indexPathForCell(selectedRequestCell) {
+                    
+                    let citiesArray = [String](requestsByLocaion.keys)
+                    let myRequestsByCity = citiesArray[indexPath.section]
+                    if let requestsArray = requestsByLocaion[myRequestsByCity] {
+                        
+                        let selectedRequest = requestsArray[indexPath.row]
+                        detailVC.request = selectedRequest
+                        detailVC.delegate = self
+                    }
                 }
 
             }

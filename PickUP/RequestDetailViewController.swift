@@ -16,6 +16,12 @@ class RequestDetailViewController: UIViewController {
 
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var itemTitle: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var pickupLoc: UILabel!
+    @IBOutlet weak var dropoffLoc: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var descripLabel: UILabel!
+    @IBOutlet weak var contactLabel: UILabel!
     
     var delegate: RequestDetailViewControllerDelegate?
     var request: Request?
@@ -26,6 +32,13 @@ class RequestDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         itemTitle.text = request?.itemTitle
+        titleLabel.text = request?.itemTitle
+        //pickupLoc.text = request?.pickupLocation.cityName
+        dropoffLoc.text = request?.deliverLocation
+        priceLabel.text = String( "\(request?.itemCost)")
+        descripLabel.text = request?.itemDescription
+        contactLabel.text = "need Contact model"
+        
         
     }
     

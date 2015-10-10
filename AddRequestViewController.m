@@ -92,7 +92,7 @@
             [request saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                 
                 if (succeeded) {
-                    [self.delegate didAddNewItem];
+                    [self.delegate didAddNewItem:request];
                     // stop spinning
                     [activityView stopAnimating];
                     [self dismissViewControllerAnimated:YES completion:nil];
