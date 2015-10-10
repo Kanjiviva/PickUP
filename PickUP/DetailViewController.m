@@ -8,6 +8,7 @@
 
 #import "DetailViewController.h"
 #import "PickUp.h"
+#import "CreatorTableViewController.h"
 
 @interface DetailViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *itemImage;
@@ -48,4 +49,12 @@
         
     }
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showCreator"]) {
+        CreatorTableViewController *creatorVC = segue.destinationViewController;
+        creatorVC.request = self.request;
+    }
+}
+
 @end

@@ -16,10 +16,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *switchStatus;
 
-@property (strong, nonatomic) NSMutableArray *creatorFinishedRequests;
-@property (strong, nonatomic) NSMutableArray *creatorUnfinshedRequests;
-@property (strong, nonatomic) NSMutableArray *assignedUserFinishedRequests;
-@property (strong, nonatomic) NSMutableArray *assignedUserUnfinishedRequests;
 @property (strong, nonatomic) NSMutableArray *creatorRequests;
 @property (strong, nonatomic) NSMutableArray *assignedAccepted;
 
@@ -33,11 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.statusLabel.text = @"Accepted Requests";
-    
-    self.creatorFinishedRequests = [NSMutableArray new];
-    self.creatorUnfinshedRequests = [NSMutableArray new];
-    self.assignedUserFinishedRequests = [NSMutableArray new];
-    self.assignedUserUnfinishedRequests = [NSMutableArray new];
+
     self.creatorRequests = [NSMutableArray new];
     self.assignedAccepted = [NSMutableArray new];
     
@@ -53,10 +45,18 @@
     if (sender.selectedSegmentIndex == 0) {
         [self.tableView reloadData];
         
+        
+        // hit network
+        [self storeCurrentUserAccepted];
+        
+        
         self.statusLabel.text = @"Accepted Requests";
         
     } else if (sender.selectedSegmentIndex == 1) {
         [self.tableView reloadData];
+        
+        // hit network
+        [self storeCurrentUserPosts];
         
         self.statusLabel.text = @"My Requests";
     }
@@ -72,6 +72,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if (self.switchStatus.selectedSegmentIndex == 0) {
         if ([segue.identifier isEqualToString:@"showRequestsDetail"]) {
+            
             DetailViewController *detailVC = segue.destinationViewController;
             NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
             NSArray *getRequests = self.assignedAccepted[indexPath.section];
@@ -93,43 +94,41 @@
 
 #pragma mark - Helper Methods -
 
-- (void)storeCurrentUserPosts {
+- (void)loadRole:(NSString *)whichUser sortedBy:(NSString *)sortfield intoArray:(NSMutableArray *)array {
     PFQuery *query = [Request query];
-    [query whereKey:@"creatorUser" equalTo:self.currentUser];
+    [query whereKey:whichUser equalTo:self.currentUser];
     [query includeKey:@"pickupLocation"];
-    [query orderByDescending:@"createdAt"];
+    [query orderByDescending:sortfield];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        
+        
+        NSMutableArray *unfinished = [NSMutableArray array];
+        NSMutableArray *finished = [NSMutableArray array];
         
         for (Request *request in objects) {
             if (request.isDone) {
-                [self.creatorFinishedRequests addObject:request];
+                [finished addObject:request];
             } else {
-                [self.creatorUnfinshedRequests addObject:request];
+                [unfinished addObject:request];
             }
         }
         
-        [self.creatorRequests addObjectsFromArray:@[self.creatorUnfinshedRequests, self.creatorFinishedRequests]];
+        [array removeAllObjects];
+        [array addObjectsFromArray:@[unfinished, finished]];
         [self.tableView reloadData];
     }];
 }
 
+- (void)storeCurrentUserPosts {
+    
+    [self loadRole:@"creatorUser" sortedBy:@"createdAt" intoArray:self.creatorRequests];
+    
+}
+
 - (void)storeCurrentUserAccepted {
-    PFQuery *query = [Request query];
-    [query whereKey:@"assignedUser" equalTo:self.currentUser];
-    [query includeKey:@"pickupLocation"];
-    [query orderByDescending:@"updatedAt"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        
-        for (Request *request in objects) {
-            if (request.isDone) {
-                [self.assignedUserFinishedRequests addObject:request];
-            } else {
-                [self.assignedUserUnfinishedRequests addObject:request];
-            }
-        }
-        [self.assignedAccepted addObjectsFromArray:@[self.assignedUserUnfinishedRequests, self.assignedUserFinishedRequests]];
-        [self.tableView reloadData];
-    }];
+    
+    [self loadRole:@"assignedUser" sortedBy:@"updatedAt" intoArray:self.assignedAccepted];
+    
 }
 
 
@@ -180,7 +179,7 @@
         
         Request *request = getRequests[indexPath.row];
         cell.textLabel.text = request.itemTitle;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"Pick Up Location: %@", request.pickupLocation];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Pick Up Location: %@", request.pickupLocation.location];
         
         if (indexPath.section == 0) {
             cell.rightUtilityButtons = [self rightButtons];
@@ -197,7 +196,7 @@
         
         Request *request = getRequests[indexPath.row];
         cell.textLabel.text = request.itemTitle;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"Pick Up Location: %@", request.pickupLocation];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Pick Up Location: %@", request.pickupLocation.location];
         cell.rightUtilityButtons = nil;
         cell.delegate = nil;
     }

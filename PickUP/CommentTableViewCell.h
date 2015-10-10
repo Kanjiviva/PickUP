@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Rating.h"
 
 @interface CommentTableViewCell : UITableViewCell
+
+@property (strong, nonatomic) Rating *rating;
 
 @end

@@ -8,6 +8,10 @@
 
 #import "CreatorCommentTableViewCell.h"
 
+@interface CreatorCommentTableViewCell ()
+@property (weak, nonatomic) IBOutlet UITextField *commentsTextField;
+@end
+
 @implementation CreatorCommentTableViewCell
 
 - (void)awakeFromNib {
@@ -18,6 +22,12 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+-(IBAction)textChanged:(id)sender {
+    
+    self.rating.comment = self.commentsTextField.text;
+    
 }
 
 @end

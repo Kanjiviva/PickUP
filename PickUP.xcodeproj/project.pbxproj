@@ -35,7 +35,6 @@
 		AAE59C9E1BC3B7ED00F99907 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C9D1BC3B7ED00F99907 /* LocationManager.m */; settings = {ASSET_TAGS = (); }; };
 		AAE59CA01BC44B6D00F99907 /* UserInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C9F1BC44B6D00F99907 /* UserInfo.storyboard */; settings = {ASSET_TAGS = (); }; };
 		AAE59CA21BC44FDC00F99907 /* Posts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59CA11BC44FDC00F99907 /* Posts.storyboard */; settings = {ASSET_TAGS = (); }; };
-		AAE59CA81BC453A300F99907 /* RatingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59CA71BC453A300F99907 /* RatingTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		AAE59CAB1BC453B000F99907 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59CAA1BC453B000F99907 /* CommentTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		AAE59CAF1BC499C500F99907 /* AddRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59CAE1BC499C500F99907 /* AddRequestViewController.m */; settings = {ASSET_TAGS = (); }; };
 		AAE59CB41BC4DEB100F99907 /* AddPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59CB31BC4DEB100F99907 /* AddPost.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -103,8 +102,6 @@
 		AAE59C9D1BC3B7ED00F99907 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationManager.m; path = PickUP/LocationManager.m; sourceTree = "<group>"; };
 		AAE59C9F1BC44B6D00F99907 /* UserInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserInfo.storyboard; sourceTree = "<group>"; };
 		AAE59CA11BC44FDC00F99907 /* Posts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Posts.storyboard; path = PickUP/Posts.storyboard; sourceTree = "<group>"; };
-		AAE59CA61BC453A300F99907 /* RatingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingTableViewCell.h; path = PickUP/RatingTableViewCell.h; sourceTree = "<group>"; };
-		AAE59CA71BC453A300F99907 /* RatingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingTableViewCell.m; path = PickUP/RatingTableViewCell.m; sourceTree = "<group>"; };
 		AAE59CA91BC453B000F99907 /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentTableViewCell.h; path = PickUP/CommentTableViewCell.h; sourceTree = "<group>"; };
 		AAE59CAA1BC453B000F99907 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentTableViewCell.m; path = PickUP/CommentTableViewCell.m; sourceTree = "<group>"; };
 		AAE59CAD1BC499C500F99907 /* AddRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddRequestViewController.h; path = ../AddRequestViewController.h; sourceTree = "<group>"; };
@@ -272,8 +269,6 @@
 				AAE59CC11BC4F3E600F99907 /* CreatorCommentTableViewCell.m */,
 				AAE59CA91BC453B000F99907 /* CommentTableViewCell.h */,
 				AAE59CAA1BC453B000F99907 /* CommentTableViewCell.m */,
-				AAE59CA61BC453A300F99907 /* RatingTableViewCell.h */,
-				AAE59CA71BC453A300F99907 /* RatingTableViewCell.m */,
 				AAE59C871BC333B500F99907 /* ProfileTableViewCell.h */,
 				AAE59C881BC333B500F99907 /* ProfileTableViewCell.m */,
 			);
@@ -465,7 +460,6 @@
 				AAE59CBC1BC4F3C800F99907 /* CreatorProfileTableViewCell.m in Sources */,
 				AAE59C901BC34B5C00F99907 /* Request.m in Sources */,
 				AAE59CBF1BC4F3D700F99907 /* CreatorRatingTableViewCell.m in Sources */,
-				AAE59CA81BC453A300F99907 /* RatingTableViewCell.m in Sources */,
 				AAE59C9E1BC3B7ED00F99907 /* LocationManager.m in Sources */,
 				AAE59C961BC351FC00F99907 /* PickUp.m in Sources */,
 				AAE59CB91BC4DFE000F99907 /* CreatorTableViewController.m in Sources */,

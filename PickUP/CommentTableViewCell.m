@@ -25,4 +25,14 @@
     // Configure the view for the selected state
 }
 
+- (void)setRating:(Rating *)rating {
+    _rating = rating;
+    [self setup];
+}
+
+- (void)setup {
+    
+    self.commentLabel.text = self.rating.comment;
+    
+}
 @end
