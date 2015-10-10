@@ -8,24 +8,28 @@
 
 #import "ProfileTableViewController.h"
 #import "ProfileTableViewCell.h"
-#import "RatingTableViewCell.h"
 #import "CommentTableViewCell.h"
+#import "CreatorRatingTableViewCell.h"
 
 #import "CurrentUserRequestViewController.h"
 
 @interface ProfileTableViewController ()
 
-
+@property (nonatomic) float averageRating;
 
 @end
 
 @implementation ProfileTableViewController
+
+#pragma mark - Life Cycle -
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (!self.currentUser) {
         self.currentUser = [User currentUser];
     }
+    
+    
     
     if (self.currentUser != [User currentUser]) {
         self.navigationItem.rightBarButtonItem = nil;
@@ -35,9 +39,38 @@
     self.tableView.estimatedRowHeight = 50;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    [self getAverageRatings:self.currentUser];
+}
+
+#pragma mark - Helper Methods -
+
+- (void)getAverageRatings:(User *)currentUser {
+    
+    PFQuery *query = [Rating query];
+    [query whereKey:@"requestCreator" equalTo:currentUser];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        
+        float totalScore = 0;
+        
+        for (Rating *rating in objects) {
+            
+            totalScore += rating.score;
+            
+        }
+        
+        float averageScore = totalScore / [objects count];
+        
+        // update ui
+        
+        self.averageRating = averageScore;
+        
+        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+        
+    }];
+    
 }
 
 #pragma mark - Table view data source
@@ -61,7 +94,6 @@
     if (indexPath.row == 0 && indexPath.section == 0) {
         ProfileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         
-//        User *currentUser = [User currentUser];
         PFFile *imageFile = self.currentUser.profilePicture;
         [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
             cell.profilePicture.image = [UIImage imageWithData:data];
@@ -72,7 +104,9 @@
         return cell;
     
     } else if (indexPath.row == 1 && indexPath.section == 0) {
-        RatingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
+        CreatorRatingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
+        [cell updateStars:self.averageRating];
+        [cell enableStarButtons:NO];
         return cell;
     } else if (indexPath.row == 0 && indexPath.section == 1) {
         CommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell3" forIndexPath:indexPath];

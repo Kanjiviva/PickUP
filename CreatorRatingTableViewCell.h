@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Rating.h"
 
 @interface CreatorRatingTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIButton *firstStar;
-@property (weak, nonatomic) IBOutlet UIButton *secondStar;
-@property (weak, nonatomic) IBOutlet UIButton *thirdStar;
-@property (weak, nonatomic) IBOutlet UIButton *forthStar;
-@property (weak, nonatomic) IBOutlet UIButton *fifthStar;
+
+
+-(void)updateStars:(int)rating;
+-(void)enableStarButtons:(BOOL)enabled;
+@property (strong, nonatomic) Rating *rating;
 
 @end

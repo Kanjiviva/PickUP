@@ -144,27 +144,56 @@
                                     <outlet property="thirdStar" destination="MAS-7T-4d6" id="MSb-DD-gpj"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell2" rowHeight="213" id="GYS-hk-1fO" customClass="CreatorCommentTableViewCell">
-                                <rect key="frame" x="0.0" y="308.5" width="600" height="213"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell2" rowHeight="59" id="GYS-hk-1fO" customClass="CreatorCommentTableViewCell">
+                                <rect key="frame" x="0.0" y="308.5" width="600" height="59"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GYS-hk-1fO" id="VnA-O2-5no">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="212.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="58.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Comments:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzS-78-zgC">
-                                            <rect key="frame" x="4" y="8" width="88" height="21"/>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add comments" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oPm-zl-TL5">
+                                            <rect key="frame" x="8" y="8" width="584" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="Zwi-ks-qRH"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="textChanged:" destination="GYS-hk-1fO" eventType="editingChanged" id="g8k-Ce-i9l"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="oPm-zl-TL5" firstAttribute="top" secondItem="VnA-O2-5no" secondAttribute="topMargin" id="2Fu-w6-DEk"/>
+                                        <constraint firstItem="oPm-zl-TL5" firstAttribute="leading" secondItem="VnA-O2-5no" secondAttribute="leadingMargin" id="Lh2-H7-7VC"/>
+                                        <constraint firstItem="oPm-zl-TL5" firstAttribute="trailing" secondItem="VnA-O2-5no" secondAttribute="trailingMargin" id="l0A-Sn-mU5"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="commentsTextField" destination="oPm-zl-TL5" id="KDQ-dp-hMN"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell3" id="o6Y-Je-UnJ" customClass="CommentTableViewCell">
+                                <rect key="frame" x="0.0" y="367.5" width="600" height="145"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o6Y-Je-UnJ" id="csh-wV-Nfw">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="144.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1Y-W2-f2J">
+                                            <rect key="frame" x="8" y="8" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="dzS-78-zgC" firstAttribute="top" secondItem="VnA-O2-5no" secondAttribute="topMargin" id="AuP-pY-h93"/>
-                                        <constraint firstItem="dzS-78-zgC" firstAttribute="leading" secondItem="VnA-O2-5no" secondAttribute="leadingMargin" id="seu-dx-wGj"/>
+                                        <constraint firstItem="z1Y-W2-f2J" firstAttribute="leading" secondItem="csh-wV-Nfw" secondAttribute="leadingMargin" id="cOj-bW-Re0"/>
+                                        <constraint firstItem="z1Y-W2-f2J" firstAttribute="top" secondItem="csh-wV-Nfw" secondAttribute="topMargin" id="csZ-Wx-bcG"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="comment" destination="dzS-78-zgC" id="aei-sR-ZR5"/>
+                                    <outlet property="commentLabel" destination="z1Y-W2-f2J" id="2Gv-Bc-5cb"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Rating.h"
 
 @interface CreatorCommentTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *comment;
+
+@property (strong, nonatomic) Rating *rating;
 
 @end

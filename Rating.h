@@ -14,8 +14,8 @@
 
 @interface Rating : PFObject <PFSubclassing>
 
-@property (strong, nonatomic) User *creator;
-@property (strong, nonatomic) User *deliver;
+@property (strong, nonatomic) User *requestCreator; // made the request
+@property (strong, nonatomic) User *ratingCreator; // did the request
 @property (strong, nonatomic) NSString *comment;
 @property (nonatomic) float score;
 

@@ -11,23 +11,53 @@
 #import "CreatorProfileTableViewCell.h"
 #import "CreatorRatingTableViewCell.h"
 #import "User.h"
+#import "Rating.h"
+#import "CommentTableViewCell.h"
 
 @interface CreatorTableViewController ()
 
+@property (strong, nonatomic) Rating *rating;
+
+@property (strong, nonatomic) NSMutableArray *comments;
 
 @end
 
 @implementation CreatorTableViewController
 
+#pragma mark - Life Cycle -
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 50;
+    
+    self.comments = [NSMutableArray new];
+    self.rating = [Rating object];
+    self.rating.ratingCreator = [User currentUser];
+    self.rating.requestCreator = self.request.creatorUser;
+    
+    [self getAllComments];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Helper Methods -
+
+- (void)getAllComments {
+    
+    PFQuery *query = [Rating query];
+    [query whereKey:@"creatorUser" equalTo:[User currentUser]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+       
+        for (Rating *rating in objects) {
+            
+            [self.comments addObject:rating.comment];
+        }
+        
+        [self.tableView reloadData];
+        
+    }];
+    
+    
+    
 }
 
 #pragma mark - Actions -
@@ -49,7 +79,9 @@
         return 2;
     } else if (section == 1) {
         return 1;
-    } else return 0;
+    } else {
+        return [self.comments[section] count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -65,13 +97,26 @@
         return cell;
     } else if (indexPath.row == 1 && indexPath.section == 0) {
         CreatorRatingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell1" forIndexPath:indexPath];
+        
+        cell.rating = self.rating;
+        [cell enableStarButtons:YES];
+        
+        [cell updateStars:1];
         return cell;
     } else if (indexPath.row == 0 && indexPath.section == 1) {
         CreatorCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
+        
+        cell.rating = self.rating;
+        
+        return cell;
+    } else {
+        CommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell3" forIndexPath:indexPath];
+        
+        Rating *rating = self.comments[indexPath.row];
+        cell.rating = rating;
         return cell;
     }
     
-    return nil;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -81,7 +126,9 @@
 }
 
 - (IBAction)doneButton:(id)sender {
+    [self.rating saveInBackground];
     
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)cancelButton:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
