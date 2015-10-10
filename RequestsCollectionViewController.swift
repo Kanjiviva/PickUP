@@ -28,6 +28,9 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
         
     }
     
+
+    // MARK: Helper Methods
+    
     func setupNavBar() {
         let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem
@@ -36,33 +39,25 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
     
     func didAddNewItem(newRequest:Request) {
         
-        let citiesArray = [String](requestsByLocaion.keys)
-        
-        for city in citiesArray {
+        if var requestArray = self.requestsByLocaion[newRequest.cityName] {
             
-            if newRequest.cityName == city {
-                if var locArray = self.requestsByLocaion[city] {
-                    locArray.append(newRequest)
-                    self.requestsByLocaion[city] = locArray
-                    collectionView?.reloadData()
-                    
-                } else {
-                    var locArray = [Request]()
-                    locArray.append(newRequest)
-                    self.requestsByLocaion[city] = locArray
-                    collectionView?.reloadData()
-                }
-            }
+            requestArray.append(newRequest)
+            self.requestsByLocaion[newRequest.cityName] = requestArray
+            
+        } else {
+            
+            self.requestsByLocaion[newRequest.cityName] = [newRequest]
         }
+        
+        self.collectionView?.reloadData()
+        
     }
-    
+
     func didAcceptRequest() {
         removeAcceptedObject()
-        collectionView?.reloadData()
+        self.collectionView?.reloadData()
         
     }
-    
-    // MARK: Helper Methods
     
     func removeAcceptedObject() {
         
@@ -89,8 +84,9 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
     }
     
     func sortIntoDictionary(requests: [Request]) {
-        
-        self.requestsByLocaion = [String: [Request]]()
+        if requests.count == 0 {
+            self.requestsByLocaion = [String: [Request]]()
+        }
         
         for request in requests {
             
