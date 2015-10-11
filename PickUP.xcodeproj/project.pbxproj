@@ -16,6 +16,7 @@
 		4EA4E5011BC3686500D1AE5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C571BC2F14400F99907 /* AppDelegate.m */; };
 		AAB242C71BC79E78004644DA /* emptyStar.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB242C61BC79E78004644DA /* emptyStar.png */; settings = {ASSET_TAGS = (); }; };
 		AAB242C91BC79E83004644DA /* filledStar.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB242C81BC79E83004644DA /* filledStar.png */; settings = {ASSET_TAGS = (); }; };
+		AAB242CC1BCB2D04004644DA /* Messenger.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAB242CB1BCB2D04004644DA /* Messenger.storyboard */; settings = {ASSET_TAGS = (); }; };
 		AAE59C5E1BC2F14400F99907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C5C1BC2F14400F99907 /* Main.storyboard */; };
 		AAE59C601BC2F14400F99907 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C5F1BC2F14400F99907 /* Assets.xcassets */; };
 		AAE59C631BC2F14400F99907 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C611BC2F14400F99907 /* LaunchScreen.storyboard */; };
@@ -68,6 +69,7 @@
 		AAB242C61BC79E78004644DA /* emptyStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyStar.png; sourceTree = "<group>"; };
 		AAB242C81BC79E83004644DA /* filledStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filledStar.png; sourceTree = "<group>"; };
 		AAB242CA1BC84F33004644DA /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		AAB242CB1BCB2D04004644DA /* Messenger.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Messenger.storyboard; sourceTree = "<group>"; };
 		AAE59C501BC2F14400F99907 /* PickUP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickUP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE59C541BC2F14400F99907 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AAE59C561BC2F14400F99907 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				AAE59CB51BC4DF6800F99907 /* CreatorUser.storyboard */,
 				AAE59CB31BC4DEB100F99907 /* AddPost.storyboard */,
 				AAE59C5C1BC2F14400F99907 /* Main.storyboard */,
+				AAB242CB1BCB2D04004644DA /* Messenger.storyboard */,
 				AAE59C9F1BC44B6D00F99907 /* UserInfo.storyboard */,
 				AAE59C791BC2FF4A00F99907 /* Login.storyboard */,
 			);
@@ -375,6 +378,7 @@
 				AAE59C7F1BC3276700F99907 /* Globe-24.png in Resources */,
 				AAE59CB41BC4DEB100F99907 /* AddPost.storyboard in Resources */,
 				AAE59C631BC2F14400F99907 /* LaunchScreen.storyboard in Resources */,
+				AAB242CC1BCB2D04004644DA /* Messenger.storyboard in Resources */,
 				AAE59CB61BC4DF6800F99907 /* CreatorUser.storyboard in Resources */,
 				AAE59C601BC2F14400F99907 /* Assets.xcassets in Resources */,
 				AAE59C811BC3279600F99907 /* Settings 3-25.png in Resources */,

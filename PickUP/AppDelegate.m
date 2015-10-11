@@ -17,6 +17,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "Constants.h"
 
+
 @interface AppDelegate ()
 
 @end
@@ -28,7 +29,24 @@
     // Override point for customization after application launch.
     
     [GMSServices provideAPIKey:API_KET];
-    
+    NSURL *appID = [NSURL URLWithString:@"layer:///apps/staging/69d9ba30-6fa8-11e5-b120-ce24430e1708"];
+    self.layerClient = [LYRClient clientWithAppID:appID];
+    [self.layerClient connectWithCompletion:^(BOOL success, NSError *error) {
+        if (!success) {
+            NSLog(@"Failed to connect to Layer: %@", error);
+        } else {
+            // For the purposes of this Quick Start project, let's authenticate as a user named 'Device'.  Alternatively, you can authenticate as a user named 'Simulator' if you're running on a Simulator.
+            NSString *userIDString = @"Device";
+            // Once connected, authenticate user.
+            // Check Authenticate step for authenticateLayerWithUserID source
+            [self authenticateLayerWithUserID:userIDString completion:^(BOOL success, NSError *error) {
+                if (!success) {
+                    NSLog(@"Failed Authenticating Layer Client with error:%@", error);
+                }
+            }];
+        }
+    }];
+
     // Register PF subclasses
     [User registerSubclass];
     [Request registerSubclass];
