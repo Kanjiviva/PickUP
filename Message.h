@@ -18,4 +18,6 @@
 @property (strong, nonatomic) NSNumber *hashForMessage;
 @property (strong, nonatomic) NSString *messageText;
 
+- (instancetype)initWithText:(NSString *)text sender:(User *)sender receiver:(User *)receiver;
+
 @end

@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) User *currentUser;
 @property (strong, nonatomic) NSMutableArray *messagesData;
+@property (strong, nonatomic) JSQMessagesBubbleImageFactory *bubbleFactory;
 @end
 
 @implementation MessengerViewController
@@ -23,8 +24,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.collectionView.collectionViewLayout.springinessEnabled = YES;
+    self.currentUser = [User currentUser];
     self.senderDisplayName = [User currentUser].fullName;
     self.senderId = [User currentUser].objectId;
+    
     self.messagesData = [NSMutableArray array];
 //    [self fetchMessages];
 
@@ -84,7 +87,12 @@
  *  @see JSQMessagesCollectionViewFlowLayout.
  */
 - (id<JSQMessageBubbleImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView messageBubbleImageDataForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    if ([self.messagesData[indexPath.item] senderUser] == self.currentUser) {
+        return [self.bubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor colorWithRed: 80.0/255.0 green: 210.0/255.0 blue: 194.0/255.0 alpha: 1.0]];
+    } else {
+        
+        return [self.bubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor colorWithRed: 158.0/255.0 green: 37.0/255.0 blue: 143.0/255.0 alpha: 1.0]];
+    }
 }
 
 /**
@@ -106,6 +114,35 @@
     return nil;
 }
 
-#pragma mark - UICollectionView
+- (void)didPressSendButton:(UIButton *)button
+           withMessageText:(NSString *)text
+                  senderId:(NSString *)senderId
+         senderDisplayName:(NSString *)senderDisplayName
+                      date:(NSDate *)date {
+    
+    
+    Message *message = [[Message alloc] initWithText:text sender:self.currentUser receiver:self.currentUser];
+    
+    [self.messagesData addObject:message];
+    
+    [message saveInBackground];
+    [self finishSendingMessageAnimated:YES];
+}
+
+#pragma mark - UICollectionView Datasource -
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return [self.messagesData count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    JSQMessagesCollectionViewCell *cell = (JSQMessagesCollectionViewCell *)[super.collectionView cellForItemAtIndexPath:indexPath];
+    
+    cell.avatarImageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    return cell;
+    
+}
 
 @end

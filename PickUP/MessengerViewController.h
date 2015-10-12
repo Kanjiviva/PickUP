@@ -6,7 +6,7 @@
 //  Copyright © 2015 Steve. All rights reserved.
 //
 
-#import <JSQMessagesViewController/JSQMessagesViewController.h>
+#import <JSQMessagesViewController/JSQMessages.h>
 
 @interface MessengerViewController : JSQMessagesViewController
 
