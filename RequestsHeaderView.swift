@@ -10,5 +10,5 @@ import UIKit
 
 class RequestsHeaderView: UICollectionReusableView {
     @IBOutlet weak var locationLabel: UILabel!
-        
+    
 }

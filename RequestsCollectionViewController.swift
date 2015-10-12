@@ -31,6 +31,8 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+       
         let locationManager = LocationManager.sharedLocationManager()
         locationManager.delegate = self
         LocationManager.sharedLocationManager().startLocationManager(self)
@@ -39,7 +41,8 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
         updateLocation(locationManager.currentLocation)
 
         setupNavBar()
-        collectionView?.backgroundColor = UIColor.whiteColor()
+        collectionView?.backgroundColor = UIColor.init(netHex: 0xE8846B)
+        
         
     }
     
@@ -59,7 +62,6 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
         for request in requests {
             let distance = request.pickupLocation.coordinate.cllocation.distanceFromLocation(currentLocation)
             request.distanceFromPickupLoc = distance
-            print("distance between \(request.pickupLocation.location) and me is \(distance)")
         }
     }
     
@@ -88,20 +90,6 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
         
     }
 
-    func didAcceptRequest() {
-        removeAcceptedObject()
-        self.collectionView?.reloadData()
-        
-    }
-    
-    func removeAcceptedObject() {
-        
-        requests = requests.filter { (item: Request)->(Bool) in !item.isAccepted }
-
-        sortIntoDictionary(requests)
-        
-    }
-    
     func loadRequests() {
         let query = Request.query()
         query?.includeKey("creatorUser")
@@ -140,6 +128,22 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
             
         }
     }
+    // MARK: RequestDetailViewControllerDelegate
+    
+    func didAcceptRequest() {
+        
+        removeAcceptedObject()
+        self.collectionView?.reloadData()
+        
+    }
+    
+    func removeAcceptedObject() {
+        
+        requests = requests.filter { (item: Request)->(Bool) in !item.isAccepted }
+        
+        sortIntoDictionary(requests)
+        
+    }
     
     // MARK: UICollectionViewDataSource
     
@@ -157,7 +161,12 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! RequestCollectionViewCell
+        
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = 10
+        cell.backgroundColor = UIColor.init(netHex: 0xE54B4B)
         
         let citiesArray = [String](requestsByLocaion.keys)
         let myRequestsByCity = citiesArray[indexPath.section]
@@ -184,6 +193,9 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
             let keys = Array(requestsByLocaion.keys)
             let currentKey = keys[indexPath.section]
             headerView.locationLabel.text = currentKey
+            headerView.locationLabel.textColor = UIColor.init(netHex: 0x16528E)
+            headerView.backgroundColor = UIColor.init(netHex: 0xA1C4BE)
+            
             return headerView
         default:
             assert(false, "Unexpected element kind")

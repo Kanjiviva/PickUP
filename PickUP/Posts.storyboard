@@ -16,7 +16,7 @@
                             <size key="itemSize" width="100" height="150"/>
                             <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="0.0"/>
+                            <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="gig-CP-iO3" customClass="RequestCollectionViewCell" customModule="PickUP" customModuleProvider="target">
@@ -26,48 +26,47 @@
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="roO-1a-mph">
-                                            <rect key="frame" x="10" y="24" width="80" height="80"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="roO-1a-mph">
+                                            <rect key="frame" x="10" y="30" width="80" height="80"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="80" id="X2h-Ex-p83"/>
                                                 <constraint firstAttribute="height" constant="80" id="YuR-o8-lmz"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0.2 km" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9g-yB-Btv">
-                                            <rect key="frame" x="0.0" y="132" width="100" height="18"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.2 km" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9g-yB-Btv">
+                                            <rect key="frame" x="0.0" y="135" width="100" height="15"/>
+                                            <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="$ 20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyF-Ad-hWz">
-                                            <rect key="frame" x="0.0" y="110" width="100" height="18"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyF-Ad-hWz">
+                                            <rect key="frame" x="0.0" y="116" width="100" height="15"/>
+                                            <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="iPhone 6S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2b-bf-kk2">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="21"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="iPhone 6S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2b-bf-kk2">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="27"/>
+                                            <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="f2b-bf-kk2" firstAttribute="top" secondItem="gig-CP-iO3" secondAttribute="top" id="1Np-ti-mdz"/>
                                     <constraint firstAttribute="bottom" secondItem="d9g-yB-Btv" secondAttribute="bottom" id="27h-uX-AOc"/>
-                                    <constraint firstItem="roO-1a-mph" firstAttribute="top" secondItem="f2b-bf-kk2" secondAttribute="bottom" constant="3" id="6Xr-7Y-2x4"/>
                                     <constraint firstAttribute="trailing" secondItem="d9g-yB-Btv" secondAttribute="trailing" id="AeD-G4-WMO"/>
                                     <constraint firstAttribute="trailing" secondItem="roO-1a-mph" secondAttribute="trailing" constant="10" id="Q9p-3l-LkC"/>
                                     <constraint firstAttribute="trailing" secondItem="nyF-Ad-hWz" secondAttribute="trailing" id="UOf-P8-qzH"/>
-                                    <constraint firstAttribute="trailing" secondItem="f2b-bf-kk2" secondAttribute="trailing" id="W9p-JQ-PKR"/>
-                                    <constraint firstItem="f2b-bf-kk2" firstAttribute="leading" secondItem="gig-CP-iO3" secondAttribute="leading" id="Wd0-Jx-azO"/>
                                     <constraint firstItem="d9g-yB-Btv" firstAttribute="top" secondItem="nyF-Ad-hWz" secondAttribute="bottom" constant="4" id="WiZ-Jt-2W9"/>
                                     <constraint firstItem="d9g-yB-Btv" firstAttribute="leading" secondItem="gig-CP-iO3" secondAttribute="leading" id="XEZ-FH-2GA"/>
                                     <constraint firstItem="roO-1a-mph" firstAttribute="leading" secondItem="gig-CP-iO3" secondAttribute="leading" constant="10" id="ZiF-UK-tZH"/>
+                                    <constraint firstItem="f2b-bf-kk2" firstAttribute="leading" secondItem="gig-CP-iO3" secondAttribute="leading" id="jq5-ga-15N"/>
+                                    <constraint firstItem="roO-1a-mph" firstAttribute="top" secondItem="f2b-bf-kk2" secondAttribute="bottom" constant="3" id="mWw-Bx-SwZ"/>
                                     <constraint firstItem="nyF-Ad-hWz" firstAttribute="top" secondItem="roO-1a-mph" secondAttribute="bottom" constant="6" id="rzJ-eC-kTY"/>
-                                    <constraint firstItem="f2b-bf-kk2" firstAttribute="top" secondItem="gig-CP-iO3" secondAttribute="top" id="uxd-8y-oXC"/>
+                                    <constraint firstAttribute="trailing" secondItem="f2b-bf-kk2" secondAttribute="trailing" id="sLw-v5-1Hz"/>
                                     <constraint firstItem="nyF-Ad-hWz" firstAttribute="leading" secondItem="gig-CP-iO3" secondAttribute="leading" id="yS1-mY-fcq"/>
                                 </constraints>
                                 <connections>
@@ -86,8 +85,8 @@
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vancouver" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBP-XH-J5K">
-                                    <rect key="frame" x="252" y="12" width="96" height="26"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-ThinItalic" family="Helvetica Neue" pointSize="22"/>
+                                    <rect key="frame" x="252" y="5" width="96" height="41"/>
+                                    <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="35"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
