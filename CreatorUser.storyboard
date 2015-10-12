@@ -173,19 +173,11 @@
                                     <outlet property="commentsTextField" destination="oPm-zl-TL5" id="KDQ-dp-hMN"/>
                                 </connections>
                             </tableViewCell>
-<<<<<<< HEAD
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell3" id="o6Y-Je-UnJ" customClass="CommentTableViewCell">
-                                <rect key="frame" x="0.0" y="522" width="600" height="145"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o6Y-Je-UnJ" id="csh-wV-Nfw">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="144"/>
-=======
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell3" rowHeight="69" id="o6Y-Je-UnJ" customClass="CommentTableViewCell">
                                 <rect key="frame" x="0.0" y="367.5" width="600" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o6Y-Je-UnJ" id="csh-wV-Nfw">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="68.5"/>
->>>>>>> LocalProject
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1Y-W2-f2J">
