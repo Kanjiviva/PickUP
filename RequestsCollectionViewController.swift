@@ -34,9 +34,10 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
         let locationManager = LocationManager.sharedLocationManager()
         locationManager.delegate = self
         LocationManager.sharedLocationManager().startLocationManager(self)
-        currentLoc = locationManager.currentLocation
         
-        //loadRequests()
+        // force a location update immediately
+        updateLocation(locationManager.currentLocation)
+
         setupNavBar()
         collectionView?.backgroundColor = UIColor.whiteColor()
         
@@ -46,11 +47,10 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
     
     func updateLocation(currentLocation: CLLocation!) {
         
-        if self.currentLoc == nil {
+        if self.currentLoc == nil && currentLocation != nil {
             self.currentLoc = currentLocation
             loadRequests()
         }
-        
     }
 
     // MARK: Helper Methods
