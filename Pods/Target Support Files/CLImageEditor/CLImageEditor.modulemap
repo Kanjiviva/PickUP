@@ -1,0 +1,17 @@
+framework module CLImageEditor {
+  umbrella header "CLImageEditor-umbrella.h"
+
+  export *
+  module * { export * }
+
+  private header "CLEmoticonTool.h"
+  private header "CLResizeTool.h"
+  private header "CLSplashTool.h"
+  private header "CLStickerTool.h"
+  private header "CLFontPickerView.h"
+  private header "CLPickerDrum.h"
+  private header "CLPickerView.h"
+  private header "CLTextLabel.h"
+  private header "CLTextSettingView.h"
+  private header "CLTextTool.h"
+}

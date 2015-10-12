@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0BA5EE70DFC6B507C2065483 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A544CF5470C5FA90AAB45BE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0BA5EE70DFC6B507C2065483 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A544CF5470C5FA90AAB45BE /* Pods.framework */; };
 		4E7E4E941BC33A4400D4C10D /* RequestsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7E4E931BC33A4400D4C10D /* RequestsCollectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4E7E4E961BC33D3300D4C10D /* RequestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7E4E951BC33D3300D4C10D /* RequestCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		4E7E4E981BC3545900D4C10D /* RequestsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7E4E971BC3545900D4C10D /* RequestsHeaderView.swift */; settings = {ASSET_TAGS = (); }; };
@@ -202,7 +202,6 @@
 				AAE59CC61BC70A7700F99907 /* DetailViewController.h */,
 				AAE59CC71BC70A7700F99907 /* DetailViewController.m */,
 				AAE59CC31BC5E3C800F99907 /* CurrentUserRequestViewController.h */,
-				AAE59C841BC333A500F99907 /* ProfileTableViewController.h */,
 				AAE59CAD1BC499C500F99907 /* AddRequestViewController.h */,
 				AAE59CC41BC5E3C800F99907 /* CurrentUserRequestViewController.m */,
 				AAE59CB71BC4DFE000F99907 /* CreatorTableViewController.h */,
