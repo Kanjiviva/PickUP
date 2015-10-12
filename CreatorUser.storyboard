@@ -173,33 +173,43 @@
                                     <outlet property="commentsTextField" destination="oPm-zl-TL5" id="KDQ-dp-hMN"/>
                                 </connections>
                             </tableViewCell>
+<<<<<<< HEAD
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell3" id="o6Y-Je-UnJ" customClass="CommentTableViewCell">
                                 <rect key="frame" x="0.0" y="522" width="600" height="145"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o6Y-Je-UnJ" id="csh-wV-Nfw">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="144"/>
+=======
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell3" rowHeight="69" id="o6Y-Je-UnJ" customClass="CommentTableViewCell">
+                                <rect key="frame" x="0.0" y="367.5" width="600" height="69"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o6Y-Je-UnJ" id="csh-wV-Nfw">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="68.5"/>
+>>>>>>> LocalProject
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1Y-W2-f2J">
-                                            <rect key="frame" x="8" y="36.5" width="29.5" height="15.5"/>
+                                            <rect key="frame" x="8" y="45" width="584" height="15.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wd-y2-src">
-                                            <rect key="frame" x="8" y="8" width="42" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wd-y2-src">
+                                            <rect key="frame" x="8" y="8" width="42" height="29"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="z1Y-W2-f2J" firstAttribute="trailing" secondItem="csh-wV-Nfw" secondAttribute="trailingMargin" id="Ar2-O3-O9B"/>
                                         <constraint firstItem="4wd-y2-src" firstAttribute="leading" secondItem="csh-wV-Nfw" secondAttribute="leadingMargin" id="M0j-zg-ga9"/>
                                         <constraint firstItem="z1Y-W2-f2J" firstAttribute="leading" secondItem="csh-wV-Nfw" secondAttribute="leadingMargin" id="cOj-bW-Re0"/>
                                         <constraint firstItem="z1Y-W2-f2J" firstAttribute="top" secondItem="csh-wV-Nfw" secondAttribute="topMargin" id="csZ-Wx-bcG"/>
                                         <constraint firstItem="z1Y-W2-f2J" firstAttribute="top" secondItem="4wd-y2-src" secondAttribute="bottom" constant="8" id="tRV-Wp-ShS"/>
                                         <constraint firstItem="4wd-y2-src" firstAttribute="top" secondItem="csh-wV-Nfw" secondAttribute="topMargin" id="tXw-kO-btM"/>
                                         <constraint firstItem="z1Y-W2-f2J" firstAttribute="leading" secondItem="csh-wV-Nfw" secondAttribute="leadingMargin" id="uy6-Mr-3pV"/>
+                                        <constraint firstItem="z1Y-W2-f2J" firstAttribute="bottom" secondItem="csh-wV-Nfw" secondAttribute="bottomMargin" id="yC3-C8-a2P"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">

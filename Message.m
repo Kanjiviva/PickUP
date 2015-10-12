@@ -15,7 +15,7 @@
 @dynamic hashForMessage;
 @dynamic messageText;
 
-- (instancetype)initWithText:(NSString *)text sende:(User *)sender receiver:(User *)receiver;
+- (instancetype)initWithText:(NSString *)text sender:(User *)sender receiver:(User *)receiver
 {
     self = [super init];
     if (self) {
@@ -23,6 +23,7 @@
         self.messageText = text;
         NSDate *now = [NSDate new];
         self.hashForMessage = [[NSNumber alloc] initWithUnsignedInteger:self.senderUser.objectId.hash ^ now.hash ^ self.receiverUser.objectId.hash];
+        self.receiverUser = receiver;
     }
     return self;
 }
