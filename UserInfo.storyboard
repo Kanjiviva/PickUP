@@ -393,17 +393,35 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORi-dh-GHl">
+                                <rect key="frame" x="269" y="372" width="62" height="30"/>
+                                <state key="normal" title="Message"/>
+                                <connections>
+                                    <segue destination="1ah-P9-Prt" kind="show" identifier="showMessage" id="9NA-6t-6Gk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4KN-Tz-iIP">
+                                <rect key="frame" x="269" y="410" width="62" height="30"/>
+                                <state key="normal" title="Direction"/>
+                                <connections>
+                                    <segue destination="9bs-Bn-GZN" kind="show" identifier="showDirection" id="hXR-du-S4j"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kit-hy-hbn" firstAttribute="centerX" secondItem="ja0-pi-PWo" secondAttribute="centerX" id="0Q5-c8-ILw"/>
+                            <constraint firstItem="ORi-dh-GHl" firstAttribute="centerX" secondItem="ja0-pi-PWo" secondAttribute="centerX" id="8kz-68-yEU"/>
+                            <constraint firstItem="ORi-dh-GHl" firstAttribute="top" secondItem="7kW-iE-7KH" secondAttribute="bottom" constant="8" id="B17-Vn-UdF"/>
                             <constraint firstItem="N5S-u6-VNa" firstAttribute="centerX" secondItem="ja0-pi-PWo" secondAttribute="centerX" id="D4a-lU-pFX"/>
                             <constraint firstItem="N5S-u6-VNa" firstAttribute="top" secondItem="E6v-as-gM1" secondAttribute="bottom" constant="8" id="Had-qR-xoZ"/>
                             <constraint firstItem="E6v-as-gM1" firstAttribute="top" secondItem="hGL-Lh-gYf" secondAttribute="bottom" constant="8" id="QFl-V5-tNe"/>
+                            <constraint firstItem="4KN-Tz-iIP" firstAttribute="centerX" secondItem="ja0-pi-PWo" secondAttribute="centerX" id="SNw-kg-L0f"/>
                             <constraint firstItem="hGL-Lh-gYf" firstAttribute="centerX" secondItem="ja0-pi-PWo" secondAttribute="centerX" id="UZs-N7-b8q"/>
                             <constraint firstItem="Z06-55-7uT" firstAttribute="top" secondItem="XvS-Wu-d5c" secondAttribute="bottom" constant="8" id="Vnw-E1-mDa"/>
                             <constraint firstItem="7kW-iE-7KH" firstAttribute="top" secondItem="N5S-u6-VNa" secondAttribute="bottom" constant="8" id="b3F-tv-41O"/>
                             <constraint firstItem="7kW-iE-7KH" firstAttribute="centerX" secondItem="ja0-pi-PWo" secondAttribute="centerX" id="iV7-hv-QYX"/>
+                            <constraint firstItem="4KN-Tz-iIP" firstAttribute="top" secondItem="ORi-dh-GHl" secondAttribute="bottom" constant="8" id="jTU-eO-vfg"/>
                             <constraint firstItem="E6v-as-gM1" firstAttribute="centerX" secondItem="ja0-pi-PWo" secondAttribute="centerX" id="jZn-nk-h22"/>
                             <constraint firstItem="kit-hy-hbn" firstAttribute="top" secondItem="Z06-55-7uT" secondAttribute="bottom" constant="8" id="l10-JC-jyA"/>
                             <constraint firstItem="hGL-Lh-gYf" firstAttribute="top" secondItem="kit-hy-hbn" secondAttribute="bottom" constant="8" id="oL5-te-d0v"/>
@@ -437,6 +455,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cUb-0C-L1w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3301" y="281"/>
+        </scene>
+        <!--MessengerViewController-->
+        <scene sceneID="qdj-9b-z0c">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Messenger" referencedIdentifier="MessengerViewController" id="1ah-P9-Prt" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yc3-Yf-DoM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3388.5" y="508"/>
+        </scene>
+        <!--DetailMapViewController-->
+        <scene sceneID="Wiy-2M-Av9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Posts" referencedIdentifier="DetailMapViewController" id="9bs-Bn-GZN" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S0J-Af-IFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3294" y="676"/>
         </scene>
         <!--Profile-->
         <scene sceneID="aaf-J8-9gj">

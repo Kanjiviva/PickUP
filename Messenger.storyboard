@@ -58,7 +58,7 @@
         <!--Messenger View Controller-->
         <scene sceneID="wIY-tC-Urz">
             <objects>
-                <viewController id="iEs-ve-Dze" customClass="MessengerViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MessengerViewController" id="iEs-ve-Dze" customClass="MessengerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XOj-xL-PdL"/>
                         <viewControllerLayoutGuide type="bottom" id="dZG-Tt-fxI"/>
