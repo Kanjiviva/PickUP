@@ -25,17 +25,19 @@ class RequestDetailViewController: UIViewController {
     
     var delegate: RequestDetailViewControllerDelegate?
     var request: Request?
+    var object: RequestCollectionViewCell!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        itemTitle.text = request?.itemTitle
+        itemImage.image = object.itemImage.image
         titleLabel.text = request?.itemTitle
-        //pickupLoc.text = request?.pickupLocation.cityName
+        pickupLoc.text = request?.pickupLocation.location
         dropoffLoc.text = request?.deliverLocation
-        priceLabel.text = String( "\(request?.itemCost)")
+        priceLabel.text = String(format: "%.2f", (request?.itemCost)!)
         descripLabel.text = request?.itemDescription
         contactLabel.text = "need Contact model"
         
@@ -68,6 +70,12 @@ class RequestDetailViewController: UIViewController {
             profileVC.currentUser = request?.creatorUser
 //            navController.viewControllers = []
 //            creatorVC.request = request
+        } else if segue.identifier == "MapView" {
+            
+            let mapViewVC = segue.destinationViewController as! DetailMapViewController
+            mapViewVC.request = request
         }
+        
+        
     }
 }

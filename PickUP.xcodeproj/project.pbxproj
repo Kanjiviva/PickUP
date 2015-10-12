@@ -14,6 +14,7 @@
 		4E7E4E9A1BC363F300D4C10D /* RequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7E4E991BC363F300D4C10D /* RequestDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4EA4E4FF1BC3683600D1AE5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C541BC2F14400F99907 /* main.m */; };
 		4EA4E5011BC3686500D1AE5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE59C571BC2F14400F99907 /* AppDelegate.m */; };
+		4EF481041BC8B59300DBE4AE /* DetailMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF481031BC8B59300DBE4AE /* DetailMapViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		AAB242C71BC79E78004644DA /* emptyStar.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB242C61BC79E78004644DA /* emptyStar.png */; settings = {ASSET_TAGS = (); }; };
 		AAB242C91BC79E83004644DA /* filledStar.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB242C81BC79E83004644DA /* filledStar.png */; settings = {ASSET_TAGS = (); }; };
 		AAE59C5E1BC2F14400F99907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C5C1BC2F14400F99907 /* Main.storyboard */; };
@@ -64,6 +65,7 @@
 		4E7E4E951BC33D3300D4C10D /* RequestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestCollectionViewCell.swift; path = ../RequestCollectionViewCell.swift; sourceTree = "<group>"; };
 		4E7E4E971BC3545900D4C10D /* RequestsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestsHeaderView.swift; path = ../RequestsHeaderView.swift; sourceTree = "<group>"; };
 		4E7E4E991BC363F300D4C10D /* RequestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDetailViewController.swift; sourceTree = "<group>"; };
+		4EF481031BC8B59300DBE4AE /* DetailMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailMapViewController.swift; path = ../DetailMapViewController.swift; sourceTree = "<group>"; };
 		945D37B5D0993A46CF5A55E9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AAB242C61BC79E78004644DA /* emptyStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyStar.png; sourceTree = "<group>"; };
 		AAB242C81BC79E83004644DA /* filledStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filledStar.png; sourceTree = "<group>"; };
@@ -183,17 +185,18 @@
 				AAE59CC61BC70A7700F99907 /* DetailViewController.h */,
 				AAE59CC71BC70A7700F99907 /* DetailViewController.m */,
 				AAE59CC31BC5E3C800F99907 /* CurrentUserRequestViewController.h */,
-				AAE59CC41BC5E3C800F99907 /* CurrentUserRequestViewController.m */,
 				AAE59C841BC333A500F99907 /* ProfileTableViewController.h */,
+				AAE59CAD1BC499C500F99907 /* AddRequestViewController.h */,
+				AAE59CC41BC5E3C800F99907 /* CurrentUserRequestViewController.m */,
 				AAE59CB71BC4DFE000F99907 /* CreatorTableViewController.h */,
 				AAE59CB81BC4DFE000F99907 /* CreatorTableViewController.m */,
 				AAE59C851BC333A500F99907 /* ProfileTableViewController.m */,
-				AAE59CAD1BC499C500F99907 /* AddRequestViewController.h */,
 				AAE59CAE1BC499C500F99907 /* AddRequestViewController.m */,
 				4E7E4E931BC33A4400D4C10D /* RequestsCollectionViewController.swift */,
 				4E7E4E991BC363F300D4C10D /* RequestDetailViewController.swift */,
 				4E7E4E971BC3545900D4C10D /* RequestsHeaderView.swift */,
 				4E7E4E951BC33D3300D4C10D /* RequestCollectionViewCell.swift */,
+				4EF481031BC8B59300DBE4AE /* DetailMapViewController.swift */,
 				AAE59C7B1BC2FF6A00F99907 /* LoginViewController.h */,
 				AAE59C7C1BC2FF6A00F99907 /* LoginViewController.m */,
 				AAE59C561BC2F14400F99907 /* AppDelegate.h */,
@@ -463,6 +466,7 @@
 				AAE59C9E1BC3B7ED00F99907 /* LocationManager.m in Sources */,
 				AAE59C961BC351FC00F99907 /* PickUp.m in Sources */,
 				AAE59CB91BC4DFE000F99907 /* CreatorTableViewController.m in Sources */,
+				4EF481041BC8B59300DBE4AE /* DetailMapViewController.swift in Sources */,
 				4E7E4E941BC33A4400D4C10D /* RequestsCollectionViewController.swift in Sources */,
 				4E7E4E961BC33D3300D4C10D /* RequestCollectionViewCell.swift in Sources */,
 				4E7E4E9A1BC363F300D4C10D /* RequestDetailViewController.swift in Sources */,

@@ -12,24 +12,56 @@ import Bolts
 
 private let reuseIdentifier = "Cell"
 
-class RequestsCollectionViewController: UICollectionViewController, AddRequestViewContollerDelegate, RequestDetailViewControllerDelegate {
+extension PFGeoPoint {
+    public var cllocation: CLLocation {
+        get {
+            return CLLocation(latitude: latitude, longitude: longitude)
+        }
+    }
+}
+
+class RequestsCollectionViewController: UICollectionViewController, AddRequestViewContollerDelegate, RequestDetailViewControllerDelegate, LocationManagerDelegate {
     
     
     var requests = [Request]()
     var requestsByLocaion = [String:[Request]]()
-    
+    var currentLoc: CLLocation?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadRequests()
+        let locationManager = LocationManager.sharedLocationManager()
+        locationManager.delegate = self
+        LocationManager.sharedLocationManager().startLocationManager(self)
+        currentLoc = locationManager.currentLocation
+        
+        //loadRequests()
         setupNavBar()
         collectionView?.backgroundColor = UIColor.whiteColor()
         
     }
     
+    // MARK: LocationManagerDelegate 
+    
+    func updateLocation(currentLocation: CLLocation!) {
+        
+        if self.currentLoc == nil {
+            self.currentLoc = currentLocation
+            loadRequests()
+        }
+        
+    }
 
     // MARK: Helper Methods
+    
+    func calculateDistance (currentLocation: CLLocation!) {
+        for request in requests {
+            let distance = request.pickupLocation.coordinate.cllocation.distanceFromLocation(currentLocation)
+            request.distanceFromPickupLoc = distance
+            print("distance between \(request.pickupLocation.location) and me is \(distance)")
+        }
+    }
     
     func setupNavBar() {
         let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
@@ -70,12 +102,13 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
     func loadRequests() {
         let query = Request.query()
         query?.includeKey("creatorUser")
+        query?.includeKey("pickupLocation")
         query?.orderByDescending("createdAt")
         query?.findObjectsInBackgroundWithBlock({ (objects:[PFObject]?, error:NSError?) -> Void in
             if error == nil {
                 if let objects = objects {
                     self.requests = objects as! [Request]
-                    
+                    self.calculateDistance(self.currentLoc)
                     self.sortIntoDictionary(self.requests)
                     self.collectionView?.reloadData()
                 }
@@ -131,8 +164,7 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
             cell.object = requestsArray[indexPath.row]
             
         }
-        
-        
+    
         return cell
     }
     
@@ -156,6 +188,8 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
         
     }
     
+    // MARK: Navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             let detailVC = segue.destinationViewController as! RequestDetailViewController
@@ -168,6 +202,7 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
                         
                         let selectedRequest = requestsArray[indexPath.row]
                         detailVC.request = selectedRequest
+                        detailVC.object = selectedRequestCell
                         detailVC.delegate = self
                     }
                 }

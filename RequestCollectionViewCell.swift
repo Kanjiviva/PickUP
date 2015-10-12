@@ -20,7 +20,7 @@ class RequestCollectionViewCell: UICollectionViewCell {
         didSet {
             itemTitle.text = object.itemTitle
             itemCost.text = String(format: "%.2f", object.itemCost)
-            
+            distanceFromCurrentUserLabel.text = String(format: "%.1f Km", object.distanceFromPickupLoc / 1000)
             let tempObject = object
             
             if (object.itemImage != oldValue?.itemImage) {

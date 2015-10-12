@@ -68,9 +68,12 @@
     
     if (!self.currentLocation) {
         self.currentLocation = [locations firstObject];
+        [self.delegate updateLocation:[locations firstObject]];
     } else {
         self.currentLocation = [locations firstObject];
-        //        [self.delegate updateLocation:[locations firstObject]];
+        [self.delegate updateLocation:[locations firstObject]];
+
+        
     }
 }
 @end

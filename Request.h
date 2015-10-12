@@ -26,5 +26,6 @@
 @property (nonatomic) BOOL isAccepted;
 @property (strong, nonatomic) NSString *cityName;
 @property (nonatomic) BOOL isDone;
+@property (nonatomic, assign) double distanceFromPickupLoc;
 
 @end
