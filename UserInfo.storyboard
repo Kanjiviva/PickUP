@@ -77,6 +77,7 @@
                                             <exclude reference="eM9-xP-Rlo"/>
                                             <exclude reference="eV7-au-3oC"/>
                                             <exclude reference="eg5-zK-TwQ"/>
+                                            <exclude reference="vr1-py-LVd"/>
                                             <exclude reference="zhJ-Zi-z4q"/>
                                             <exclude reference="PDb-Wb-fjV"/>
                                             <exclude reference="Qq5-J6-ueJ"/>
@@ -186,21 +187,21 @@
                                     <outlet property="thirdStar" destination="LXc-nA-zTv" id="udF-1y-66P"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell3" rowHeight="123" id="f6r-Mq-BDX" customClass="CommentTableViewCell">
-                                <rect key="frame" x="0.0" y="303.5" width="600" height="123"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell3" rowHeight="71" id="f6r-Mq-BDX" customClass="CommentTableViewCell">
+                                <rect key="frame" x="0.0" y="303.5" width="600" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f6r-Mq-BDX" id="Ife-Ll-sE5">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="122.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="70.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaI-kt-fhr">
-                                            <rect key="frame" x="8" y="8" width="42" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaI-kt-fhr">
+                                            <rect key="frame" x="8" y="8" width="42" height="31"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYg-NH-XUh">
-                                            <rect key="frame" x="8" y="36.5" width="64" height="15.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYg-NH-XUh">
+                                            <rect key="frame" x="8" y="47" width="584" height="15.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -210,6 +211,8 @@
                                         <constraint firstItem="PaI-kt-fhr" firstAttribute="top" secondItem="Ife-Ll-sE5" secondAttribute="topMargin" id="2fy-yb-LWk"/>
                                         <constraint firstItem="gYg-NH-XUh" firstAttribute="top" secondItem="Ife-Ll-sE5" secondAttribute="topMargin" id="AYm-kQ-hfh"/>
                                         <constraint firstItem="gYg-NH-XUh" firstAttribute="leading" secondItem="Ife-Ll-sE5" secondAttribute="leadingMargin" id="CHS-6n-OWM"/>
+                                        <constraint firstItem="gYg-NH-XUh" firstAttribute="trailing" secondItem="Ife-Ll-sE5" secondAttribute="trailingMargin" id="GgN-aI-eVv"/>
+                                        <constraint firstItem="gYg-NH-XUh" firstAttribute="bottom" secondItem="Ife-Ll-sE5" secondAttribute="bottomMargin" id="I7Q-1R-VxA"/>
                                         <constraint firstItem="gYg-NH-XUh" firstAttribute="leading" secondItem="Ife-Ll-sE5" secondAttribute="leadingMargin" id="P9r-xq-kiY"/>
                                         <constraint firstItem="gYg-NH-XUh" firstAttribute="top" secondItem="PaI-kt-fhr" secondAttribute="bottom" constant="8" id="bXV-4Q-VmK"/>
                                         <constraint firstItem="PaI-kt-fhr" firstAttribute="leading" secondItem="Ife-Ll-sE5" secondAttribute="leadingMargin" id="wmS-6X-4Xu"/>
