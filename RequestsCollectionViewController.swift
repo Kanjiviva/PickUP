@@ -71,6 +71,9 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
     
     func didAddNewItem(newRequest:Request) {
         
+        let distance = newRequest.pickupLocation.coordinate.cllocation.distanceFromLocation(currentLoc!)
+        newRequest.distanceFromPickupLoc = distance
+        
         if var requestArray = self.requestsByLocaion[newRequest.cityName] {
             
             requestArray.append(newRequest)
