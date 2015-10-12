@@ -31,6 +31,8 @@
     self.senderDisplayName = [User currentUser].fullName;
     self.senderId = [User currentUser].objectId;
     
+    self.bubbleFactory = [JSQMessagesBubbleImageFactory new];
+    
     self.messagesData = [NSMutableArray array];
     [self fetchMessages];
     
@@ -129,17 +131,17 @@
 #pragma mark - UICollectionView Datasource -
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    
     return [self.messagesData count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     JSQMessagesCollectionViewCell *cell = (JSQMessagesCollectionViewCell *)[super collectionView:collectionView cellForItemAtIndexPath:indexPath];
-    //
-    //    [super.collectionView cellForItemAtIndexPath:indexPath];
-    //    [super collectionView:collectionView cellForItemAtIndexPath:indexPath];
     
-    //    cell.avatarImageView.contentMode = UIViewContentModeScaleAspectFit;
+//    cell.avatarImageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    
     
     return cell;
     
