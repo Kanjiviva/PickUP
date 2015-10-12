@@ -186,27 +186,44 @@
                                     <outlet property="thirdStar" destination="LXc-nA-zTv" id="udF-1y-66P"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell3" id="f6r-Mq-BDX" customClass="CommentTableViewCell">
-                                <rect key="frame" x="0.0" y="303.5" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell3" rowHeight="123" id="f6r-Mq-BDX" customClass="CommentTableViewCell">
+                                <rect key="frame" x="0.0" y="303.5" width="600" height="123"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f6r-Mq-BDX" id="Ife-Ll-sE5">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="122.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYg-NH-XUh">
-                                            <rect key="frame" x="8" y="8" width="88" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaI-kt-fhr">
+                                            <rect key="frame" x="8" y="8" width="42" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYg-NH-XUh">
+                                            <rect key="frame" x="8" y="36.5" width="64" height="15.5"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="PaI-kt-fhr" firstAttribute="top" secondItem="Ife-Ll-sE5" secondAttribute="topMargin" id="2fy-yb-LWk"/>
                                         <constraint firstItem="gYg-NH-XUh" firstAttribute="top" secondItem="Ife-Ll-sE5" secondAttribute="topMargin" id="AYm-kQ-hfh"/>
+                                        <constraint firstItem="gYg-NH-XUh" firstAttribute="leading" secondItem="Ife-Ll-sE5" secondAttribute="leadingMargin" id="CHS-6n-OWM"/>
                                         <constraint firstItem="gYg-NH-XUh" firstAttribute="leading" secondItem="Ife-Ll-sE5" secondAttribute="leadingMargin" id="P9r-xq-kiY"/>
+                                        <constraint firstItem="gYg-NH-XUh" firstAttribute="top" secondItem="PaI-kt-fhr" secondAttribute="bottom" constant="8" id="bXV-4Q-VmK"/>
+                                        <constraint firstItem="PaI-kt-fhr" firstAttribute="leading" secondItem="Ife-Ll-sE5" secondAttribute="leadingMargin" id="wmS-6X-4Xu"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="AYm-kQ-hfh"/>
+                                            <exclude reference="P9r-xq-kiY"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="commentLabel" destination="gYg-NH-XUh" id="uZH-QF-Bpp"/>
+                                    <outlet property="ratingCreatorLabel" destination="PaI-kt-fhr" id="AgC-Bc-PUS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -231,7 +248,7 @@
         <!--Current User Request View Controller-->
         <scene sceneID="cIZ-xd-uBL">
             <objects>
-                <viewController id="4wH-uz-oZ9" customClass="CurrentUserRequestViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CurrentUserRequestViewController" id="4wH-uz-oZ9" customClass="CurrentUserRequestViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xxk-TI-kYD"/>
                         <viewControllerLayoutGuide type="bottom" id="XIy-Uu-kc3"/>

@@ -16,6 +16,8 @@
 #import "PickUp.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "Constants.h"
+#import "Message.h"
+
 
 @interface AppDelegate ()
 
@@ -28,13 +30,13 @@
     // Override point for customization after application launch.
     
     [GMSServices provideAPIKey:API_KET];
-    
+
     // Register PF subclasses
     [User registerSubclass];
     [Request registerSubclass];
     [Rating registerSubclass];
     [PickUp registerSubclass];
-    
+    [Message registerSubclass];
     [Parse enableLocalDatastore];
     
     // Initialize Parse.

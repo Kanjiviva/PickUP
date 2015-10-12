@@ -29,6 +29,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JSQMessagesViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>JSQSystemSoundPlayer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,37 +67,52 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>005D3B840827D7F57E28D618E287EF61</key>
+		<key>047F92A9DAD4F0E52CEFCCC316AF1C4E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0396DBF207B61C22FED185238A6D7969</key>
+		<key>1473855278B6E05E955AD89238ABAE4E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>059D502A5851586F5FAA2BC9B34B8F11</key>
+		<key>339FEF0C0D9E59E8206F927F8A0FD179</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1E86C35B386D756D8D2C79B800A87E60</key>
+		<key>3520DA4082AD43819B561AB561EB4DEB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>529690B09D24DDBE34B9AB80AE23C3A0</key>
+		<key>366D9B0DD7BE9F0DD36B7E4FA93CC24F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>541C70A4DB158A384D7768A5E9FAD809</key>
+		<key>4463146C3521DFF3CC0634035A853AAD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>702818762FD6CE9C27078FAFADB35215</key>
+		<key>7204CA8BE47748F025FC2FA0F5E7AA42</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>946AFD396F4BD1B7E47E3EF84E967165</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AEC4E39165A9F742FC1AD28AE33F74DA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B314214B2A8E2377DED2CA33E0A0CC2A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,12 +122,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CC6BB7E0E00E11FB312F5A68EBA5067B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>ED3647226F716B4151A9A4B4EAD71A07</key>
+		<key>F7B1A251B66098B3EFE7640642282CD3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

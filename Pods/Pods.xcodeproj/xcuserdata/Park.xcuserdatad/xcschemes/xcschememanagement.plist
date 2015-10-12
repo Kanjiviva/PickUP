@@ -29,6 +29,16 @@
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
+		<key>JSQMessagesViewController.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
+		<key>JSQSystemSoundPlayer.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
 		<key>Parse.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -67,12 +77,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>047F92A9DAD4F0E52CEFCCC316AF1C4E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>059D502A5851586F5FAA2BC9B34B8F11</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>0A35F917CA430F9911C83CB8660E3C34</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1473855278B6E05E955AD89238ABAE4E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,7 +112,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>339FEF0C0D9E59E8206F927F8A0FD179</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3520DA4082AD43819B561AB561EB4DEB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>366D9B0DD7BE9F0DD36B7E4FA93CC24F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4226E60A4D5853FACDA2C7F9579FA3F1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4463146C3521DFF3CC0634035A853AAD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,6 +152,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>7204CA8BE47748F025FC2FA0F5E7AA42</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8F7755B05636B6A88F65655D97A498A1</key>
 		<dict>
 			<key>primary</key>
@@ -122,12 +167,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>946AFD396F4BD1B7E47E3EF84E967165</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A796756B925C0B83B85D4BD38E24ADC0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>A7F10D0EB4DEAFB576788346B0A1D92D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AEC4E39165A9F742FC1AD28AE33F74DA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B314214B2A8E2377DED2CA33E0A0CC2A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -148,6 +208,11 @@
 			<true/>
 		</dict>
 		<key>ED3647226F716B4151A9A4B4EAD71A07</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F7B1A251B66098B3EFE7640642282CD3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

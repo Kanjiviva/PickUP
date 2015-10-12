@@ -17,6 +17,8 @@
 
 @property (nonatomic) float averageRating;
 
+@property (strong, nonatomic) NSMutableArray *allComments;
+
 @end
 
 @implementation ProfileTableViewController
@@ -29,11 +31,11 @@
         self.currentUser = [User currentUser];
     }
     
-    
-    
     if (self.currentUser != [User currentUser]) {
         self.navigationItem.rightBarButtonItem = nil;
     }
+    
+    self.allComments = [NSMutableArray new];
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 50;
@@ -41,6 +43,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self getAverageRatings:self.currentUser];
+    [self allCommentsForRequestCreator];
 }
 
 #pragma mark - Helper Methods -
@@ -49,7 +52,7 @@
     
     PFQuery *query = [Rating query];
     [query whereKey:@"requestCreator" equalTo:currentUser];
-    
+    [query includeKey:@"ratingCreator"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
         float totalScore = 0;
@@ -73,6 +76,24 @@
     
 }
 
+- (void)allCommentsForRequestCreator {
+    PFQuery *query = [Rating query];
+    [query whereKey:@"requestCreator" equalTo:self.currentUser];
+    [query whereKey:@"comment" notEqualTo:[NSNull null]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        NSMutableArray *array = [NSMutableArray new];
+        for (Rating *rating in objects) {
+            
+            [array addObject:rating];
+            
+        }
+        
+        self.allComments = array;
+        
+        [self.tableView reloadData];
+    }];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -84,7 +105,7 @@
     if (section == 0) {
         return 2;
     } else {
-        return 1;
+        return [self.allComments count];
     }
 }
 
@@ -108,8 +129,11 @@
         [cell updateStars:self.averageRating];
         [cell enableStarButtons:NO];
         return cell;
-    } else if (indexPath.row == 0 && indexPath.section == 1) {
+    } else if (indexPath.section == 1) {
         CommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell3" forIndexPath:indexPath];
+        
+        Rating *rating = self.allComments[indexPath.row];
+        cell.rating = rating;
         return cell;
     }
     
