@@ -16,6 +16,7 @@
 #import "PickUp.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "Constants.h"
+#import "Message.h"
 
 
 @interface AppDelegate ()
@@ -35,7 +36,7 @@
     [Request registerSubclass];
     [Rating registerSubclass];
     [PickUp registerSubclass];
-    
+    [Message registerSubclass];
     [Parse enableLocalDatastore];
     
     // Initialize Parse.
