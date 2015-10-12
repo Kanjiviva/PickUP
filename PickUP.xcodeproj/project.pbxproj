@@ -202,11 +202,8 @@
 				AAE59CC61BC70A7700F99907 /* DetailViewController.h */,
 				AAE59CC71BC70A7700F99907 /* DetailViewController.m */,
 				AAE59CC31BC5E3C800F99907 /* CurrentUserRequestViewController.h */,
-<<<<<<< HEAD
 				AAE59C841BC333A500F99907 /* ProfileTableViewController.h */,
 				AAE59CAD1BC499C500F99907 /* AddRequestViewController.h */,
-=======
->>>>>>> 6454daa332d9ac4f18f34985ab23deaa5b95aad3
 				AAE59CC41BC5E3C800F99907 /* CurrentUserRequestViewController.m */,
 				AAE59CB71BC4DFE000F99907 /* CreatorTableViewController.h */,
 				AAE59CB81BC4DFE000F99907 /* CreatorTableViewController.m */,
