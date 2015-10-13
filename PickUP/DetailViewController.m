@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *itemCost;
 @property (weak, nonatomic) IBOutlet UILabel *itemPickUpLocation;
 @property (weak, nonatomic) IBOutlet UILabel *itemDeliverLocation;
+@property (weak, nonatomic) IBOutlet UIButton *messageButton;
 
 @end
 
@@ -27,6 +28,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if (self.request.creatorUser == [User currentUser]) {
+        self.messageButton.hidden = YES;
+    }
+    
     [self setup];
 }
 

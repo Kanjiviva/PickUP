@@ -87,13 +87,6 @@
     
 }
 
-/**
- *  Notifies the data source that the item at indexPath has been deleted.
- *  Implementations of this method should remove the item from the data source.
- *
- *  @param collectionView The collection view requesting this information.
- *  @param indexPath      The index path that specifies the location of the item.
- */
 - (void)collectionView:(JSQMessagesCollectionView *)collectionView didDeleteMessageAtIndexPath:(NSIndexPath *)indexPath {
     [self.messagesData removeObjectAtIndex:indexPath.item];
 }

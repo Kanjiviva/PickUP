@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.currentUser = [User currentUser];
     self.allMessages = [NSMutableArray new];
     [self fetchAllComments];
@@ -43,14 +43,11 @@
     
     PFQuery *queryFrom = [Conversation query];
     [queryFrom whereKey:@"senderUser" equalTo:self.currentUser];
-//    [queryFrom includeKey:@"senderUser"];
     
     PFQuery *queryTo = [Conversation query];
     [queryTo whereKey:@"receiverUser" equalTo:self.currentUser];
-//    [queryTo includeKey:@"receiverUser"];
+
     PFQuery *query = [PFQuery orQueryWithSubqueries:@[queryFrom, queryTo]];
-//    [query includeKey:@"senderUser"];
-//    [query includeKey:@"receiverUser"];
     [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
@@ -99,5 +96,22 @@
     return cell;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        Conversation *conversation = self.allMessages[indexPath.row];
+        [conversation deleteInBackground];
+        [conversation saveInBackground];
+        
+        [self.allMessages removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+    }
+}
 
 @end

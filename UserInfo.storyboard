@@ -442,6 +442,7 @@
                         <outlet property="itemImage" destination="Z06-55-7uT" id="U1n-dI-JXY"/>
                         <outlet property="itemPickUpLocation" destination="N5S-u6-VNa" id="Urk-2J-Ecs"/>
                         <outlet property="itemTitle" destination="kit-hy-hbn" id="mMf-IM-3Bp"/>
+                        <outlet property="messageButton" destination="ORi-dh-GHl" id="gXC-9Y-VgL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L4O-xR-jdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
