@@ -7,7 +7,10 @@
 //
 
 #import <JSQMessagesViewController/JSQMessages.h>
+#import "User.h"
 
 @interface MessengerViewController : JSQMessagesViewController
+
+@property (strong, nonatomic) User *requestCreator;
 
 @end

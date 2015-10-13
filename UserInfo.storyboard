@@ -454,7 +454,7 @@
                 <viewControllerPlaceholder storyboardName="CreatorUser" referencedIdentifier="CreatorTableViewController" id="GEe-Es-nA2" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cUb-0C-L1w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3301" y="281"/>
+            <point key="canvasLocation" x="3500.5" y="3"/>
         </scene>
         <!--MessengerViewController-->
         <scene sceneID="qdj-9b-z0c">
@@ -462,7 +462,7 @@
                 <viewControllerPlaceholder storyboardName="Messenger" referencedIdentifier="MessengerViewController" id="1ah-P9-Prt" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yc3-Yf-DoM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3388.5" y="508"/>
+            <point key="canvasLocation" x="3500.5" y="281"/>
         </scene>
         <!--DetailMapViewController-->
         <scene sceneID="Wiy-2M-Av9">
@@ -470,7 +470,7 @@
                 <viewControllerPlaceholder storyboardName="Posts" referencedIdentifier="DetailMapViewController" id="9bs-Bn-GZN" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S0J-Af-IFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3294" y="676"/>
+            <point key="canvasLocation" x="3492.5" y="588"/>
         </scene>
         <!--Profile-->
         <scene sceneID="aaf-J8-9gj">

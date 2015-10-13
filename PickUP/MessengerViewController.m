@@ -7,7 +7,7 @@
 //
 
 #import "MessengerViewController.h"
-#import "User.h"
+
 #import "Message.h"
 
 @interface MessengerViewController ()
@@ -34,7 +34,16 @@
     self.bubbleFactory = [JSQMessagesBubbleImageFactory new];
     
     self.messagesData = [NSMutableArray array];
+    
+    
+    
     [self fetchMessages];
+    
+//    [NSTimer scheduledTimerWithTimeInterval:3.0
+//                                     target:self
+//                                   selector:@selector(fetchMessages)
+//                                   userInfo:nil
+//                                    repeats:YES];
     
     self.tabBarController.tabBar.hidden = YES;
     
@@ -45,20 +54,25 @@
 - (void)fetchMessages {
     PFQuery *currentUserSent = [Message query];
     [currentUserSent whereKey:@"senderUser" equalTo:self.currentUser];
-    [currentUserSent whereKey:@"receiverUser" equalTo:self.currentUser];
+    [currentUserSent whereKey:@"receiverUser" equalTo:self.requestCreator];
     
     PFQuery *receiverSent = [Message query];
+    [receiverSent whereKey:@"senderUser" equalTo:self.requestCreator];
     [receiverSent whereKey:@"receiverUser" equalTo:self.currentUser];
-    [receiverSent whereKey:@"senderUser" equalTo:self.currentUser];
     
     PFQuery *combined = [PFQuery orQueryWithSubqueries:@[currentUserSent, receiverSent]];
     
     [combined findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        
+        NSMutableArray *array = [NSMutableArray new];
+        
         for (Message *message in objects) {
             
-            [self.messagesData addObject:message];
+            [array addObject:message];
             
         }
+        
+        self.messagesData = array;
         
         [self.collectionView reloadData];
     }];
@@ -120,7 +134,7 @@
                       date:(NSDate *)date {
     
     
-    Message *message = [[Message alloc] initWithText:text sender:self.currentUser receiver:self.currentUser];
+    Message *message = [[Message alloc] initWithText:text sender:self.currentUser receiver:self.requestCreator];
     
     [self.messagesData addObject:message];
     
