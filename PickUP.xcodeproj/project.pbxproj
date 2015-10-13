@@ -23,6 +23,8 @@
 		AAB242D11BCC39E8004644DA /* MessengerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB242D01BCC39E8004644DA /* MessengerViewController.m */; settings = {ASSET_TAGS = (); }; };
 		AAB242D41BCC413D004644DA /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB242D31BCC413D004644DA /* Message.m */; settings = {ASSET_TAGS = (); }; };
 		AAB242D71BCC5922004644DA /* MessagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB242D61BCC5922004644DA /* MessagesTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		AAB242DC1BCC85A0004644DA /* MessengerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB242DB1BCC85A0004644DA /* MessengerTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		AAB242DF1BCC901A004644DA /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB242DE1BCC901A004644DA /* Conversation.m */; settings = {ASSET_TAGS = (); }; };
 		AAE59C5E1BC2F14400F99907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C5C1BC2F14400F99907 /* Main.storyboard */; };
 		AAE59C601BC2F14400F99907 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C5F1BC2F14400F99907 /* Assets.xcassets */; };
 		AAE59C631BC2F14400F99907 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C611BC2F14400F99907 /* LaunchScreen.storyboard */; };
@@ -85,6 +87,10 @@
 		AAB242D31BCC413D004644DA /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		AAB242D51BCC5922004644DA /* MessagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesTableViewController.h; sourceTree = "<group>"; };
 		AAB242D61BCC5922004644DA /* MessagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesTableViewController.m; sourceTree = "<group>"; };
+		AAB242DA1BCC85A0004644DA /* MessengerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessengerTableViewCell.h; path = PickUP/MessengerTableViewCell.h; sourceTree = "<group>"; };
+		AAB242DB1BCC85A0004644DA /* MessengerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessengerTableViewCell.m; path = PickUP/MessengerTableViewCell.m; sourceTree = "<group>"; };
+		AAB242DD1BCC901A004644DA /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conversation.h; sourceTree = "<group>"; };
+		AAB242DE1BCC901A004644DA /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
 		AAE59C501BC2F14400F99907 /* PickUP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickUP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE59C541BC2F14400F99907 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AAE59C561BC2F14400F99907 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -204,12 +210,12 @@
 				AAE59CC61BC70A7700F99907 /* DetailViewController.h */,
 				AAE59CC71BC70A7700F99907 /* DetailViewController.m */,
 				AAE59CC31BC5E3C800F99907 /* CurrentUserRequestViewController.h */,
-				AAE59CAD1BC499C500F99907 /* AddRequestViewController.h */,
 				AAE59CC41BC5E3C800F99907 /* CurrentUserRequestViewController.m */,
 				AAE59CB71BC4DFE000F99907 /* CreatorTableViewController.h */,
 				AAE59CB81BC4DFE000F99907 /* CreatorTableViewController.m */,
 				AAE59C841BC333A500F99907 /* ProfileTableViewController.h */,
 				AAE59C851BC333A500F99907 /* ProfileTableViewController.m */,
+				AAE59CAD1BC499C500F99907 /* AddRequestViewController.h */,
 				AAE59CAE1BC499C500F99907 /* AddRequestViewController.m */,
 				4E7E4E931BC33A4400D4C10D /* RequestsCollectionViewController.swift */,
 				4E16A1BE1BCC749900F8C062 /* Extensions.swift */,
@@ -269,6 +275,8 @@
 		AAE59C8D1BC347CA00F99907 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AAB242DD1BCC901A004644DA /* Conversation.h */,
+				AAB242DE1BCC901A004644DA /* Conversation.m */,
 				AAB242D21BCC413D004644DA /* Message.h */,
 				AAB242D31BCC413D004644DA /* Message.m */,
 				AAE59C8A1BC347C500F99907 /* User.h */,
@@ -288,6 +296,8 @@
 		AAE59CAC1BC453B600F99907 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				AAB242DA1BCC85A0004644DA /* MessengerTableViewCell.h */,
+				AAB242DB1BCC85A0004644DA /* MessengerTableViewCell.m */,
 				AAE59CBA1BC4F3C800F99907 /* CreatorProfileTableViewCell.h */,
 				AAE59CBB1BC4F3C800F99907 /* CreatorProfileTableViewCell.m */,
 				AAE59CBD1BC4F3D700F99907 /* CreatorRatingTableViewCell.h */,
@@ -483,6 +493,7 @@
 				AAE59CC81BC70A7700F99907 /* DetailViewController.m in Sources */,
 				AAB242D11BCC39E8004644DA /* MessengerViewController.m in Sources */,
 				4EA4E4FF1BC3683600D1AE5D /* main.m in Sources */,
+				AAB242DC1BCC85A0004644DA /* MessengerTableViewCell.m in Sources */,
 				AAE59C931BC34F1600F99907 /* Rating.m in Sources */,
 				AAE59CC21BC4F3E600F99907 /* CreatorCommentTableViewCell.m in Sources */,
 				AAB242D41BCC413D004644DA /* Message.m in Sources */,
@@ -497,6 +508,7 @@
 				AAE59C961BC351FC00F99907 /* PickUp.m in Sources */,
 				AAE59CB91BC4DFE000F99907 /* CreatorTableViewController.m in Sources */,
 				4EF481041BC8B59300DBE4AE /* DetailMapViewController.swift in Sources */,
+				AAB242DF1BCC901A004644DA /* Conversation.m in Sources */,
 				4E7E4E941BC33A4400D4C10D /* RequestsCollectionViewController.swift in Sources */,
 				4E7E4E961BC33D3300D4C10D /* RequestCollectionViewCell.swift in Sources */,
 				4E7E4E9A1BC363F300D4C10D /* RequestDetailViewController.swift in Sources */,
@@ -565,6 +577,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -608,6 +621,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -632,6 +646,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = PickUP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Steve.PickUP;
@@ -648,6 +663,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = PickUP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Steve.PickUP;

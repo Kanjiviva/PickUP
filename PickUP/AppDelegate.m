@@ -17,7 +17,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "Constants.h"
 #import "Message.h"
-
+#import "Conversation.h"
 
 @interface AppDelegate ()
 
@@ -37,7 +37,9 @@
     [Rating registerSubclass];
     [PickUp registerSubclass];
     [Message registerSubclass];
-    [Parse enableLocalDatastore];
+    [Conversation registerSubclass];
+//    [Parse enableLocalDatastore];
+    
     
     // Initialize Parse.
     [Parse setApplicationId:@"lQgksTzpNQMRMdiaJhd1iVzgfneBJxCNQ2HEIC7w"

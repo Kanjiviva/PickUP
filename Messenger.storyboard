@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qdQ-LM-ddw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Messenger-->
@@ -27,20 +28,52 @@
         <scene sceneID="0ay-tI-jFM">
             <objects>
                 <tableViewController id="Lb6-aB-BAv" customClass="MessagesTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ScM-xu-2oi">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="ScM-xu-2oi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="gbu-Dm-ajr">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="100" id="gbu-Dm-ajr" customClass="MessengerTableViewCell">
+                                <rect key="frame" x="0.0" y="92" width="600" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gbu-Dm-ajr" id="BKg-S6-2Ix">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="afN-cB-oOe">
+                                            <rect key="frame" x="8" y="8" width="83.5" height="83.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="83.5" id="RxS-2R-H5b"/>
+                                                <constraint firstAttribute="height" constant="83.5" id="nnM-3f-7bD"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FD6-HY-aNQ">
+                                            <rect key="frame" x="99" y="39" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="FD6-HY-aNQ" firstAttribute="top" secondItem="BKg-S6-2Ix" secondAttribute="topMargin" id="0hZ-lL-gJz"/>
+                                        <constraint firstItem="afN-cB-oOe" firstAttribute="bottom" secondItem="BKg-S6-2Ix" secondAttribute="bottomMargin" id="1av-F6-T3w"/>
+                                        <constraint firstItem="FD6-HY-aNQ" firstAttribute="leading" secondItem="afN-cB-oOe" secondAttribute="trailing" constant="8" id="50v-I6-0tc"/>
+                                        <constraint firstItem="FD6-HY-aNQ" firstAttribute="leading" secondItem="afN-cB-oOe" secondAttribute="trailing" constant="8" id="aLM-7B-eKw"/>
+                                        <constraint firstItem="afN-cB-oOe" firstAttribute="top" secondItem="BKg-S6-2Ix" secondAttribute="topMargin" id="nJg-ss-bWf"/>
+                                        <constraint firstItem="afN-cB-oOe" firstAttribute="leading" secondItem="BKg-S6-2Ix" secondAttribute="leadingMargin" id="wfq-lS-btD"/>
+                                        <constraint firstItem="FD6-HY-aNQ" firstAttribute="centerY" secondItem="BKg-S6-2Ix" secondAttribute="centerY" id="ze1-AZ-OAj"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="0hZ-lL-gJz"/>
+                                            <exclude reference="aLM-7B-eKw"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="iEs-ve-Dze" kind="show" id="0Sy-m9-lzf"/>
+                                    <outlet property="userNameLabel" destination="FD6-HY-aNQ" id="y8E-8t-5Fe"/>
+                                    <outlet property="userProfilePicture" destination="afN-cB-oOe" id="mAe-sz-VY7"/>
+                                    <segue destination="iEs-ve-Dze" kind="show" identifier="showChat" id="0Sy-m9-lzf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -58,7 +91,7 @@
         <!--Messenger View Controller-->
         <scene sceneID="wIY-tC-Urz">
             <objects>
-                <viewController id="iEs-ve-Dze" customClass="MessengerViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MessengerViewController" id="iEs-ve-Dze" customClass="MessengerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XOj-xL-PdL"/>
                         <viewControllerLayoutGuide type="bottom" id="dZG-Tt-fxI"/>

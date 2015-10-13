@@ -7,7 +7,7 @@
 //
 
 #import "MessengerViewController.h"
-#import "User.h"
+
 #import "Message.h"
 
 @interface MessengerViewController ()
@@ -34,7 +34,16 @@
     self.bubbleFactory = [JSQMessagesBubbleImageFactory new];
     
     self.messagesData = [NSMutableArray array];
+    
+    
+    
     [self fetchMessages];
+    
+    [NSTimer scheduledTimerWithTimeInterval:3.0
+                                     target:self
+                                   selector:@selector(fetchMessages)
+                                   userInfo:nil
+                                    repeats:YES];
     
     self.tabBarController.tabBar.hidden = YES;
     
@@ -45,22 +54,30 @@
 - (void)fetchMessages {
     PFQuery *currentUserSent = [Message query];
     [currentUserSent whereKey:@"senderUser" equalTo:self.currentUser];
-    [currentUserSent whereKey:@"receiverUser" equalTo:self.currentUser];
+    [currentUserSent whereKey:@"receiverUser" equalTo:self.requestCreator];
     
     PFQuery *receiverSent = [Message query];
+    [receiverSent whereKey:@"senderUser" equalTo:self.requestCreator];
     [receiverSent whereKey:@"receiverUser" equalTo:self.currentUser];
-    [receiverSent whereKey:@"senderUser" equalTo:self.currentUser];
     
     PFQuery *combined = [PFQuery orQueryWithSubqueries:@[currentUserSent, receiverSent]];
-    
+    [combined setCachePolicy:kPFCachePolicyCacheThenNetwork];
+    [combined orderByAscending:@"createdAt"];
     [combined findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        
+        NSMutableArray *array = [NSMutableArray new];
+        
         for (Message *message in objects) {
             
-            [self.messagesData addObject:message];
+            [array addObject:message];
             
         }
         
-        [self.collectionView reloadData];
+        if (self.messagesData.count != [array count]) {
+            self.messagesData = array;
+            [self.collectionView reloadData];
+        }
+        
     }];
     
 }
@@ -73,25 +90,26 @@
     
 }
 
-/**
- *  Notifies the data source that the item at indexPath has been deleted.
- *  Implementations of this method should remove the item from the data source.
- *
- *  @param collectionView The collection view requesting this information.
- *  @param indexPath      The index path that specifies the location of the item.
- */
 - (void)collectionView:(JSQMessagesCollectionView *)collectionView didDeleteMessageAtIndexPath:(NSIndexPath *)indexPath {
     [self.messagesData removeObjectAtIndex:indexPath.item];
 }
 
 
 - (id<JSQMessageBubbleImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView messageBubbleImageDataForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if ([self.messagesData[indexPath.item] senderUser] == self.currentUser) {
-        return [self.bubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor colorWithRed: 80.0/255.0 green: 210.0/255.0 blue: 194.0/255.0 alpha: 1.0]];
-    } else {
-        
-        return [self.bubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor colorWithRed: 158.0/255.0 green: 37.0/255.0 blue: 143.0/255.0 alpha: 1.0]];
+    
+    Message *message = [self.messagesData objectAtIndex:indexPath.item];
+    
+    if ([message.senderId isEqualToString:self.senderId]) {
+        return [self.bubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor colorWithHue:240.0f / 360.0f
+                                                                                  saturation:0.02f
+                                                                                  brightness:0.92f
+                                                                                       alpha:1.0f]];
     }
+    
+    return [self.bubbleFactory incomingMessagesBubbleImageWithColor:[UIColor colorWithHue:130.0f / 360.0f
+                                                                              saturation:0.68f
+                                                                              brightness:0.84f
+                                                                                   alpha:1.0f]];
 }
 
 /**
@@ -119,12 +137,15 @@
          senderDisplayName:(NSString *)senderDisplayName
                       date:(NSDate *)date {
     
-    
-    Message *message = [[Message alloc] initWithText:text sender:self.currentUser receiver:self.currentUser];
+    Message *message = [[Message alloc] initWithText:text sender:self.currentUser receiver:self.requestCreator];
     
     [self.messagesData addObject:message];
     
-    [message saveInBackground];
+    [message saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+        }
+    }];
     [self finishSendingMessageAnimated:YES];
 }
 
@@ -140,8 +161,6 @@
     JSQMessagesCollectionViewCell *cell = (JSQMessagesCollectionViewCell *)[super collectionView:collectionView cellForItemAtIndexPath:indexPath];
     
 //    cell.avatarImageView.contentMode = UIViewContentModeScaleAspectFit;
-    
-    
     
     return cell;
     
