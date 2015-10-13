@@ -43,12 +43,14 @@
     
     PFQuery *queryFrom = [Conversation query];
     [queryFrom whereKey:@"senderUser" equalTo:self.currentUser];
+//    [queryFrom includeKey:@"senderUser"];
     
     PFQuery *queryTo = [Conversation query];
     [queryTo whereKey:@"receiverUser" equalTo:self.currentUser];
-    
+//    [queryTo includeKey:@"receiverUser"];
     PFQuery *query = [PFQuery orQueryWithSubqueries:@[queryFrom, queryTo]];
-    
+//    [query includeKey:@"senderUser"];
+//    [query includeKey:@"receiverUser"];
     [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
@@ -91,6 +93,7 @@
     MessengerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     Conversation *conversation = self.allMessages[indexPath.row];
+    
     cell.conversation = conversation;
     
     return cell;
