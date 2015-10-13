@@ -100,6 +100,10 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
                 if let objects = objects {
                     self.requests = objects as! [Request]
                     self.calculateDistance(self.currentLoc)
+                    
+                    self.requests = self.requests.filter { (item: Request)->(Bool) in !item.isAccepted }
+
+                    
                     self.sortIntoDictionary(self.requests)
                     self.collectionView?.reloadData()
                 }
@@ -108,10 +112,9 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
     }
     
     func sortIntoDictionary(requests: [Request]) {
-        if requests.count == 0 {
-            self.requestsByLocaion = [String: [Request]]()
-        }
         
+        self.requestsByLocaion = [String: [Request]]()
+
         for request in requests {
             
             if let city = request.cityName {
@@ -138,6 +141,8 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
     }
     
     func removeAcceptedObject() {
+        
+        print("in removeAcceptedObject")
         
         requests = requests.filter { (item: Request)->(Bool) in !item.isAccepted }
         
