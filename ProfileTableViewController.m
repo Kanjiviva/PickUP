@@ -79,6 +79,7 @@
 - (void)allCommentsForRequestCreator {
     PFQuery *query = [Rating query];
     [query whereKey:@"requestCreator" equalTo:self.currentUser];
+    [query includeKey:@"ratingCreator"];
     [query orderByDescending:@"createdAt"];
     [query whereKey:@"comment" notEqualTo:[NSNull null]];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {

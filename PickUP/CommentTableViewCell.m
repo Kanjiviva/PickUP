@@ -34,6 +34,7 @@
 
 - (void)setup {
     self.commentLabel.text = self.rating.comment;
+    
     self.ratingCreatorLabel.text = self.rating.ratingCreator.fullName;
 }
 @end

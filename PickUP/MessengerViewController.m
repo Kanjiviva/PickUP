@@ -39,11 +39,11 @@
     
     [self fetchMessages];
     
-//    [NSTimer scheduledTimerWithTimeInterval:3.0
-//                                     target:self
-//                                   selector:@selector(fetchMessages)
-//                                   userInfo:nil
-//                                    repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:3.0
+                                     target:self
+                                   selector:@selector(fetchMessages)
+                                   userInfo:nil
+                                    repeats:YES];
     
     self.tabBarController.tabBar.hidden = YES;
     
@@ -61,7 +61,8 @@
     [receiverSent whereKey:@"receiverUser" equalTo:self.currentUser];
     
     PFQuery *combined = [PFQuery orQueryWithSubqueries:@[currentUserSent, receiverSent]];
-    
+    [combined setCachePolicy:kPFCachePolicyCacheThenNetwork];
+    [combined orderByAscending:@"createdAt"];
     [combined findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
         NSMutableArray *array = [NSMutableArray new];
@@ -72,9 +73,11 @@
             
         }
         
-        self.messagesData = array;
+        if (self.messagesData.count != [array count]) {
+            self.messagesData = array;
+            [self.collectionView reloadData];
+        }
         
-        [self.collectionView reloadData];
     }];
     
 }
@@ -93,12 +96,20 @@
 
 
 - (id<JSQMessageBubbleImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView messageBubbleImageDataForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if ([self.messagesData[indexPath.item] senderUser] == self.currentUser) {
-        return [self.bubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor colorWithRed: 80.0/255.0 green: 210.0/255.0 blue: 194.0/255.0 alpha: 1.0]];
-    } else {
-        
-        return [self.bubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor colorWithRed: 158.0/255.0 green: 37.0/255.0 blue: 143.0/255.0 alpha: 1.0]];
+    
+    Message *message = [self.messagesData objectAtIndex:indexPath.item];
+    
+    if ([message.senderId isEqualToString:self.senderId]) {
+        return [self.bubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor colorWithHue:240.0f / 360.0f
+                                                                                  saturation:0.02f
+                                                                                  brightness:0.92f
+                                                                                       alpha:1.0f]];
     }
+    
+    return [self.bubbleFactory incomingMessagesBubbleImageWithColor:[UIColor colorWithHue:130.0f / 360.0f
+                                                                              saturation:0.68f
+                                                                              brightness:0.84f
+                                                                                   alpha:1.0f]];
 }
 
 /**
@@ -126,12 +137,15 @@
          senderDisplayName:(NSString *)senderDisplayName
                       date:(NSDate *)date {
     
-    
     Message *message = [[Message alloc] initWithText:text sender:self.currentUser receiver:self.requestCreator];
     
     [self.messagesData addObject:message];
     
-    [message saveInBackground];
+    [message saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+        }
+    }];
     [self finishSendingMessageAnimated:YES];
 }
 
@@ -147,8 +161,6 @@
     JSQMessagesCollectionViewCell *cell = (JSQMessagesCollectionViewCell *)[super collectionView:collectionView cellForItemAtIndexPath:indexPath];
     
 //    cell.avatarImageView.contentMode = UIViewContentModeScaleAspectFit;
-    
-    
     
     return cell;
     

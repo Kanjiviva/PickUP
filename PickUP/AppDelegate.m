@@ -38,7 +38,7 @@
     [PickUp registerSubclass];
     [Message registerSubclass];
     [Conversation registerSubclass];
-    [Parse enableLocalDatastore];
+//    [Parse enableLocalDatastore];
     
     
     // Initialize Parse.

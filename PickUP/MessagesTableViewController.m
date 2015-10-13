@@ -35,6 +35,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.tabBarController.tabBar.hidden = NO;
+    [self fetchAllComments];
 }
 
 #pragma mark - Helper Method -
@@ -44,10 +45,14 @@
     PFQuery *queryFrom = [Conversation query];
     [queryFrom whereKey:@"senderUser" equalTo:self.currentUser];
     
+    
     PFQuery *queryTo = [Conversation query];
     [queryTo whereKey:@"receiverUser" equalTo:self.currentUser];
-
+    
+    
     PFQuery *query = [PFQuery orQueryWithSubqueries:@[queryFrom, queryTo]];
+    [query includeKey:@"receiverUser"];
+    [query includeKey:@"senderUser"];
     [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
@@ -69,7 +74,7 @@
         MessengerViewController *messageVC = segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Conversation *conversation = self.allMessages[indexPath.row];
-        messageVC.requestCreator = conversation.receiverUser;
+        messageVC.requestCreator = ([conversation.receiverUser.objectId isEqualToString:[User currentUser].objectId ] ? conversation.senderUser : conversation.receiverUser);
     }
 }
 

@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if (self.request.creatorUser == [User currentUser]) {
+    if ([self.request.creatorUser.objectId isEqualToString:[User currentUser].objectId]) {
         self.messageButton.hidden = YES;
     }
     

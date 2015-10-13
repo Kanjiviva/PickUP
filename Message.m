@@ -22,7 +22,8 @@
         self.senderUser = sender;
         self.messageText = text;
         NSDate *now = [NSDate new];
-        self.hashForMessage = [[NSNumber alloc] initWithUnsignedInteger:self.senderUser.objectId.hash ^ now.hash ^ self.receiverUser.objectId.hash];
+        
+        self.hashForMessage = [[NSNumber alloc] initWithUnsignedInteger:now.hash];
         self.receiverUser = receiver;
     }
     return self;
