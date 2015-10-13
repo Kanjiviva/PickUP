@@ -9,7 +9,7 @@
 #ifndef Constants_h
 #define Constants_h
 
-#define API_KET @"AIzaSyC72FyB4frbAd_aS2mKovEy-vZrHuJVuHQ"
+#define API_KET @""
 
 
 #endif /* Constants_h */
