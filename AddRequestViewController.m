@@ -12,9 +12,11 @@
 #import "User.h"
 #import "PickUp.h"
 #import "PickUP-Swift.h"
-#define kOFFSET_FOR_KEYBOARD 80.0
 
-@interface AddRequestViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
+#define kOFFSET_FOR_KEYBOARD 100.0
+
+
+@interface AddRequestViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *itemImage;
 @property (weak, nonatomic) IBOutlet UITextField *itemTitle;
@@ -37,9 +39,7 @@
     self.itemImage.layer.borderColor = [UIColor blackColor].CGColor;
     
     self.view.backgroundColor = [[UIColor alloc] initWithNetHex: 0xE8846B];
-    
-    
-    
+
     self.itemTitle.text = @"Test";
     self.pickUplocation.text = @"Richmond";
     self.dropOffLocation.text = @"Vancouver";
@@ -48,8 +48,8 @@
     
 }
 
--(void)viewWillAppear:(BOOL)animated {
-    
+- (void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
     // register for keyboard notifications
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -63,8 +63,8 @@
                                                object:nil];
 }
 
--(void)viewWillDisappear:(BOOL)animated {
-    
+- (void)viewWillDisappear:(BOOL)animated
+{
     [super viewWillDisappear:animated];
     // unregister for keyboard notifications while not visible.
     [[NSNotificationCenter defaultCenter] removeObserver:self
@@ -76,6 +76,10 @@
                                                   object:nil];
 }
 
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+    [[self view] endEditing:YES];
+}
 
 #pragma mark - Helper Method -
 
@@ -131,11 +135,7 @@
             
         }];
     }];
-    
-    
-    
-
-    
+   
 }
 
 #pragma mark - Geocoder -
@@ -269,30 +269,15 @@
     {
         [self setViewMovedUp:YES];
     }
-    else if (self.view.frame.origin.y < 0)
-    {
-        [self setViewMovedUp:NO];
-    }
+   
 }
 
 -(void)keyboardWillHide {
-    if (self.view.frame.origin.y >= 0)
-    {
-        [self setViewMovedUp:YES];
-    }
-    else if (self.view.frame.origin.y < 0)
+   
+    if (self.view.frame.origin.y < 0)
     {
         [self setViewMovedUp:NO];
     }
-}
-
--(void)textFieldDidBeginEditing:(UITextField *)textField {
-  
-    //move the main view, so that the keyboard does not hide it.
-   
-    [self setViewMovedUp:YES];
-    
-    
 }
 
 //method to move the view up/down whenever the keyboard is shown/dismissed
