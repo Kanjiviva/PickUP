@@ -15,6 +15,7 @@
 @property (strong, nonatomic) User *currentUser;
 @property (strong, nonatomic) NSMutableArray<Message *> *messagesData;
 @property (strong, nonatomic) JSQMessagesBubbleImageFactory *bubbleFactory;
+@property (strong, nonatomic) Message *lastObject;
 @end
 
 @implementation MessengerViewController
@@ -39,11 +40,12 @@
     
     [self fetchMessages];
     
-    [NSTimer scheduledTimerWithTimeInterval:3.0
-                                     target:self
-                                   selector:@selector(fetchMessages)
-                                   userInfo:nil
-                                    repeats:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchMessages) name:@"receivedMessages" object:nil];
+//    [NSTimer scheduledTimerWithTimeInterval:3.0
+//                                     target:self
+//                                   selector:@selector(fetchMessages)
+//                                   userInfo:nil
+//                                    repeats:YES];
     
     self.tabBarController.tabBar.hidden = YES;
     
@@ -66,27 +68,36 @@
     [combined findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
         NSMutableArray *array = [NSMutableArray new];
-        
+        self.lastObject = [self.messagesData lastObject];
         for (Message *message in objects) {
             
-            [array addObject:message];
-            
+            if ([self.lastObject.createdAt timeIntervalSince1970] < [message.createdAt timeIntervalSince1970]) {
+                
+                [array addObject:message];
+                
+            }
         }
+        [self.messagesData addObjectsFromArray:array];
+        [self.collectionView reloadData];
         
-        if (self.messagesData.count != [array count]) {
-            self.messagesData = array;
-            [self.collectionView reloadData];
-        }
+        
+        
+        
+//        if (self.messagesData.count != [array count]) {
+//            self.messagesData = array;
+//            
+//            [self.collectionView reloadData];
+//        }
         
     }];
     
 }
 
-- (void)pushNotificationWhenMessageSent {
+- (void)pushNotificationWhenMessageSent:(NSString *)message {
     PFQuery *query = [PFInstallation query];
     [query whereKey:@"userNotification" equalTo:self.requestCreator];
     PFPush *iOSPush = [[PFPush alloc] init];
-    [iOSPush setMessage:@"You got a new Message!"];
+    [iOSPush setMessage:message];
     [iOSPush setQuery:query];
     [iOSPush sendPushInBackground];
     
@@ -148,22 +159,23 @@
                       date:(NSDate *)date {
     
     Message *message = [[Message alloc] initWithText:text sender:self.currentUser receiver:self.requestCreator];
-    
+    [self pushNotificationWhenMessageSent:text];
     [self.messagesData addObject:message];
     
     [message saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (error) {
             NSLog(@"Error: %@", error);
         }
+        
     }];
     [self finishSendingMessageAnimated:YES];
-    [self pushNotificationWhenMessageSent];
     
 }
 
 #pragma mark - UICollectionView Datasource -
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    
     
     return [self.messagesData count];
 }

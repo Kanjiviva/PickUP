@@ -34,6 +34,11 @@
         self.navigationItem.rightBarButtonItem = nil;
     }
     
+    if (self.request.isAccepted && [self.request.creatorUser.objectId isEqualToString:[User currentUser].objectId]) {
+        [self.messageButton setTitle:@"Talk to Deliver" forState:UIControlStateNormal];
+        self.messageButton.hidden = NO;
+    }
+    
     [self setup];
 }
 
@@ -89,8 +94,11 @@
     } else if ([segue.identifier isEqualToString:@"showMessage"]) {
         MessengerViewController *messageVC = segue.destinationViewController;
         [self checkExistingConversation];
-        messageVC.requestCreator = self.request.creatorUser;
-        
+        if ([self.request.creatorUser.objectId isEqualToString:[User currentUser].objectId]) {
+            messageVC.requestCreator = self.request.assignedUser;
+        } else {
+            messageVC.requestCreator = self.request.creatorUser;
+        }
         
         
         

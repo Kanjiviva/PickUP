@@ -23,7 +23,7 @@
         self.messageText = text;
         NSDate *now = [NSDate new];
         
-        self.hashForMessage = [[NSNumber alloc] initWithUnsignedInteger:now.hash];
+        self.hashForMessage = [[NSNumber alloc] initWithUnsignedInteger:now.hash / 10000000];
         self.receiverUser = receiver;
     }
     return self;
