@@ -31,6 +31,7 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        
         let locationManager = LocationManager.sharedLocationManager()
         locationManager.delegate = self
         LocationManager.sharedLocationManager().startLocationManager(self)
@@ -42,6 +43,12 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
         collectionView?.backgroundColor = UIColor.whiteColor()
         
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+//        didAcceptRequest()
+        loadRequests()
     }
     
     // MARK: LocationManagerDelegate 
@@ -149,8 +156,8 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
     
     func didAcceptRequest() {
         
-        removeAcceptedObject()
-        self.collectionView?.reloadData()
+        //removeAcceptedObject()
+        //self.collectionView?.reloadData()
         
     }
     

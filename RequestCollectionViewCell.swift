@@ -23,6 +23,7 @@ class RequestCollectionViewCell: UICollectionViewCell {
             distanceFromCurrentUserLabel.text = String(format: "%.1f Km", object.distanceFromPickupLoc / 1000)
             itemImage.clipsToBounds = true
             itemImage.layer.cornerRadius = self.itemImage.frame.size.width/2
+            
             itemImage.layer.borderWidth = 5.0
             itemImage.layer.borderColor = UIColor.init(netHex: 0x989898).CGColor
 

@@ -66,19 +66,44 @@
     PFQuery *combined = [PFQuery orQueryWithSubqueries:@[currentUserSent, receiverSent]];
     [combined setCachePolicy:kPFCachePolicyCacheThenNetwork];
     [combined orderByAscending:@"createdAt"];
+    
+    
+    // get the last message sent by remote user, from self.messagesData
+    // use that to set the createdAt query value
+    
+    NSArray<Message *> *yourMessages = [self.messagesData filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"receiverUser == %@", self.currentUser]];
+    
+    if ([yourMessages count] > 0) {
+        [combined whereKey:@"createdAt" greaterThan:yourMessages.lastObject.createdAt];
+    }
+    
     [combined findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
-        NSMutableArray *array = [NSMutableArray new];
-        self.lastObject = [self.messagesData lastObject];
-        for (Message *message in objects) {
+//        NSMutableArray *array = [NSMutableArray new];
+//        self.lastObject = [self.messagesData lastObject];
+        
+        for (Message *msg in objects) {
+             NSArray<Message *> *existing = [self.messagesData filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"messageHash == %i", msg.messageHash]];
             
-            if ([self.lastObject.createdAt timeIntervalSince1970] < [message.createdAt timeIntervalSince1970]) {
-                
-                [array addObject:message];
-                
+            if ([existing count] == 0) {
+                [self.messagesData addObject:msg];
             }
         }
-        [self.messagesData addObjectsFromArray:array];
+        
+        
+//        [self.messagesData addObjectsFromArray:objects];
+//
+//        for (Message *message in objects) {
+//            
+//            [self.messagesData addObject:message];
+//            
+//            //if ([self.lastObject.createdAt timeIntervalSince1970] < [message.createdAt timeIntervalSince1970]) {
+//                
+//              //  [array addObject:message];
+//                
+//            //}
+//        }
+//        [self.messagesData addObjectsFromArray:array];
         [self.collectionView reloadData];
         
         
@@ -161,12 +186,14 @@
     
     Message *message = [[Message alloc] initWithText:text sender:self.currentUser receiver:self.requestCreator];
     
-    [self pushNotificationWhenMessageSent:text];
     [self.messagesData addObject:message];
     
     [message saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (error) {
             NSLog(@"Error: %@", error);
+        } else {
+            
+            [self pushNotificationWhenMessageSent:text];
         }
         
     }];

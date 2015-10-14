@@ -36,21 +36,21 @@
     self.userProfilePicture.layer.cornerRadius = self.userProfilePicture.frame.size.width/2;
     self.userProfilePicture.clipsToBounds = YES;
     
-//    if ([self.conversation.receiverUser.objectId isEqualToString:[User currentUser].objectId]) {
-//        
-//        self.userNameLabel.text = self.conversation.senderUser.fullName;
-//        PFFile *imageFile = self.conversation.senderUser.profilePicture;
-//        [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
-//            self.userProfilePicture.image = [UIImage imageWithData:data];
-//        }];
-//    } else {
+    if ([self.conversation.receiverUser.objectId isEqualToString:[User currentUser].objectId]) {
+        
+        self.userNameLabel.text = self.conversation.senderUser.fullName;
+        PFFile *imageFile = self.conversation.senderUser.profilePicture;
+        [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+            self.userProfilePicture.image = [UIImage imageWithData:data];
+        }];
+    } else {
     
         self.userNameLabel.text = self.conversation.receiverUser.fullName;
         PFFile *imageFile = self.conversation.receiverUser.profilePicture;
         [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
             self.userProfilePicture.image = [UIImage imageWithData:data];
         }];
-//    }
+    }
     
     
     

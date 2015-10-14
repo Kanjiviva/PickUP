@@ -68,12 +68,25 @@
 - (void)checkExistingConversation {
     
     PFQuery *checkReceiver = [Conversation query];
-    [checkReceiver whereKey:@"receiverUser" equalTo:self.request.creatorUser];
-    [checkReceiver whereKey:@"senderUser" equalTo:[User currentUser]];
+    
+    if ([[User currentUser].objectId isEqualToString:self.request.creatorUser.objectId]) {
+        [checkReceiver whereKey:@"receiverUser" equalTo:self.request.assignedUser];
+        [checkReceiver whereKey:@"senderUser" equalTo:[User currentUser]];
+    } else {
+        [checkReceiver whereKey:@"receiverUser" equalTo:self.request.creatorUser];
+        [checkReceiver whereKey:@"senderUser" equalTo:[User currentUser]];
+    }
     
     PFQuery *checkSender = [Conversation query];
-    [checkSender whereKey:@"receiverUser" equalTo:[User currentUser]];
-    [checkSender whereKey:@"senderUser" equalTo:self.request.creatorUser];
+    
+    if ([[User currentUser].objectId isEqualToString:self.request.creatorUser.objectId]) {
+        [checkSender whereKey:@"receiverUser" equalTo:[User currentUser]];
+        [checkSender whereKey:@"senderUser" equalTo:self.request.assignedUser];
+    } else {
+        [checkSender whereKey:@"receiverUser" equalTo:[User currentUser]];
+        [checkSender whereKey:@"senderUser" equalTo:self.request.creatorUser];
+    }
+    
     
     PFQuery *combined = [PFQuery orQueryWithSubqueries:@[checkReceiver, checkSender]];
     [combined includeKey:@"receiverUser"];
