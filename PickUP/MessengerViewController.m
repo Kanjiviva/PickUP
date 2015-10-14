@@ -40,6 +40,7 @@
     
     [self fetchMessages];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchMessages) name:@"receivedMessages" object:nil];
 //    [NSTimer scheduledTimerWithTimeInterval:3.0
 //                                     target:self
 //                                   selector:@selector(fetchMessages)
@@ -174,7 +175,7 @@
 #pragma mark - UICollectionView Datasource -
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchMessages) name:@"receivedMessages" object:nil];
+    
     
     return [self.messagesData count];
 }
