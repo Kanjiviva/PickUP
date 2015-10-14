@@ -98,6 +98,7 @@
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:deviceToken];
     currentInstallation.channels = @[ @"global" ];
+    [currentInstallation setObject:[User currentUser] forKey:@"userNotification"];
     [currentInstallation saveInBackground];
 }
 
