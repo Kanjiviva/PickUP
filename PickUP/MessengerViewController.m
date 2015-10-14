@@ -24,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
@@ -36,7 +37,7 @@
     
     self.messagesData = [NSMutableArray array];
     
-    
+    self.title = [NSString stringWithFormat:@"%@", self.requestCreator.fullName];
     
     [self fetchMessages];
     
@@ -159,6 +160,7 @@
                       date:(NSDate *)date {
     
     Message *message = [[Message alloc] initWithText:text sender:self.currentUser receiver:self.requestCreator];
+    
     [self pushNotificationWhenMessageSent:text];
     [self.messagesData addObject:message];
     

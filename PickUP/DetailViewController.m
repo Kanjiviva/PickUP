@@ -76,11 +76,20 @@
     [checkSender whereKey:@"senderUser" equalTo:self.request.creatorUser];
     
     PFQuery *combined = [PFQuery orQueryWithSubqueries:@[checkReceiver, checkSender]];
+    [combined includeKey:@"receiverUser"];
+    [combined includeKey:@"senderUser"];
     [combined findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
         if ([objects count] == 0) {
-            Conversation *conversation = [[Conversation alloc] initWithSender:[User currentUser] receiver:self.request.creatorUser];
-            [conversation saveInBackground];
+            
+            if ([[User currentUser].objectId isEqualToString:self.request.creatorUser.objectId]) {
+                Conversation *conversation = [[Conversation alloc] initWithSender:[User currentUser] receiver:self.request.assignedUser];
+                [conversation saveInBackground];
+            } else {
+                Conversation *conversation = [[Conversation alloc] initWithSender:[User currentUser] receiver:self.request.creatorUser];
+                [conversation saveInBackground];
+            }
+            
         }
         
     }];
