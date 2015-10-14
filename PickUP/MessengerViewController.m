@@ -82,6 +82,16 @@
     
 }
 
+- (void)pushNotificationWhenMessageSent {
+    PFQuery *query = [PFInstallation query];
+    [query whereKey:@"userNotification" equalTo:self.requestCreator];
+    PFPush *iOSPush = [[PFPush alloc] init];
+    [iOSPush setMessage:@"You got a new Message!"];
+    [iOSPush setQuery:query];
+    [iOSPush sendPushInBackground];
+    
+}
+
 #pragma mark - JSQMessage Data source -
 
 - (id<JSQMessageData>)collectionView:(JSQMessagesCollectionView *)collectionView messageDataForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -147,6 +157,8 @@
         }
     }];
     [self finishSendingMessageAnimated:YES];
+    [self pushNotificationWhenMessageSent];
+    
 }
 
 #pragma mark - UICollectionView Datasource -
