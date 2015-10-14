@@ -20,7 +20,7 @@ extension PFGeoPoint {
     }
 }
 
-class RequestsCollectionViewController: UICollectionViewController, AddRequestViewContollerDelegate, RequestDetailViewControllerDelegate, LocationManagerDelegate {
+class RequestsCollectionViewController: UICollectionViewController, AddRequestViewContollerDelegate, RequestDetailViewControllerDelegate, LocationManagerDelegate, UICollectionViewDelegateFlowLayout {
     
     
     var requests = [Request]()
@@ -30,8 +30,6 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
        
         let locationManager = LocationManager.sharedLocationManager()
         locationManager.delegate = self
@@ -130,6 +128,22 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
             }
             
         }
+    }
+    
+    // MARK: UICollectionViewDelegateFlowLayout
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+    {
+        let cellSpacing = CGFloat(10) //Define the space between each cell
+        let leftRightMargin = CGFloat(20) //If defined in Interface Builder for "Section Insets"
+        let numColumns = CGFloat(3) //The total number of columns
+        
+        let totalCellSpace = cellSpacing * (numColumns - 1)
+        let screenWidth = UIScreen.mainScreen().bounds.width
+        let width = (screenWidth - leftRightMargin - totalCellSpace) / numColumns
+        let height = CGFloat(150)
+        
+        return CGSizeMake(width, height);
     }
     // MARK: RequestDetailViewControllerDelegate
     
