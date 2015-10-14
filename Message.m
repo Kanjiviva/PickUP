@@ -25,6 +25,7 @@
         
         self.hashForMessage = [[NSNumber alloc] initWithUnsignedInteger:now.hash / 10000000];
         self.receiverUser = receiver;
+        
     }
     return self;
 }
