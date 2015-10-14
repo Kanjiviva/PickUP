@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PickUP/MessengerViewController.m"
-            timestampString = "466492569.605206"
+            filePath = "PickUP/AppDelegate.m"
+            timestampString = "466494212.71075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "-didPressSendButton:withMessageText:senderId:senderDisplayName:date:"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "-application:didReceiveRemoteNotification:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
