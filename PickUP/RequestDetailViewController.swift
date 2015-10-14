@@ -24,6 +24,7 @@ class RequestDetailViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var descripLabel: UILabel!
     @IBOutlet weak var contactLabel: UILabel!
+    @IBOutlet weak var acceptBtn: UIButton!
     
     var delegate: RequestDetailViewControllerDelegate?
     var request: Request?
@@ -34,6 +35,10 @@ class RequestDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        if (request?.creatorUser.objectId == User.currentUser()?.objectId) {
+            acceptBtn.hidden = true
+        }
         
         itemImage.image = object.itemImage.image
         titleLabel.text = request?.itemTitle

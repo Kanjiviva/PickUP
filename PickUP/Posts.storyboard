@@ -321,6 +321,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="acceptBtn" destination="0wt-dE-UwN" id="mfU-ua-thx"/>
                         <outlet property="contactLabel" destination="SCW-KZ-0Y4" id="tZB-IH-860"/>
                         <outlet property="descripLabel" destination="p9v-KI-7T5" id="Rvb-dZ-ZgG"/>
                         <outlet property="dropoffLoc" destination="BeU-fJ-Thy" id="2sc-CI-SGR"/>
