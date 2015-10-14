@@ -24,7 +24,7 @@ class RequestCollectionViewCell: UICollectionViewCell {
             itemImage.clipsToBounds = true
             itemImage.layer.cornerRadius = self.itemImage.frame.size.width/2
             itemImage.layer.borderWidth = 5.0
-            itemImage.layer.borderColor = UIColor.init(netHex: 0xA1C4BE).CGColor
+            itemImage.layer.borderColor = UIColor.init(netHex: 0x989898).CGColor
 
             let tempObject = object
             

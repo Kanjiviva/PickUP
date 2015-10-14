@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *dropOffLocation;
 @property (weak, nonatomic) IBOutlet UITextField *itemCost;
 @property (weak, nonatomic) IBOutlet UITextField *itemDescription;
-@property (weak, nonatomic) IBOutlet UITextField *contactLabel;
+
 
 @end
 
@@ -36,9 +36,9 @@
     self.itemImage.clipsToBounds = YES;
     self.itemImage.layer.cornerRadius = self.itemImage.frame.size.width/2;
     self.itemImage.layer.borderWidth = 5.0f;
-    self.itemImage.layer.borderColor = [[UIColor alloc] initWithNetHex: 0xA1C4BE].CGColor;
+    self.itemImage.layer.borderColor = [[UIColor alloc] initWithNetHex: 0x989898].CGColor;
     
-    self.view.backgroundColor = [[UIColor alloc] initWithNetHex: 0xE8846B];
+    self.view.backgroundColor = [[UIColor alloc] initWithRed:255 green:255 blue:255];
 
     self.itemTitle.text = @"Test";
     self.pickUplocation.text = @"Richmond";

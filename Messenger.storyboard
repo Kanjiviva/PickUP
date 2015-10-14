@@ -14,6 +14,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uRj-Mr-bPZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -36,20 +37,20 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="100" id="gbu-Dm-ajr" customClass="MessengerTableViewCell">
                                 <rect key="frame" x="0.0" y="92" width="600" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="gbu-Dm-ajr" id="BKg-S6-2Ix">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gbu-Dm-ajr" id="BKg-S6-2Ix">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="afN-cB-oOe">
-                                            <rect key="frame" x="8" y="8" width="84" height="84"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="afN-cB-oOe">
+                                            <rect key="frame" x="8" y="9" width="84" height="84"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="83.5" id="RxS-2R-H5b"/>
                                                 <constraint firstAttribute="height" constant="83.5" id="nnM-3f-7bD"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FD6-HY-aNQ">
-                                            <rect key="frame" x="99" y="39" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FD6-HY-aNQ">
+                                            <rect key="frame" x="100" y="39" width="45" height="24"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -57,6 +58,7 @@
                                     <constraints>
                                         <constraint firstItem="FD6-HY-aNQ" firstAttribute="top" secondItem="BKg-S6-2Ix" secondAttribute="topMargin" id="0hZ-lL-gJz"/>
                                         <constraint firstItem="afN-cB-oOe" firstAttribute="bottom" secondItem="BKg-S6-2Ix" secondAttribute="bottomMargin" id="1av-F6-T3w"/>
+                                        <constraint firstItem="afN-cB-oOe" firstAttribute="centerY" secondItem="FD6-HY-aNQ" secondAttribute="centerY" id="3ex-xg-4mY"/>
                                         <constraint firstItem="FD6-HY-aNQ" firstAttribute="leading" secondItem="afN-cB-oOe" secondAttribute="trailing" constant="8" id="50v-I6-0tc"/>
                                         <constraint firstItem="FD6-HY-aNQ" firstAttribute="leading" secondItem="afN-cB-oOe" secondAttribute="trailing" constant="8" id="aLM-7B-eKw"/>
                                         <constraint firstItem="afN-cB-oOe" firstAttribute="top" secondItem="BKg-S6-2Ix" secondAttribute="topMargin" id="nJg-ss-bWf"/>
@@ -111,4 +113,5 @@
     <resources>
         <image name="Chat Filled-25.png" width="25" height="25"/>
     </resources>
+    <color key="tintColor" white="0.85999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>

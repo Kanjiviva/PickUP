@@ -31,7 +31,6 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        
         let locationManager = LocationManager.sharedLocationManager()
         locationManager.delegate = self
         LocationManager.sharedLocationManager().startLocationManager(self)
@@ -40,7 +39,7 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
         updateLocation(locationManager.currentLocation)
 
         setupNavBar()
-        collectionView?.backgroundColor = UIColor.init(netHex: 0xE8846B)
+        collectionView?.backgroundColor = UIColor.whiteColor()
         
         
     }
@@ -186,7 +185,7 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
         
         cell.layer.masksToBounds = true
         cell.layer.cornerRadius = 10
-        cell.backgroundColor = UIColor.init(netHex: 0xE54B4B)
+        cell.backgroundColor = UIColor.init(netHex: 0xE6E6E6)
         
         let citiesArray = [String](requestsByLocaion.keys)
         let myRequestsByCity = citiesArray[indexPath.section]
@@ -213,8 +212,8 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
             let keys = Array(requestsByLocaion.keys)
             let currentKey = keys[indexPath.section]
             headerView.locationLabel.text = currentKey
-            headerView.locationLabel.textColor = UIColor.init(netHex: 0x16528E)
-            headerView.backgroundColor = UIColor.init(netHex: 0xA1C4BE)
+            headerView.locationLabel.textColor = UIColor.init(netHex: 0x212121)
+            headerView.backgroundColor = UIColor.init(netHex: 0x989898)
             
             return headerView
         default:
