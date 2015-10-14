@@ -96,9 +96,6 @@
                                     <outlet property="itemCost" destination="nyF-Ad-hWz" id="mpG-8c-4p9"/>
                                     <outlet property="itemImage" destination="roO-1a-mph" id="iIa-hf-mLc"/>
                                     <outlet property="itemTitle" destination="f2b-bf-kk2" id="1P3-sN-nOA"/>
-                                    <segue destination="JNA-p3-RpX" kind="show" identifier="showDetail" id="nM4-JQ-Ylp">
-                                        <nil key="action"/>
-                                    </segue>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -151,7 +148,7 @@
         <!--Request Detail View Controller-->
         <scene sceneID="aPE-Tc-Hi1">
             <objects>
-                <viewController id="JNA-p3-RpX" customClass="RequestDetailViewController" customModule="PickUP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="JNA-p3-RpX" customClass="RequestDetailViewController" customModule="PickUP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kZn-Ky-CMK"/>
                         <viewControllerLayoutGuide type="bottom" id="wF6-3e-jOm"/>
@@ -509,10 +506,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+                        <outlet property="delegate" destination="Nxq-h2-o3m" id="ucW-4C-Xda"/>
                         <segue destination="4Bu-bI-8ww" kind="relationship" relationship="rootViewController" id="Sc5-Ip-7UN"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hJU-dq-iXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Nxq-h2-o3m" customClass="ZoomingIconTransition" customModule="PickUP" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="77" y="-497"/>
         </scene>

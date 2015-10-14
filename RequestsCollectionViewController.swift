@@ -38,7 +38,7 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
         // force a location update immediately
         updateLocation(locationManager.currentLocation)
 
-        setupNavBar()
+        //setupNavBar()
         collectionView?.backgroundColor = UIColor.whiteColor()
         
         
@@ -221,7 +221,26 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
         }
         
     }
-    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let controller = UIStoryboard(name: "Posts", bundle: nil).instantiateViewControllerWithIdentifier("DetailViewController") as! RequestDetailViewController
+        
+        if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? RequestCollectionViewCell {
+            if let indexPath = collectionView.indexPathForCell(cell) {
+                let citiesArray = [String](requestsByLocaion.keys)
+                let myRequestsByCity = citiesArray[indexPath.section]
+                if let requestsArray = requestsByLocaion[myRequestsByCity] {
+                    
+                    let selectedRequest = requestsArray[indexPath.row]
+                    controller.request = selectedRequest
+                    controller.object = cell
+                    controller.delegate = self
+                }
+            }
+        }
+        
+        navigationController?.pushViewController(controller, animated: true)
+        
+    }
     // MARK: Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
