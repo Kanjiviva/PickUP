@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+import Bolts
 
 protocol RequestDetailViewControllerDelegate {
     func didAcceptRequest()
@@ -60,6 +62,16 @@ class RequestDetailViewController: UIViewController {
 
     @IBAction func acceptButton(sender: UIButton) {
         acceptRequest()
+        
+        let query = PFInstallation.query()
+        if let query = query {
+            query.whereKey("userNotification", equalTo:(request?.creatorUser)!)
+            let iOSPush = PFPush()
+            iOSPush.setMessage("Someone accepted you request!")
+            iOSPush.setQuery(query)
+            iOSPush.sendPushInBackground()
+
+        }
         
     }
     
