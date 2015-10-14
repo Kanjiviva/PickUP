@@ -119,23 +119,27 @@
         
         PFFile *imageFile = self.currentUser.profilePicture;
         [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+            cell.profilePicture.layer.cornerRadius = cell.profilePicture.frame.size.width / 2;
+            cell.profilePicture.clipsToBounds = YES;
             cell.profilePicture.image = [UIImage imageWithData:data];
         }];
         
         cell.userNameLabel.text = self.currentUser.fullName;
-        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     
     } else if (indexPath.row == 1 && indexPath.section == 0) {
         CreatorRatingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
         [cell updateStars:self.averageRating];
         [cell enableStarButtons:NO];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     } else if (indexPath.section == 1) {
         CommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell3" forIndexPath:indexPath];
         
         Rating *rating = self.allComments[indexPath.row];
         cell.rating = rating;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     

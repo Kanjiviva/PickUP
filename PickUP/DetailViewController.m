@@ -31,6 +31,7 @@
     
     if ([self.request.creatorUser.objectId isEqualToString:[User currentUser].objectId]) {
         self.messageButton.hidden = YES;
+        self.navigationItem.rightBarButtonItem = nil;
     }
     
     [self setup];

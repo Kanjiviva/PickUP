@@ -87,8 +87,11 @@
         cell.username.text = self.request.creatorUser.fullName;
         PFFile *imageFile = self.request.creatorUser.profilePicture;
         [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+            cell.profilePicture.layer.cornerRadius = cell.profilePicture.frame.size.width / 2;
+            cell.profilePicture.clipsToBounds = YES;
             cell.profilePicture.image = [UIImage imageWithData:data];
         }];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;
     } else if (indexPath.row == 1 && indexPath.section == 0) {
@@ -96,20 +99,21 @@
         
         cell.rating = self.rating;
         [cell enableStarButtons:YES];
-        
         [cell updateStars:1];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     } else if (indexPath.row == 0 && indexPath.section == 1) {
         CreatorCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
         
         cell.rating = self.rating;
-        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     } else {
         CommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell3" forIndexPath:indexPath];
         
         Rating *rating = self.comments[indexPath.row];
         cell.rating = rating;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     

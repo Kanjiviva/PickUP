@@ -30,6 +30,7 @@
         PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
         logInController.fields = (PFLogInFieldsFacebook);
         logInController.delegate = self;
+//        logInController.logInView.logo = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
         logInController.view.backgroundColor = [UIColor blackColor];
         [self presentViewController:logInController animated:YES completion:nil];
         
