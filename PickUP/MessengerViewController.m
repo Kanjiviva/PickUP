@@ -75,6 +75,7 @@
         
         if (self.messagesData.count != [array count]) {
             self.messagesData = array;
+            
             [self.collectionView reloadData];
         }
         
@@ -148,16 +149,16 @@
                       date:(NSDate *)date {
     
     Message *message = [[Message alloc] initWithText:text sender:self.currentUser receiver:self.requestCreator];
-    
+    [self pushNotificationWhenMessageSent];
     [self.messagesData addObject:message];
     
     [message saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (error) {
             NSLog(@"Error: %@", error);
         }
+        
     }];
     [self finishSendingMessageAnimated:YES];
-    [self pushNotificationWhenMessageSent];
     
 }
 
