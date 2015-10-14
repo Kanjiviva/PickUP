@@ -11,10 +11,10 @@
 #import <CoreLocation/CoreLocation.h>
 #import "User.h"
 #import "PickUp.h"
+#import "PickUP-Swift.h"
+#define kOFFSET_FOR_KEYBOARD 80.0
 
-
-
-@interface AddRequestViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface AddRequestViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *itemImage;
 @property (weak, nonatomic) IBOutlet UITextField *itemTitle;
@@ -36,12 +36,46 @@
     self.itemImage.layer.borderWidth = 5.0f;
     self.itemImage.layer.borderColor = [UIColor blackColor].CGColor;
     
+    self.view.backgroundColor = [[UIColor alloc] initWithNetHex: 0xE8846B];
+    
+    
+    
     self.itemTitle.text = @"Test";
     self.pickUplocation.text = @"Richmond";
     self.dropOffLocation.text = @"Vancouver";
     self.itemCost.text = @"10000";
     self.itemDescription.text = @"Test";
+    
 }
+
+-(void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    // register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    // unregister for keyboard notifications while not visible.
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
+}
+
 
 #pragma mark - Helper Method -
 
@@ -56,14 +90,8 @@
     request.itemDescription = self.itemDescription.text;
     request.itemCost = [self.itemCost.text floatValue];
     request.deliverLocation = self.dropOffLocation.text;
-//    request.delCoordinate = [self address:request.deliverLocation];
-    
     pickUp.location = self.pickUplocation.text;
-//    pickUp.coordinate = [self address:pickUp.location];
-
-    
     request.pickupLocation = pickUp;
-    
     request.itemCost = [self.itemCost.text floatValue];
     // Item Image
     NSData *imageData = UIImageJPEGRepresentation(self.itemImage.image, 0.95);
@@ -226,14 +254,72 @@
 - (IBAction)savePost:(UIBarButtonItem *)sender {
     
     [self saveData];
+   
     
-    //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Posts" bundle:nil];
-    //    UINavigationController *nav = [storyboard instantiateViewControllerWithIdentifier:@"navController"];
-    //    [self showViewController:nav sender:nil];
 }
 - (IBAction)cancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - UITextField Delegate -
+
+-(void)keyboardWillShow {
+    // Animate the current view out of the way
+    if (self.view.frame.origin.y >= 0)
+    {
+        [self setViewMovedUp:YES];
+    }
+    else if (self.view.frame.origin.y < 0)
+    {
+        [self setViewMovedUp:NO];
+    }
+}
+
+-(void)keyboardWillHide {
+    if (self.view.frame.origin.y >= 0)
+    {
+        [self setViewMovedUp:YES];
+    }
+    else if (self.view.frame.origin.y < 0)
+    {
+        [self setViewMovedUp:NO];
+    }
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+  
+    //move the main view, so that the keyboard does not hide it.
+   
+    [self setViewMovedUp:YES];
+    
+    
+}
+
+//method to move the view up/down whenever the keyboard is shown/dismissed
+-(void)setViewMovedUp:(BOOL)movedUp
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3]; // if you want to slide up the view
+    
+    CGRect rect = self.view.frame;
+    if (movedUp)
+    {
+        // 1. move the view's origin up so that the text field that will be hidden come above the keyboard
+        // 2. increase the size of the view so that the area behind the keyboard is covered up.
+        rect.origin.y -= kOFFSET_FOR_KEYBOARD;
+        rect.size.height += kOFFSET_FOR_KEYBOARD;
+    }
+    else
+    {
+        // revert back to the normal state.
+        rect.origin.y += kOFFSET_FOR_KEYBOARD;
+        rect.size.height -= kOFFSET_FOR_KEYBOARD;
+    }
+    self.view.frame = rect;
+    
+    [UIView commitAnimations];
+}
+
 
 #pragma mark - UIImagePicker Delegate -
 
