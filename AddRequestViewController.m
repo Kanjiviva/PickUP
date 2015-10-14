@@ -13,7 +13,7 @@
 #import "PickUp.h"
 #import "PickUP-Swift.h"
 
-#define kOFFSET_FOR_KEYBOARD 100.0
+#define kOFFSET_FOR_KEYBOARD 160.0
 
 
 @interface AddRequestViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -36,7 +36,7 @@
     self.itemImage.clipsToBounds = YES;
     self.itemImage.layer.cornerRadius = self.itemImage.frame.size.width/2;
     self.itemImage.layer.borderWidth = 5.0f;
-    self.itemImage.layer.borderColor = [UIColor blackColor].CGColor;
+    self.itemImage.layer.borderColor = [[UIColor alloc] initWithNetHex: 0xA1C4BE].CGColor;
     
     self.view.backgroundColor = [[UIColor alloc] initWithNetHex: 0xE8846B];
 
@@ -45,6 +45,13 @@
     self.dropOffLocation.text = @"Vancouver";
     self.itemCost.text = @"10000";
     self.itemDescription.text = @"Test";
+    
+    self.itemTitle.textColor = [[UIColor alloc] initWithNetHex:0x16528E];
+    self.pickUplocation.textColor = [[UIColor alloc] initWithNetHex:0x16528E];
+    self.dropOffLocation.textColor = [[UIColor alloc] initWithNetHex:0x16528E];
+    self.itemCost.textColor = [[UIColor alloc] initWithNetHex:0x16528E];
+    self.itemDescription.textColor = [[UIColor alloc] initWithNetHex:0x16528E];
+    
     
 }
 
@@ -284,13 +291,13 @@
 -(void)setViewMovedUp:(BOOL)movedUp
 {
     [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.3]; // if you want to slide up the view
+    [UIView setAnimationDuration:0.3];
     
     CGRect rect = self.view.frame;
     if (movedUp)
     {
-        // 1. move the view's origin up so that the text field that will be hidden come above the keyboard
-        // 2. increase the size of the view so that the area behind the keyboard is covered up.
+        // move the view's origin up so that the text field that will be hidden come above the keyboard
+        // increase the size of the view so that the area behind the keyboard is covered up.
         rect.origin.y -= kOFFSET_FOR_KEYBOARD;
         rect.size.height += kOFFSET_FOR_KEYBOARD;
     }

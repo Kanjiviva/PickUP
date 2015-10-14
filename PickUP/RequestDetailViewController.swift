@@ -17,13 +17,11 @@ protocol RequestDetailViewControllerDelegate {
 class RequestDetailViewController: UIViewController {
 
     @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var itemTitle: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var pickupLoc: UILabel!
     @IBOutlet weak var dropoffLoc: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var descripLabel: UILabel!
-    @IBOutlet weak var contactLabel: UILabel!
     @IBOutlet weak var acceptBtn: UIButton!
     
     var delegate: RequestDetailViewControllerDelegate?
@@ -35,10 +33,16 @@ class RequestDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor.init(netHex: 0xE8846B)
         
         if (request?.creatorUser.objectId == User.currentUser()?.objectId) {
             acceptBtn.hidden = true
         }
+        
+        itemImage.clipsToBounds = true
+        itemImage.layer.cornerRadius = self.itemImage.frame.size.width/2
+        itemImage.layer.borderWidth = 5.0
+        itemImage.layer.borderColor = UIColor.init(netHex: 0xA1C4BE).CGColor
         
         itemImage.image = object.itemImage.image
         titleLabel.text = request?.itemTitle
@@ -46,7 +50,6 @@ class RequestDetailViewController: UIViewController {
         dropoffLoc.text = request?.deliverLocation
         priceLabel.text = String(format: "%.2f", (request?.itemCost)!)
         descripLabel.text = request?.itemDescription
-        contactLabel.text = "need Contact model"
         
         
     }

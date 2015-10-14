@@ -13,6 +13,7 @@ import CoreLocation
 
 class DetailMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, LocationManagerDelegate {
     @IBOutlet weak var myMapView: MKMapView!
+    @IBOutlet weak var myView: UIView!
     
     @IBOutlet weak var estimatedTimeLabel: UILabel!
     @IBOutlet weak var estimatedDistanceLabel: UILabel!
@@ -28,6 +29,8 @@ class DetailMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpPins()
+        self.view.backgroundColor = UIColor.init(netHex: 0xE8846B)
+        myView.backgroundColor = UIColor.init(netHex: 0xA1C4BE)
         
         let locationManager = LocationManager.sharedLocationManager()
         locationManager.delegate = self

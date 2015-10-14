@@ -30,7 +30,8 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+    
+        
         let locationManager = LocationManager.sharedLocationManager()
         locationManager.delegate = self
         LocationManager.sharedLocationManager().startLocationManager(self)

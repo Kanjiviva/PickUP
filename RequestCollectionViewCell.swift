@@ -21,6 +21,11 @@ class RequestCollectionViewCell: UICollectionViewCell {
             itemTitle.text = object.itemTitle
             itemCost.text = String(format: "%.2f", object.itemCost)
             distanceFromCurrentUserLabel.text = String(format: "%.1f Km", object.distanceFromPickupLoc / 1000)
+            itemImage.clipsToBounds = true
+            itemImage.layer.cornerRadius = self.itemImage.frame.size.width/2
+            itemImage.layer.borderWidth = 5.0
+            itemImage.layer.borderColor = UIColor.init(netHex: 0xA1C4BE).CGColor
+
             let tempObject = object
             
             if (object.itemImage != oldValue?.itemImage) {
@@ -30,7 +35,7 @@ class RequestCollectionViewCell: UICollectionViewCell {
                         if (self.object == tempObject) {
                             if let newData = data {
                                 self.itemImage.image = UIImage(data: newData)
-                            }
+                                                            }
                         }
                         
                     }
