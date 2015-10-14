@@ -40,7 +40,7 @@
     [Conversation registerSubclass];
 //    [Parse enableLocalDatastore];
     
-    
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     // Initialize Parse.
     [Parse setApplicationId:@"lQgksTzpNQMRMdiaJhd1iVzgfneBJxCNQ2HEIC7w"
                   clientKey:@"X0x0yJt5uZZ06RSH5E6g5ZKOKGhDBJ9OdiZu9HFc"];

@@ -68,19 +68,41 @@
 - (void)checkExistingConversation {
     
     PFQuery *checkReceiver = [Conversation query];
-    [checkReceiver whereKey:@"receiverUser" equalTo:self.request.creatorUser];
-    [checkReceiver whereKey:@"senderUser" equalTo:[User currentUser]];
+    
+    if ([[User currentUser].objectId isEqualToString:self.request.creatorUser.objectId]) {
+        [checkReceiver whereKey:@"receiverUser" equalTo:self.request.assignedUser];
+        [checkReceiver whereKey:@"senderUser" equalTo:[User currentUser]];
+    } else {
+        [checkReceiver whereKey:@"receiverUser" equalTo:self.request.creatorUser];
+        [checkReceiver whereKey:@"senderUser" equalTo:[User currentUser]];
+    }
     
     PFQuery *checkSender = [Conversation query];
-    [checkSender whereKey:@"receiverUser" equalTo:[User currentUser]];
-    [checkSender whereKey:@"senderUser" equalTo:self.request.creatorUser];
+    
+    if ([[User currentUser].objectId isEqualToString:self.request.creatorUser.objectId]) {
+        [checkSender whereKey:@"receiverUser" equalTo:[User currentUser]];
+        [checkSender whereKey:@"senderUser" equalTo:self.request.assignedUser];
+    } else {
+        [checkSender whereKey:@"receiverUser" equalTo:[User currentUser]];
+        [checkSender whereKey:@"senderUser" equalTo:self.request.creatorUser];
+    }
+    
     
     PFQuery *combined = [PFQuery orQueryWithSubqueries:@[checkReceiver, checkSender]];
+    [combined includeKey:@"receiverUser"];
+    [combined includeKey:@"senderUser"];
     [combined findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
         if ([objects count] == 0) {
-            Conversation *conversation = [[Conversation alloc] initWithSender:[User currentUser] receiver:self.request.creatorUser];
-            [conversation saveInBackground];
+            
+            if ([[User currentUser].objectId isEqualToString:self.request.creatorUser.objectId]) {
+                Conversation *conversation = [[Conversation alloc] initWithSender:[User currentUser] receiver:self.request.assignedUser];
+                [conversation saveInBackground];
+            } else {
+                Conversation *conversation = [[Conversation alloc] initWithSender:[User currentUser] receiver:self.request.creatorUser];
+                [conversation saveInBackground];
+            }
+            
         }
         
     }];

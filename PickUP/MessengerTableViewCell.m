@@ -44,7 +44,7 @@
             self.userProfilePicture.image = [UIImage imageWithData:data];
         }];
     } else {
-        
+    
         self.userNameLabel.text = self.conversation.receiverUser.fullName;
         PFFile *imageFile = self.conversation.receiverUser.profilePicture;
         [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {

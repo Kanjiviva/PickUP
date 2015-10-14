@@ -99,6 +99,7 @@
     [query whereKey:whichUser equalTo:self.currentUser];
     [query includeKey:@"pickupLocation"];
     [query includeKey:@"creatorUser"];
+    [query includeKey:@"assignedUser"];
     [query orderByDescending:sortfield];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
