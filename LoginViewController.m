@@ -30,8 +30,56 @@
         PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
         logInController.fields = (PFLogInFieldsFacebook);
         logInController.delegate = self;
-//        logInController.logInView.logo = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-        logInController.view.backgroundColor = [UIColor blackColor];
+        
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, -200, 200, 300)];
+        UIImageView *logoImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, -200, 200, 200)];
+        logoImage.image = [UIImage imageNamed:@"pickUpIcon"];
+        
+        
+//        NSLayoutConstraint *logoTop = [NSLayoutConstraint
+//                                       constraintWithItem:logoImage
+//                                                attribute:NSLayoutAttributeTop
+//                                                relatedBy:NSLayoutRelationEqual
+//                                                   toItem:view
+//                                                attribute:NSLayoutAttributeTopMargin
+//                                               multiplier:1
+//                                                 constant:0];
+//        
+//        NSLayoutConstraint *logoLeft = [NSLayoutConstraint
+//                                        constraintWithItem:logoImage
+//                                        attribute:NSLayoutAttributeLeft
+//                                        relatedBy:NSLayoutRelationEqual
+//                                        toItem:view
+//                                        attribute:NSLayoutAttributeLeftMargin
+//                                        multiplier:1
+//                                        constant:0];
+//        NSLayoutConstraint *logoWidth = [NSLayoutConstraint
+//                                        constraintWithItem:logoImage
+//                                        attribute:NSLayoutAttributeWidth
+//                                        relatedBy:NSLayoutRelationEqual
+//                                        toItem:nil
+//                                        attribute:NSLayoutAttributeNotAnAttribute
+//                                        multiplier:1
+//                                        constant:200];
+//        NSLayoutConstraint *logoHeight = [NSLayoutConstraint
+//                                        constraintWithItem:logoImage
+//                                        attribute:NSLayoutAttributeHeight
+//                                        relatedBy:NSLayoutRelationEqual
+//                                        toItem:nil
+//                                        attribute:NSLayoutAttributeNotAnAttribute
+//                                        multiplier:1
+//                                        constant:200];
+//        
+//        [logoImage addConstraints:@[logoTop, logoLeft, logoWidth, logoHeight]];
+//        
+//        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, view.frame.size.width, 100)];
+//        label.text = @"Pick UP";
+        
+        
+        [view addSubview:logoImage];
+//        [view addSubview:label];
+        logInController.logInView.logo = view;
+        logInController.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:240.0/255.0 blue:215.0/255.0 alpha:1.0];
         [self presentViewController:logInController animated:YES completion:nil];
         
     }else {
