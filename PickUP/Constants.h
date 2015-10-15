@@ -9,7 +9,7 @@
 #ifndef Constants_h
 #define Constants_h
 
-#define API_KEY @"AIzaSyALXxizKIsdg9Uvo2XwMJmd2UNXOnav7oU"
+#define API_KEY @""
 
 
 #endif /* Constants_h */
