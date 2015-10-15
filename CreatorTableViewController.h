@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Request.h"
+#import "User.h"
 
 @interface CreatorTableViewController : UITableViewController
 
 @property (strong, nonatomic) Request *request;
+@property (strong, nonatomic) User *user;
 
 @end

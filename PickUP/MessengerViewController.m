@@ -123,7 +123,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showCreatorUserInfo"]) {
         CreatorTableViewController *creatorVC = segue.destinationViewController;
-        creatorVC.request.creatorUser = self.requestCreator;
+        creatorVC.user = self.requestCreator;
         
     }
     

@@ -34,7 +34,13 @@
     self.comments = [NSMutableArray new];
     self.rating = [Rating object];
     self.rating.ratingCreator = [User currentUser];
-    self.rating.requestCreator = self.request.creatorUser;
+    
+    if (self.request != nil) {
+        self.rating.requestCreator = self.request.creatorUser;
+    } else {
+        self.rating.requestCreator = self.user;
+    }
+    
     
     [self getAllComments];
     
@@ -84,13 +90,24 @@
     
     if (indexPath.row == 0 && indexPath.section == 0) {
         CreatorProfileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        cell.username.text = self.request.creatorUser.fullName;
-        PFFile *imageFile = self.request.creatorUser.profilePicture;
-        [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
-            cell.profilePicture.layer.cornerRadius = cell.profilePicture.frame.size.width / 2;
-            cell.profilePicture.clipsToBounds = YES;
-            cell.profilePicture.image = [UIImage imageWithData:data];
-        }];
+        
+        if (self.request != nil) {
+            cell.username.text = self.request.creatorUser.fullName;
+            PFFile *imageFile = self.request.creatorUser.profilePicture;
+            [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                cell.profilePicture.layer.cornerRadius = cell.profilePicture.frame.size.width / 2;
+                cell.profilePicture.clipsToBounds = YES;
+                cell.profilePicture.image = [UIImage imageWithData:data];
+            }];
+        } else {
+            cell.username.text = self.user.fullName;
+            PFFile *imageFile = self.user.profilePicture;
+            [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                cell.profilePicture.layer.cornerRadius = cell.profilePicture.frame.size.width / 2;
+                cell.profilePicture.clipsToBounds = YES;
+                cell.profilePicture.image = [UIImage imageWithData:data];
+            }];
+        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;
@@ -130,13 +147,14 @@
 - (IBAction)doneButton:(id)sender {
     [self.rating saveInBackground];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 - (IBAction)cancelButton:(id)sender {
     
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
