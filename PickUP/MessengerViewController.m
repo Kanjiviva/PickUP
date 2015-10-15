@@ -7,8 +7,9 @@
 //
 
 #import "MessengerViewController.h"
-
+#import "CreatorTableViewController.h"
 #import "Message.h"
+#import "Request.h"
 
 @interface MessengerViewController ()
 
@@ -116,6 +117,15 @@
 //        }
         
     }];
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showCreatorUserInfo"]) {
+        CreatorTableViewController *creatorVC = segue.destinationViewController;
+        creatorVC.request.creatorUser = self.requestCreator;
+        
+    }
     
 }
 

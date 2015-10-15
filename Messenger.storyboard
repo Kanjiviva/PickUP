@@ -103,15 +103,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Q5i-0t-Plq"/>
+                    <navigationItem key="navigationItem" id="Q5i-0t-Plq">
+                        <barButtonItem key="rightBarButtonItem" image="Info-25.png" id="XN8-zV-Wbg">
+                            <connections>
+                                <segue destination="KtQ-Zt-JV4" kind="show" identifier="showCreatorUserInfo" id="uKZ-9k-QIL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0J-XO-nuK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1133" y="305"/>
         </scene>
+        <!--CreatorTableViewController-->
+        <scene sceneID="JpL-fq-qKV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreatorUser" referencedIdentifier="CreatorTableViewController" id="KtQ-Zt-JV4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lah-Dv-7tJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1659" y="222"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Chat Filled-25.png" width="25" height="25"/>
+        <image name="Info-25.png" width="25" height="25"/>
     </resources>
     <color key="tintColor" white="0.85999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>
