@@ -18,6 +18,7 @@
 
 
 @interface AddRequestViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, SearchViewControllerDelegate, SearchViewControllerDropOffDelegate>
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButtonOutlet;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButtonOutlet;
 
@@ -295,7 +296,7 @@
 
 - (IBAction)savePost:(UIBarButtonItem *)sender {
     
-    if (![self.pickUplocation.text isEqualToString:@""] || ![self.dropOffLocation.text isEqualToString:@""] || self.itemImage.image != nil) {
+    if (![self.pickUplocation.text isEqualToString:@""] && ![self.dropOffLocation.text isEqualToString:@""] && self.itemImage.image != nil) {
         [self saveData];
         self.saveButtonOutlet.enabled = NO;
         self.cancelButtonOutlet.enabled = NO;
@@ -343,13 +344,15 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     
     if (self.pickUplocation == textField) {
+        
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"GooglePlaces" bundle:nil];
         SearchViewController *searchVC = [storyboard instantiateViewControllerWithIdentifier:@"SearchViewController"];
         searchVC.delegate = self;
         
         
-//        searchVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        //        searchVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
         [self showViewController:searchVC sender:nil];
+        
 //           [self.navigationController presentViewController:searchVC animated:YES completion:nil];
 //        [self.navigationController pushViewController:searchVC animated:YES];
 //        [self.navigationController presentViewController:searchVC animated:YES completion:nil];

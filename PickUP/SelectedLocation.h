@@ -2,8 +2,8 @@
 //  SelectedLocation.h
 //  GooglePlacesAutocomplete
 //
-//  Created by Adam Cooper on 11/3/14.
-//  Copyright (c) 2014 Adam Cooper. All rights reserved.
+//  Created by Steve on 2015-10-15.
+//  Copyright © 2015 Steve. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

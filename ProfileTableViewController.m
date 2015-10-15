@@ -146,6 +146,14 @@
     return nil;
 }
 
+#pragma mark - TableView delegate -
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0) return @"Profile";
+    else return @"Comments";
+    
+}
+
 #pragma mark - segue -
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
