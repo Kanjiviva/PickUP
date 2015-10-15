@@ -39,7 +39,7 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
         // force a location update immediately
         updateLocation(locationManager.currentLocation)
 
-        //setupNavBar()
+        setupNavBar()
         collectionView?.backgroundColor = UIColor.whiteColor()
         
         

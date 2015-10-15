@@ -51,6 +51,7 @@ class RequestDetailViewController: UIViewController {
         priceLabel.text = String(format: "%.2f", (request?.itemCost)!)
         descripLabel.text = request?.itemDescription
         
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.init(netHex: 0xDBDBDB)
         
     }
     
