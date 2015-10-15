@@ -27,6 +27,7 @@
 		AAB242D71BCC5922004644DA /* MessagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB242D61BCC5922004644DA /* MessagesTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		AAB242DC1BCC85A0004644DA /* MessengerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB242DB1BCC85A0004644DA /* MessengerTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		AAB242DF1BCC901A004644DA /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB242DE1BCC901A004644DA /* Conversation.m */; settings = {ASSET_TAGS = (); }; };
+		AAD7FA711BCF271100F3B496 /* Info-25.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD7FA701BCF271100F3B496 /* Info-25.png */; settings = {ASSET_TAGS = (); }; };
 		AAE59C5E1BC2F14400F99907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C5C1BC2F14400F99907 /* Main.storyboard */; };
 		AAE59C601BC2F14400F99907 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C5F1BC2F14400F99907 /* Assets.xcassets */; };
 		AAE59C631BC2F14400F99907 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C611BC2F14400F99907 /* LaunchScreen.storyboard */; };
@@ -95,6 +96,7 @@
 		AAB242DB1BCC85A0004644DA /* MessengerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessengerTableViewCell.m; path = PickUP/MessengerTableViewCell.m; sourceTree = "<group>"; };
 		AAB242DD1BCC901A004644DA /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conversation.h; sourceTree = "<group>"; };
 		AAB242DE1BCC901A004644DA /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
+		AAD7FA701BCF271100F3B496 /* Info-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info-25.png"; sourceTree = "<group>"; };
 		AAE59C501BC2F14400F99907 /* PickUP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickUP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE59C541BC2F14400F99907 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AAE59C561BC2F14400F99907 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				AAE59C561BC2F14400F99907 /* AppDelegate.h */,
 				AAE59C571BC2F14400F99907 /* AppDelegate.m */,
 				AAE59C5F1BC2F14400F99907 /* Assets.xcassets */,
+				AAD7FA701BCF271100F3B496 /* Info-25.png */,
 				AAB242CD1BCC3340004644DA /* Chat Filled-25.png */,
 				AAB242C81BC79E83004644DA /* filledStar.png */,
 				AAB242C61BC79E78004644DA /* emptyStar.png */,
@@ -431,6 +434,7 @@
 				AAE59CA01BC44B6D00F99907 /* UserInfo.storyboard in Resources */,
 				AAE59CA21BC44FDC00F99907 /* Posts.storyboard in Resources */,
 				AAE59C831BC327F300F99907 /* Contacts-26.png in Resources */,
+				AAD7FA711BCF271100F3B496 /* Info-25.png in Resources */,
 				AAE59C5E1BC2F14400F99907 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
