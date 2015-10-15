@@ -15,8 +15,33 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pickUpIcon" translatesAutoresizingMaskIntoConstraints="NO" id="zN0-iM-qGl">
+                                <rect key="frame" x="225" y="89" width="150" height="150"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blB-5c-dC2">
+                                <rect key="frame" x="237" y="270" width="127" height="59"/>
+                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="50"/>
+                                <color key="textColor" red="0.25703623999867309" green="0.62366456871048204" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed By Steve &amp; Derrick" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUP-g3-eac">
+                                <rect key="frame" x="166" y="545" width="268" height="35"/>
+                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="30"/>
+                                <color key="textColor" red="0.25703624000000003" green="0.62366456869999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.94140983536879563" blue="0.84356062497280371" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="XUP-g3-eac" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="79r-py-leg"/>
+                            <constraint firstItem="blB-5c-dC2" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Ajw-yc-VzD"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="XUP-g3-eac" secondAttribute="bottom" constant="20" id="fCP-8j-YiH"/>
+                            <constraint firstItem="blB-5c-dC2" firstAttribute="top" secondItem="zN0-iM-qGl" secondAttribute="bottom" constant="31" id="gRv-9N-0XV"/>
+                            <constraint firstItem="zN0-iM-qGl" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="m5B-1A-Sbx"/>
+                            <constraint firstItem="zN0-iM-qGl" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="69" id="ohF-4l-KlK"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +49,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pickUpIcon" width="150" height="150"/>
+    </resources>
 </document>

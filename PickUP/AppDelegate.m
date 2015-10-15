@@ -28,7 +28,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
+    sleep(2);
     [GMSServices provideAPIKey:API_KET];
 
     // Register PF subclasses
