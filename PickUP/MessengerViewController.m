@@ -135,7 +135,15 @@
     PFPush *iOSPush = [[PFPush alloc] init];
     [iOSPush setMessage:message];
     [iOSPush setQuery:query];
-    [iOSPush sendPushInBackground];
+    [iOSPush sendPushInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"The push campaign has been created.");
+        } else if (error.code == kPFErrorPushMisconfigured) {
+            NSLog(@"Could not send push. Push is misconfigured: %@", error.description);
+        } else {
+            NSLog(@"Error sending push: %@", error.description);
+        }
+    }];
     
 }
 

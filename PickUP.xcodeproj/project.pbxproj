@@ -31,6 +31,7 @@
 		AAD7FAAA1BCFB15100F3B496 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD7FAA71BCFB15100F3B496 /* SearchViewController.m */; settings = {ASSET_TAGS = (); }; };
 		AAD7FAAB1BCFB15100F3B496 /* SelectedLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD7FAA91BCFB15100F3B496 /* SelectedLocation.m */; settings = {ASSET_TAGS = (); }; };
 		AAD7FAAD1BCFB17D00F3B496 /* GooglePlaces.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAD7FAAC1BCFB17D00F3B496 /* GooglePlaces.storyboard */; settings = {ASSET_TAGS = (); }; };
+		AAD7FAAF1BD073E300F3B496 /* Work-25.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD7FAAE1BD073E300F3B496 /* Work-25.png */; settings = {ASSET_TAGS = (); }; };
 		AAE59C5E1BC2F14400F99907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C5C1BC2F14400F99907 /* Main.storyboard */; };
 		AAE59C601BC2F14400F99907 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C5F1BC2F14400F99907 /* Assets.xcassets */; };
 		AAE59C631BC2F14400F99907 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE59C611BC2F14400F99907 /* LaunchScreen.storyboard */; };
@@ -105,6 +106,7 @@
 		AAD7FAA81BCFB15100F3B496 /* SelectedLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedLocation.h; sourceTree = "<group>"; };
 		AAD7FAA91BCFB15100F3B496 /* SelectedLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedLocation.m; sourceTree = "<group>"; };
 		AAD7FAAC1BCFB17D00F3B496 /* GooglePlaces.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = GooglePlaces.storyboard; path = PickUP/GooglePlaces.storyboard; sourceTree = "<group>"; };
+		AAD7FAAE1BD073E300F3B496 /* Work-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Work-25.png"; sourceTree = "<group>"; };
 		AAE59C501BC2F14400F99907 /* PickUP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickUP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE59C541BC2F14400F99907 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AAE59C561BC2F14400F99907 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				AAD7FAA81BCFB15100F3B496 /* SelectedLocation.h */,
 				AAD7FAA91BCFB15100F3B496 /* SelectedLocation.m */,
 				AAE59C5F1BC2F14400F99907 /* Assets.xcassets */,
+				AAD7FAAE1BD073E300F3B496 /* Work-25.png */,
 				AAD7FA701BCF271100F3B496 /* Info-25.png */,
 				AAB242CD1BCC3340004644DA /* Chat Filled-25.png */,
 				AAB242C81BC79E83004644DA /* filledStar.png */,
@@ -444,6 +447,7 @@
 				AAB242CE1BCC3340004644DA /* Chat Filled-25.png in Resources */,
 				AAE59C601BC2F14400F99907 /* Assets.xcassets in Resources */,
 				AAE59C811BC3279600F99907 /* Settings 3-25.png in Resources */,
+				AAD7FAAF1BD073E300F3B496 /* Work-25.png in Resources */,
 				AAE59CA01BC44B6D00F99907 /* UserInfo.storyboard in Resources */,
 				AAE59CA21BC44FDC00F99907 /* Posts.storyboard in Resources */,
 				AAE59C831BC327F300F99907 /* Contacts-26.png in Resources */,

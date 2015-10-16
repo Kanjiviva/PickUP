@@ -33,6 +33,12 @@
     self.creatorRequests = [NSMutableArray new];
     self.assignedAccepted = [NSMutableArray new];
     
+    if (!self.currentUser) {
+        self.currentUser = [User currentUser];
+        self.navigationItem.rightBarButtonItem = nil;
+        self.navigationItem.title = @"My Requests";
+    }
+    
     [self storeCurrentUserPosts];
     [self storeCurrentUserAccepted];
     

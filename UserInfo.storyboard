@@ -271,13 +271,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Requests" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQT-q8-teo">
-                                <rect key="frame" x="20" y="72" width="560" height="42"/>
+                                <rect key="frame" x="20" y="108" width="560" height="41.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="c19-N8-qxb">
+                                <rect key="frame" x="168" y="72" width="265" height="29"/>
+                                <segments>
+                                    <segment title="Accepted Requests"/>
+                                    <segment title="My Requests"/>
+                                </segments>
+                                <color key="tintColor" white="0.85999999999999999" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="switchStatusControl:" destination="4wH-uz-oZ9" eventType="valueChanged" id="i2M-TO-oGp"/>
+                                </connections>
+                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ZNJ-yU-zXQ">
-                                <rect key="frame" x="20" y="122" width="560" height="458"/>
+                                <rect key="frame" x="20" y="157.5" width="560" height="422.5"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="UeH-j3-Rzn" detailTextLabel="OwH-yU-kJ7" style="IBUITableViewCellStyleSubtitle" id="NxR-Mw-gvu" customClass="SWTableViewCell">
@@ -317,28 +328,24 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="FQT-q8-teo" firstAttribute="top" secondItem="Xxk-TI-kYD" secondAttribute="bottom" constant="8" id="0JO-I3-Mtu"/>
+                            <constraint firstItem="c19-N8-qxb" firstAttribute="top" secondItem="Xxk-TI-kYD" secondAttribute="bottom" constant="8" id="1nW-aH-l9x"/>
                             <constraint firstItem="ZNJ-yU-zXQ" firstAttribute="leading" secondItem="Fxf-zL-hEt" secondAttribute="leadingMargin" id="5GY-la-JBV"/>
+                            <constraint firstItem="FQT-q8-teo" firstAttribute="top" secondItem="c19-N8-qxb" secondAttribute="bottom" constant="8" id="Mbv-3b-aea"/>
                             <constraint firstItem="FQT-q8-teo" firstAttribute="trailing" secondItem="Fxf-zL-hEt" secondAttribute="trailingMargin" id="UHl-7Z-onP"/>
                             <constraint firstItem="FQT-q8-teo" firstAttribute="leading" secondItem="Fxf-zL-hEt" secondAttribute="leadingMargin" id="Vr8-DS-uiS"/>
                             <constraint firstItem="ZNJ-yU-zXQ" firstAttribute="top" secondItem="FQT-q8-teo" secondAttribute="bottom" constant="8" id="Xwc-he-v90"/>
+                            <constraint firstItem="c19-N8-qxb" firstAttribute="centerX" secondItem="Fxf-zL-hEt" secondAttribute="centerX" id="evD-FU-ew1"/>
                             <constraint firstItem="XIy-Uu-kc3" firstAttribute="top" secondItem="ZNJ-yU-zXQ" secondAttribute="bottom" constant="20" id="nWE-CD-uHW"/>
                             <constraint firstItem="ZNJ-yU-zXQ" firstAttribute="trailing" secondItem="Fxf-zL-hEt" secondAttribute="trailingMargin" id="saW-W9-O40"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0JO-I3-Mtu"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="QIb-WC-S7f">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="c19-N8-qxb">
-                            <rect key="frame" x="167.5" y="7" width="265" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="Accepted Requests"/>
-                                <segment title="My Requests"/>
-                            </segments>
-                            <color key="tintColor" white="0.85999999999999999" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="switchStatusControl:" destination="4wH-uz-oZ9" eventType="valueChanged" id="i2M-TO-oGp"/>
-                            </connections>
-                        </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="6ql-UA-Nl3">
                             <color key="tintColor" white="0.85999999999999999" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
