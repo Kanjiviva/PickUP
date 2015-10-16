@@ -35,10 +35,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+                        <outlet property="delegate" destination="fcu-rm-sY5" id="5d1-dD-Yue"/>
                         <segue destination="T5j-8n-Xye" kind="relationship" relationship="rootViewController" id="eha-z8-uff"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ff-Zn-8L0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="fcu-rm-sY5" customClass="ZoomingIconTransition" customModule="PickUP" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="312" y="338"/>
         </scene>

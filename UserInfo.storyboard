@@ -629,10 +629,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+                        <outlet property="delegate" destination="NG3-dJ-wkw" id="k68-SQ-3pa"/>
                         <segue destination="vJD-nE-XBy" kind="relationship" relationship="rootViewController" id="cka-BO-xkf"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BEK-BB-4se" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="NG3-dJ-wkw" customClass="ZoomingIconTransition" customModule="PickUP" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="-53" y="281"/>
         </scene>
@@ -648,10 +650,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+                        <outlet property="delegate" destination="al1-Zj-WWb" id="nKV-T7-TTf"/>
                         <segue destination="4wH-uz-oZ9" kind="relationship" relationship="rootViewController" id="QXE-jx-bcQ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQa-NC-nAr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="al1-Zj-WWb" customClass="ZoomingIconTransition" customModule="PickUP" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1335" y="281"/>
         </scene>

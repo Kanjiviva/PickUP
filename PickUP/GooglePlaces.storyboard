@@ -90,10 +90,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+                        <outlet property="delegate" destination="JB4-Rz-gzc" id="cuW-PP-iwq"/>
                         <segue destination="ayD-kN-mWC" kind="relationship" relationship="rootViewController" id="e1d-CZ-tiv"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zEf-pN-e9w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="JB4-Rz-gzc" customClass="ZoomingIconTransition" customModule="PickUP" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="302" y="379"/>
         </scene>

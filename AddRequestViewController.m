@@ -47,6 +47,8 @@
 
     self.request = [Request object];
     self.pickUp = [PickUp object];
+    self.itemTitle.delegate = self;
+    self.itemDescription.delegate = self;
     
     
     self.itemTitle.text = @"Test";
@@ -367,6 +369,16 @@
         searchVC.dropOffDelegate = self;
         [self showViewController:searchVC sender:nil];
     }
+    
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.itemTitle) {
+        [textField resignFirstResponder];
+    } else if (textField == self.itemDescription) {
+        [textField resignFirstResponder];
+    }
+    return YES;
     
 }
 
