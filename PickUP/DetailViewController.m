@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *itemPickUpLocation;
 @property (weak, nonatomic) IBOutlet UILabel *itemDeliverLocation;
 @property (weak, nonatomic) IBOutlet UIButton *messageButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *viewUserButton;
 
 @end
 
@@ -33,12 +34,16 @@
     
     if ([self.request.creatorUser.objectId isEqualToString:[User currentUser].objectId]) {
         self.messageButton.hidden = YES;
-        self.navigationItem.rightBarButtonItem = nil;
+        self.viewUserButton.enabled = NO;
+        self.viewUserButton.tintColor = [UIColor clearColor];
     }
     
     if (self.request.isAccepted && [self.request.creatorUser.objectId isEqualToString:[User currentUser].objectId]) {
         [self.messageButton setTitle:@"Talk to Deliver" forState:UIControlStateNormal];
         self.messageButton.hidden = NO;
+        self.viewUserButton.enabled = YES;
+        [self.viewUserButton setTitle:@"View User Profile"];
+        self.viewUserButton.tintColor = [UIColor grayColor];
     }
     
     [self setup];
@@ -116,8 +121,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showCreator"]) {
-        CreatorTableViewController *creatorVC = segue.destinationViewController;
-        creatorVC.request = self.request;
+        ProfileTableViewController *creatorVC = segue.destinationViewController;
+        creatorVC.currentUser = self.request.assignedUser;
         
     } else if ([segue.identifier isEqualToString:@"showMessage"]) {
         MessengerViewController *messageVC = segue.destinationViewController;

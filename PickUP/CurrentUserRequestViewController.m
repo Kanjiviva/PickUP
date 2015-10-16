@@ -186,6 +186,7 @@
         
         
         Request *request = getRequests[indexPath.row];
+        
         cell.textLabel.text = request.itemTitle;
         cell.detailTextLabel.text = [NSString stringWithFormat:@"Pick Up Location: %@", request.pickupLocation.location];
         
@@ -203,6 +204,14 @@
         NSArray *getRequests = self.creatorRequests[indexPath.section];
         
         Request *request = getRequests[indexPath.row];
+        
+        if (request.isAccepted) {
+            cell.backgroundColor = [UIColor colorWithHue:130.0f / 360.0f
+                                              saturation:0.68f
+                                              brightness:0.84f
+                                                   alpha:1.0f];
+        }
+        
         cell.textLabel.text = request.itemTitle;
         cell.detailTextLabel.text = [NSString stringWithFormat:@"Pick Up Location: %@", request.pickupLocation.location];
         cell.rightUtilityButtons = nil;
