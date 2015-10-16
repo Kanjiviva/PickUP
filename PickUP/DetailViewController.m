@@ -29,6 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    
     if ([self.request.creatorUser.objectId isEqualToString:[User currentUser].objectId]) {
         self.messageButton.hidden = YES;
         self.navigationItem.rightBarButtonItem = nil;
@@ -40,6 +42,10 @@
     }
     
     [self setup];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.tabBarController.tabBar.hidden = NO;
 }
 
 - (void)setRequest:(Request *)request {
