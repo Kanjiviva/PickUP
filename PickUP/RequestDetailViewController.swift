@@ -33,7 +33,7 @@ class RequestDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.init(netHex: 0xFFF0D7)
         
         if (request?.creatorUser.objectId == User.currentUser()?.objectId) {
             acceptBtn.hidden = true
@@ -42,7 +42,7 @@ class RequestDetailViewController: UIViewController {
         itemImage.clipsToBounds = true
         itemImage.layer.cornerRadius = self.itemImage.frame.size.width/2
         itemImage.layer.borderWidth = 5.0
-        itemImage.layer.borderColor = UIColor.init(netHex: 0x989898).CGColor
+        itemImage.layer.borderColor = UIColor.init(netHex: 0x429FFF).CGColor
         
         itemImage.image = object.itemImage.image
         titleLabel.text = request?.itemTitle

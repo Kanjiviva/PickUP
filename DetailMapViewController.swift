@@ -30,6 +30,9 @@ class DetailMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         super.viewDidLoad()
         setUpPins()
       
+        view.backgroundColor = UIColor.init(netHex: 0xFFF0D7)
+        myView.backgroundColor = UIColor.init(netHex: 0xFFF0D7)
+        
         let locationManager = LocationManager.sharedLocationManager()
         locationManager.delegate = self
         LocationManager.sharedLocationManager().startLocationManager(self)

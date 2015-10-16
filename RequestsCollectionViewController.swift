@@ -40,7 +40,7 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
         updateLocation(locationManager.currentLocation)
 
         setupNavBar()
-        collectionView?.backgroundColor = UIColor.whiteColor()
+        collectionView?.backgroundColor = UIColor.init(netHex: 0xFFF0D7)
         
         
     }
@@ -219,8 +219,6 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
             let keys = Array(requestsByLocaion.keys)
             let currentKey = keys[indexPath.section]
             headerView.locationLabel.text = currentKey
-            headerView.locationLabel.textColor = UIColor.init(netHex: 0x212121)
-            headerView.backgroundColor = UIColor.init(netHex: 0x989898)
             
             return headerView
         default:

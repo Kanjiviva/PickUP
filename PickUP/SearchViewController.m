@@ -11,6 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "LocationManager.h"
 #import "Constants.h"
+#import "PickUP-Swift.h"
 
 @interface SearchViewController () <UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UISearchBar *searchTextField;
@@ -45,7 +46,7 @@ typedef NS_ENUM(NSUInteger, TableViewSection){
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                                                      [UIColor colorWithRed:0.157 green:0.220 blue:0.294 alpha:1.000], NSForegroundColorAttributeName,
                                                                      [UIFont fontWithName:@"HelveticaNeue-Thin" size:18.0], NSFontAttributeName, nil]];
-
+    self.tableView.backgroundColor = [[UIColor alloc] initWithNetHex:0xFFF0D7];
     
 }
 

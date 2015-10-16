@@ -258,7 +258,6 @@
 				AAE59C7E1BC3276700F99907 /* Globe-24.png */,
 				AAE59C801BC3279600F99907 /* Settings 3-25.png */,
 				AAE59C821BC327F300F99907 /* Contacts-26.png */,
-				AAE59C611BC2F14400F99907 /* LaunchScreen.storyboard */,
 				AAE59C641BC2F14400F99907 /* Info.plist */,
 				AAE59C531BC2F14400F99907 /* Supporting Files */,
 			);
@@ -293,6 +292,7 @@
 				AAE59C9F1BC44B6D00F99907 /* UserInfo.storyboard */,
 				AAE59C791BC2FF4A00F99907 /* Login.storyboard */,
 				AAD7FAAC1BCFB17D00F3B496 /* GooglePlaces.storyboard */,
+				AAE59C611BC2F14400F99907 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -589,6 +589,7 @@
 				AAE59C621BC2F14400F99907 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = PickUP;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

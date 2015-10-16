@@ -12,6 +12,7 @@
 #import "Message.h"
 #import "MessengerViewController.h"
 #import "Conversation.h"
+#import "PickUP-Swift.h"
 
 @interface MessagesTableViewController ()
 
@@ -30,6 +31,8 @@
     self.currentUser = [User currentUser];
     self.allMessages = [NSMutableArray new];
     [self fetchAllComments];
+    self.tableView.backgroundColor = [[UIColor alloc] initWithNetHex:0xFFF0D7];
+    
     
 }
 

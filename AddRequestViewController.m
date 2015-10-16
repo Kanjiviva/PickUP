@@ -41,9 +41,9 @@
     self.itemImage.clipsToBounds = YES;
     self.itemImage.layer.cornerRadius = self.itemImage.frame.size.width/2;
     self.itemImage.layer.borderWidth = 5.0f;
-    self.itemImage.layer.borderColor = [[UIColor alloc] initWithNetHex: 0x989898].CGColor;
+    self.itemImage.layer.borderColor = [[UIColor alloc] initWithNetHex: 0x429FFF].CGColor;
     
-    self.view.backgroundColor = [[UIColor alloc] initWithRed:255 green:255 blue:255];
+    self.view.backgroundColor = [[UIColor alloc] initWithNetHex:0xFFF0D7];
 
     self.request = [Request object];
     self.pickUp = [PickUp object];
