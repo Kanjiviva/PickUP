@@ -16,10 +16,10 @@
 @interface DetailViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *itemImage;
 @property (weak, nonatomic) IBOutlet UILabel *itemTitle;
-@property (weak, nonatomic) IBOutlet UILabel *itemDescription;
-@property (weak, nonatomic) IBOutlet UILabel *itemCost;
 @property (weak, nonatomic) IBOutlet UILabel *itemPickUpLocation;
 @property (weak, nonatomic) IBOutlet UILabel *itemDeliverLocation;
+@property (weak, nonatomic) IBOutlet UILabel *itemDescription;
+@property (weak, nonatomic) IBOutlet UILabel *itemCost;
 @property (weak, nonatomic) IBOutlet UIButton *messageButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *viewUserButton;
 
@@ -71,6 +71,11 @@
         PFFile *imageFile = self.request.itemImage;
         [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
             self.itemImage.image = [UIImage imageWithData:data];
+            self.itemImage.clipsToBounds = YES;
+            self.itemImage.layer.cornerRadius = self.itemImage.frame.size.width/2;
+            self.itemImage.layer.borderWidth = 5.0f;
+            self.itemImage.layer.borderColor = [[UIColor alloc] initWithNetHex: 0x429FFF].CGColor;
+            
         }];
         
     }

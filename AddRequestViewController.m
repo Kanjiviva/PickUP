@@ -52,7 +52,7 @@
     self.itemTitle.text = @"Test";
 //    self.pickUplocation.text = @"Richmond";
 //    self.dropOffLocation.text = @"Vancouver";
-    self.itemCost.text = @"10000";
+    self.itemCost.text = @"$10000";
     self.itemDescription.text = @"Test";
     
     self.itemTitle.textColor = [[UIColor alloc] initWithNetHex:0x16528E];
