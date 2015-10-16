@@ -660,4 +660,5 @@
         <image name="Contacts-26.png" width="26" height="26"/>
         <image name="emptyStar.png" width="510" height="512"/>
     </resources>
+    <color key="tintColor" white="0.85999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>

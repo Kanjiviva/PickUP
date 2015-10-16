@@ -182,6 +182,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.25703624000000003" green="0.62366456869999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="0.94117647059999998" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -196,4 +199,5 @@
     <resources>
         <image name="Work-25.png" width="25" height="25"/>
     </resources>
+    <color key="tintColor" white="0.85999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>

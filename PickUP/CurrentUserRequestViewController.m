@@ -10,6 +10,8 @@
 #import "Request.h"
 #import "SWTableViewCell.h"
 #import "DetailViewController.h"
+#import "PickUP-Swift.h"
+
 
 @interface CurrentUserRequestViewController () <UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
@@ -36,7 +38,8 @@
     if (!self.currentUser) {
         self.currentUser = [User currentUser];
         self.navigationItem.rightBarButtonItem = nil;
-        self.navigationItem.title = @"My Requests";
+        //self.navigationItem.title = @"My Requests";
+        self.navigationItem.leftBarButtonItem.tintColor = [[UIColor alloc]initWithNetHex: 0xDBDBDB];
     }
     
     [self storeCurrentUserPosts];

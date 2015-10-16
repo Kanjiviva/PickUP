@@ -29,9 +29,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    
+    self.navigationItem.leftBarButtonItem.tintColor = [[UIColor alloc]initWithNetHex: 0xDBDBDB];
+
     if ([self.request.creatorUser.objectId isEqualToString:[User currentUser].objectId]) {
         self.messageButton.hidden = YES;
         self.viewUserButton.enabled = NO;
