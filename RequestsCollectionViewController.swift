@@ -65,8 +65,10 @@ class RequestsCollectionViewController: UICollectionViewController, AddRequestVi
     
     func calculateDistance (currentLocation: CLLocation!) {
         for request in requests {
-            let distance = request.pickupLocation.coordinate.cllocation.distanceFromLocation(currentLocation)
-            request.distanceFromPickupLoc = distance
+            if ((currentLocation) != nil){
+                let distance = request.pickupLocation.coordinate.cllocation.distanceFromLocation(currentLocation)
+                request.distanceFromPickupLoc = distance
+            }
         }
     }
     
