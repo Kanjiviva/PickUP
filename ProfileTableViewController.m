@@ -35,6 +35,7 @@
         self.navigationItem.rightBarButtonItem = nil;
     }
     
+    self.navigationItem.rightBarButtonItem = nil;
     self.allComments = [NSMutableArray new];
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;

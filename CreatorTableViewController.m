@@ -19,6 +19,7 @@
 @property (strong, nonatomic) Rating *rating;
 
 @property (strong, nonatomic) NSMutableArray *comments;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelBtn;
 
 @end
 
@@ -146,6 +147,8 @@
 
 - (IBAction)doneButton:(id)sender {
     [self.rating saveInBackground];
+    
+
     
 //    [self dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController popViewControllerAnimated:YES];
