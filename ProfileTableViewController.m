@@ -27,6 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     if (!self.currentUser) {
         self.currentUser = [User currentUser];
     }
@@ -117,7 +118,7 @@
     
     if (indexPath.row == 0 && indexPath.section == 0) {
         ProfileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        
+        cell.backgroundColor = [UIColor whiteColor];
         PFFile *imageFile = self.currentUser.profilePicture;
         [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
             cell.profilePicture.layer.cornerRadius = cell.profilePicture.frame.size.width / 2;
@@ -131,6 +132,7 @@
     
     } else if (indexPath.row == 1 && indexPath.section == 0) {
         CreatorRatingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
+        cell.backgroundColor = [UIColor whiteColor];
         [cell updateStars:self.averageRating];
         [cell enableStarButtons:NO];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -139,6 +141,7 @@
         CommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell3" forIndexPath:indexPath];
         
         Rating *rating = self.allComments[indexPath.row];
+        cell.backgroundColor = [UIColor whiteColor];
         cell.rating = rating;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;

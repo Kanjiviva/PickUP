@@ -32,6 +32,7 @@
     // Do any additional setup after loading the view.
     self.statusLabel.text = @"Accepted Requests";
 
+    [self.tableView reloadData];
     self.creatorRequests = [NSMutableArray new];
     self.assignedAccepted = [NSMutableArray new];
     
@@ -187,7 +188,7 @@
         
         NSArray *getRequests = self.assignedAccepted[indexPath.section];
         
-        
+        cell.backgroundColor = [UIColor whiteColor];
         Request *request = getRequests[indexPath.row];
         
         cell.textLabel.text = request.itemTitle;
@@ -208,11 +209,15 @@
         
         Request *request = getRequests[indexPath.row];
         
+        
+        
         if (request.isAccepted) {
             cell.backgroundColor = [UIColor colorWithHue:130.0f / 360.0f
                                               saturation:0.68f
                                               brightness:0.84f
                                                    alpha:1.0f];
+        } else {
+            cell.backgroundColor = [UIColor whiteColor];
         }
         
         cell.textLabel.text = request.itemTitle;

@@ -148,13 +148,18 @@
                                                                     user.profilePicture = file;
                                                                     [user saveInBackground];
                                                                     
-                                                                    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
-                                                                                                                    UIUserNotificationTypeBadge |
-                                                                                                                    UIUserNotificationTypeSound);
-                                                                    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
-                                                                                                                                             categories:nil];
-                                                                    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-                                                                    [[UIApplication sharedApplication] registerForRemoteNotifications];
+                                                                    
+                                                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                                                        UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                                                                                        UIUserNotificationTypeBadge |
+                                                                                                                        UIUserNotificationTypeSound);
+                                                                        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                                                                                                                 categories:nil];
+                                                                        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+                                                                        [[UIApplication sharedApplication] registerForRemoteNotifications];
+                                                                    });
+                                                                    
+                                                                    
                                                                 }];
             [downloadTask resume];
         }

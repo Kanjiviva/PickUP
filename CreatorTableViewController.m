@@ -91,7 +91,7 @@
     
     if (indexPath.row == 0 && indexPath.section == 0) {
         CreatorProfileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        
+        cell.backgroundColor = [UIColor whiteColor];
         if (self.request != nil) {
             cell.username.text = self.request.creatorUser.fullName;
             PFFile *imageFile = self.request.creatorUser.profilePicture;
@@ -114,7 +114,7 @@
         return cell;
     } else if (indexPath.row == 1 && indexPath.section == 0) {
         CreatorRatingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell1" forIndexPath:indexPath];
-        
+        cell.backgroundColor = [UIColor whiteColor];
         cell.rating = self.rating;
         [cell enableStarButtons:YES];
         [cell updateStars:1];
@@ -122,13 +122,13 @@
         return cell;
     } else if (indexPath.row == 0 && indexPath.section == 1) {
         CreatorCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
-        
+        cell.backgroundColor = [UIColor whiteColor];
         cell.rating = self.rating;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     } else {
         CommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell3" forIndexPath:indexPath];
-        
+        cell.backgroundColor = [UIColor whiteColor];
         Rating *rating = self.comments[indexPath.row];
         cell.rating = rating;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;

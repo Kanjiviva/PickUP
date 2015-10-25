@@ -19,7 +19,7 @@ class RequestCollectionViewCell: UICollectionViewCell {
     var object: Request! {
         didSet {
             itemTitle.text = object.itemTitle
-            itemCost.text = String(format: "%.2f", object.itemCost)
+            itemCost.text = String(format: "$%.2f", object.itemCost)
             distanceFromCurrentUserLabel.text = String(format: "%.1f Km", object.distanceFromPickupLoc / 1000)
             itemImage.clipsToBounds = true
             itemImage.layer.cornerRadius = self.itemImage.frame.size.width/2

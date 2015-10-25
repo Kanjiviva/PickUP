@@ -16,10 +16,10 @@
                         <color key="sectionIndexBackgroundColor" red="1" green="0.94117647059999998" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="145" id="P9u-yu-Q9A" customClass="CreatorProfileTableViewCell">
-                                <rect key="frame" x="0.0" y="114" width="600" height="145"/>
+                                <rect key="frame" x="0.0" y="113.5" width="600" height="145"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P9u-yu-Q9A" id="PRw-Jb-Nyi">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="144"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="144.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDk-O3-3Rm">
@@ -36,7 +36,7 @@
                                             </constraints>
                                         </imageView>
                                     </subviews>
-                                    <color key="backgroundColor" red="1" green="0.94117647059999998" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="EDk-O3-3Rm" firstAttribute="leading" secondItem="fW8-5z-Zui" secondAttribute="trailing" constant="8" id="0Ah-Yy-vTh"/>
                                         <constraint firstAttribute="bottom" secondItem="fW8-5z-Zui" secondAttribute="bottom" constant="8" id="3nW-6s-Dwc"/>
@@ -46,17 +46,16 @@
                                         <constraint firstItem="EDk-O3-3Rm" firstAttribute="centerY" secondItem="PRw-Jb-Nyi" secondAttribute="centerY" id="y0a-vz-xBb"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="1" green="0.94117647059999998" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="profilePicture" destination="fW8-5z-Zui" id="rEf-OJ-OA0"/>
                                     <outlet property="username" destination="EDk-O3-3Rm" id="BvO-lU-f64"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell1" rowHeight="50" id="nF3-Rd-5s3" customClass="CreatorRatingTableViewCell">
-                                <rect key="frame" x="0.0" y="259" width="600" height="50"/>
+                                <rect key="frame" x="0.0" y="258.5" width="600" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nF3-Rd-5s3" id="tUt-e8-5F9">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmG-xv-iSn">
@@ -152,7 +151,7 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="1" green="0.94117647059999998" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="fifthStar" destination="lBR-aL-pLv" id="I3i-ej-Xzw"/>
                                     <outlet property="firstStar" destination="aQQ-Y5-92d" id="EQc-Mu-Ibl"/>
@@ -162,10 +161,10 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell2" rowHeight="59" id="GYS-hk-1fO" customClass="CreatorCommentTableViewCell">
-                                <rect key="frame" x="0.0" y="309" width="600" height="59"/>
+                                <rect key="frame" x="0.0" y="308.5" width="600" height="59"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GYS-hk-1fO" id="VnA-O2-5no">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="58"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="58.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add comments" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oPm-zl-TL5">
@@ -186,16 +185,16 @@
                                         <constraint firstItem="oPm-zl-TL5" firstAttribute="trailing" secondItem="VnA-O2-5no" secondAttribute="trailingMargin" id="l0A-Sn-mU5"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="1" green="0.94117647059999998" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="commentsTextField" destination="oPm-zl-TL5" id="KDQ-dp-hMN"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell3" rowHeight="69" id="o6Y-Je-UnJ" customClass="CommentTableViewCell">
-                                <rect key="frame" x="0.0" y="368" width="600" height="69"/>
+                                <rect key="frame" x="0.0" y="367.5" width="600" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o6Y-Je-UnJ" id="csh-wV-Nfw">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="68"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="68.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wd-y2-src">
@@ -228,7 +227,7 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="1" green="0.94117647059999998" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="commentLabel" destination="z1Y-W2-f2J" id="2Gv-Bc-5cb"/>
                                     <outlet property="ratingCreatorLabel" destination="4wd-y2-src" id="uVj-Bx-j9s"/>

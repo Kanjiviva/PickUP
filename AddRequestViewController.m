@@ -51,11 +51,11 @@
     self.itemDescription.delegate = self;
     
     
-    self.itemTitle.text = @"Test";
+//    self.itemTitle.text = @"Test";
 //    self.pickUplocation.text = @"Richmond";
 //    self.dropOffLocation.text = @"Vancouver";
-    self.itemCost.text = @"$10000";
-    self.itemDescription.text = @"Test";
+//    self.itemCost.text = @"$10000";
+//    self.itemDescription.text = @"Test";
     
     self.itemTitle.textColor = [[UIColor alloc] initWithNetHex:0x16528E];
     self.pickUplocation.textColor = [[UIColor alloc] initWithNetHex:0x16528E];
@@ -138,7 +138,7 @@
     self.request.pickupLocation = self.pickUp;
     self.request.itemCost = [self.itemCost.text floatValue];
     // Item Image
-    NSData *imageData = UIImageJPEGRepresentation(self.itemImage.image, 0.95);
+    NSData *imageData = UIImageJPEGRepresentation(self.itemImage.image, 0.25);
     PFFile *imageFile = [PFFile fileWithName:@"itemPicture.png" data:imageData];
     self.request.itemImage = imageFile;
     
@@ -298,7 +298,7 @@
 
 - (IBAction)savePost:(UIBarButtonItem *)sender {
     
-    if (![self.pickUplocation.text isEqualToString:@""] && ![self.dropOffLocation.text isEqualToString:@""] && self.itemImage.image != nil) {
+    if (![self.pickUplocation.text isEqualToString:@""] && ![self.dropOffLocation.text isEqualToString:@""] && self.itemImage.image != [UIImage imageNamed:@"defaultPhoto"] && ![self.itemTitle.text isEqualToString:@""] && ![self.itemDescription.text isEqualToString:@""]) {
         [self saveData];
         self.saveButtonOutlet.enabled = NO;
         self.cancelButtonOutlet.enabled = NO;

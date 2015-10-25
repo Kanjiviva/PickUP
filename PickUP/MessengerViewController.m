@@ -165,10 +165,12 @@
     Message *message = [self.messagesData objectAtIndex:indexPath.item];
     
     if ([message.senderId isEqualToString:self.senderId]) {
-        return [self.bubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor colorWithHue:240.0f / 360.0f
-                                                                                  saturation:0.02f
-                                                                                  brightness:0.92f
-                                                                                       alpha:1.0f]];
+//        return [self.bubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor colorWithHue:240.0f / 360.0f
+//                                                                                  saturation:0.02f
+//                                                                                  brightness:0.92f
+//                                                                                       alpha:1.0f]];
+        return [self.bubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
+
     }
     
     return [self.bubbleFactory incomingMessagesBubbleImageWithColor:[UIColor colorWithHue:130.0f / 360.0f
