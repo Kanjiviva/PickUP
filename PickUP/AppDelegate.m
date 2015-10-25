@@ -40,6 +40,17 @@
     [Conversation registerSubclass];
 //    [Parse enableLocalDatastore];
     
+    if ([User currentUser]) {
+        UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                        UIUserNotificationTypeBadge |
+                                                        UIUserNotificationTypeSound);
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                                                 categories:nil];
+        [application registerUserNotificationSettings:settings];
+        [application registerForRemoteNotifications];
+    }
+    
+    
     // Initialize Parse.
     [Parse setApplicationId:@"lQgksTzpNQMRMdiaJhd1iVzgfneBJxCNQ2HEIC7w"
                   clientKey:@"X0x0yJt5uZZ06RSH5E6g5ZKOKGhDBJ9OdiZu9HFc"];

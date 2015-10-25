@@ -126,7 +126,13 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showCreator"]) {
         ProfileTableViewController *creatorVC = segue.destinationViewController;
-        creatorVC.currentUser = self.request.assignedUser;
+        if ([self.request.creatorUser.objectId isEqualToString:[User currentUser].objectId]) {
+            creatorVC.currentUser = self.request.assignedUser;
+        } else {
+            creatorVC.currentUser = self.request.creatorUser;
+        }
+        
+//        creatorVC.currentUser = self.request.assignedUser;
         
     } else if ([segue.identifier isEqualToString:@"showMessage"]) {
         MessengerViewController *messageVC = segue.destinationViewController;
